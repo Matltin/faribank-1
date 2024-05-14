@@ -30,9 +30,9 @@ public class CustomerDB {
         this.customers = customers;
     }
 
-    public Customer findCustomer(long accountNO) {
+    public Customer findCustomer(String accountNO) {
         for(Customer customer : customers) {
-            if(customer.getAccount().getAccountNO() == accountNO) {
+            if(customer.getAccount().getAccountNO().equals(accountNO)) {
                 return customer;
             }
         }

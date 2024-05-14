@@ -1,16 +1,15 @@
 package ir.ac.kntu.util;
 
-import java.time.Instant;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-public final class Calendar {
-    public static final int TIME_SPEED = 6000;
+public class Calendar {
 
-    private static Instant start = Instant.now();
-
-    private Calendar() {
+    public static Date getDate() {
+        return new Date();
     }
-
-    public static Instant now() {
-        return Instant.ofEpochMilli(start.toEpochMilli() + (Instant.now().toEpochMilli() - start.toEpochMilli()) * TIME_SPEED);
+    public static String getDateFormat(Date date) {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd -- HH:mm:ss");
+        return simpleDateFormat.format(date);
     }
 }

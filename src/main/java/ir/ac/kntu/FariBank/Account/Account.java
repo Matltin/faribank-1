@@ -5,14 +5,15 @@ import ir.ac.kntu.DB.CustomerDB;
 import ir.ac.kntu.DB.DB;
 import ir.ac.kntu.DB.TransactionDB;
 import ir.ac.kntu.Person.Customer.Customer;
+import ir.ac.kntu.Transaction.Transaction;
 
 public class Account {
 
     private long balance;
-    private long accountNO;
+    private String accountNO;
     private TransactionDB transactionDB;
 
-    public Account(long balance, long accountNO) {
+    public Account(long balance, String accountNO) {
         this.balance = balance;
         this.accountNO = accountNO;
         transactionDB = new TransactionDB();
@@ -26,11 +27,11 @@ public class Account {
         this.balance = balance;
     }
 
-    public long getAccountNO() {
+    public String getAccountNO() {
         return accountNO;
     }
 
-    public void setAccountNO(long accountNO) {
+    public void setAccountNO(String accountNO) {
         this.accountNO = accountNO;
     }
 
@@ -38,7 +39,7 @@ public class Account {
         setBalance(getBalance() + inputMoney);
     }
 
-    public void transferMoney(long inputMoney, long accountNO) {
+    public void transferMoney(long inputMoney, String accountNO) {
         try {
             if (inputMoney + Constance.WAGE <= balance) {
                 setBalance(getBalance() - inputMoney - Constance.WAGE);
@@ -51,9 +52,11 @@ public class Account {
         }
     }
 
-    public void transferMoneyToCustomer(long money, long accountNO) {
+    public void transferMoneyToCustomer(long money, String accountNO) {
         CustomerDB customers = DB.getCustomerDB();
         Customer customer = customers.findCustomer(accountNO);
         customer.getAccount().increaseCredit(money);
+        Transaction transaction = new Transaction(customer.getFirstName(), customer.getLastName(), customer.getAccount().getAccountNO(), getAccountNO());
+        transactionDB.addTransaction(transaction);
     }
 }

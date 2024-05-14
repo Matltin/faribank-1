@@ -19,4 +19,8 @@ public class TransactionDB {
     public void setTransactions(Set<Transaction> transactions) {
         this.transactions = transactions;
     }
+
+    public void addTransaction(Transaction transaction) {
+        transactions.add(transaction);
+    }
 }
