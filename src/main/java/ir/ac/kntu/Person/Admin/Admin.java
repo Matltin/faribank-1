@@ -2,6 +2,8 @@ package ir.ac.kntu.Person.Admin;
 
 import ir.ac.kntu.Person.Person;
 
+import java.util.Objects;
+
 public class Admin extends Person {
 
     private String userName;
@@ -17,5 +19,22 @@ public class Admin extends Person {
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Admin admin = (Admin) o;
+        return Objects.equals(userName, admin.userName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(userName);
     }
 }

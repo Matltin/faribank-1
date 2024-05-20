@@ -1,9 +1,7 @@
 package ir.ac.kntu.DB;
 
-import ir.ac.kntu.FariBank.Account.Account;
 import ir.ac.kntu.Person.Customer.Customer;
 
-import java.util.HashSet;
 import java.util.Set;
 
 public class CustomerDB {
@@ -19,7 +17,15 @@ public class CustomerDB {
     }
 
     public void removeCustomer(Customer customer) {
-        customers.remove(customer);
+        try{
+            if(doesExist(customer)) {
+                customers.remove(customer);
+            } else {
+                throw new RuntimeException("customer not found!!");
+            }
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
     }
 
     public Set<Customer> getCustomers() {
@@ -31,11 +37,15 @@ public class CustomerDB {
     }
 
     public Customer findCustomer(String accountNO) {
-        for(Customer customer : customers) {
-            if(customer.getAccount().getAccountNO().equals(accountNO)) {
+        for (Customer customer : customers) {
+            if (customer.getAccount().getAccountNO().equals(accountNO)) {
                 return customer;
             }
         }
         return null;
+    }
+
+    public boolean doesExist(Customer customer) {
+        return customers.contains(customer);
     }
 }

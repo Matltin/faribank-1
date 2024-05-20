@@ -2,25 +2,27 @@ package ir.ac.kntu.DB;
 
 import ir.ac.kntu.Transaction.Transaction;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.LinkedList;
+import java.util.List;
 
 public class TransactionDB {
-    private Set<Transaction> transactions;
+    private List<Transaction> transactions;
 
     public TransactionDB() {
-        transactions = new HashSet<>();
+        transactions = new LinkedList<>();
     }
 
-    public Set<Transaction> getTransactions() {
+    public List<Transaction> getTransactions() {
         return transactions;
     }
 
-    public void setTransactions(Set<Transaction> transactions) {
+    public void setTransactions(LinkedList<Transaction> transactions) {
         this.transactions = transactions;
     }
 
     public void addTransaction(Transaction transaction) {
         transactions.add(transaction);
     }
+
+
 }

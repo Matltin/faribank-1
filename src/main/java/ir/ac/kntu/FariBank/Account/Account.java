@@ -6,6 +6,7 @@ import ir.ac.kntu.DB.DB;
 import ir.ac.kntu.DB.TransactionDB;
 import ir.ac.kntu.Person.Customer.Customer;
 import ir.ac.kntu.Transaction.Transaction;
+import ir.ac.kntu.Transaction.TransactionType;
 
 public class Account {
 
@@ -37,6 +38,18 @@ public class Account {
 
     public void increaseCredit(long inputMoney) {
         setBalance(getBalance() + inputMoney);
+        CustomerDB customers = DB.getCustomerDB();
+        Customer customer = customers.findCustomer(accountNO);
+        Transaction transaction = new Transaction(customer.getFirstName(), customer.getLastName(), customer.getAccount().getAccountNO(), getAccountNO(), TransactionType.INCREASE_CREDIT);
+        transactionDB.addTransaction(transaction);
+    }
+
+    public TransactionDB getTransactionDB() {
+        return transactionDB;
+    }
+
+    public void setTransactionDB(TransactionDB transactionDB) {
+        this.transactionDB = transactionDB;
     }
 
     public void transferMoney(long inputMoney, String accountNO) {
@@ -52,11 +65,11 @@ public class Account {
         }
     }
 
-    public void transferMoneyToCustomer(long money, String accountNO) {
+    private void transferMoneyToCustomer(long money, String accountNO) {
         CustomerDB customers = DB.getCustomerDB();
         Customer customer = customers.findCustomer(accountNO);
-        customer.getAccount().increaseCredit(money);
-        Transaction transaction = new Transaction(customer.getFirstName(), customer.getLastName(), customer.getAccount().getAccountNO(), getAccountNO());
+        customer.getAccount().setBalance(money + getBalance());
+        Transaction transaction = new Transaction(customer.getFirstName(), customer.getLastName(), customer.getAccount().getAccountNO(), getAccountNO(), TransactionType.TRANSFER);
         transactionDB.addTransaction(transaction);
     }
 }
