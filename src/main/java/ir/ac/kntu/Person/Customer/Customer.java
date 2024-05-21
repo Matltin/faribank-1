@@ -89,6 +89,14 @@ public class Customer extends Person {
         this.state = state;
     }
 
+    public MessageDB getMessageDB() {
+        return messageDB;
+    }
+
+    public void setMessageDB(MessageDB messageDB) {
+        this.messageDB = messageDB;
+    }
+
     public void addContactPerson(String firstName, String lastName, String phoneNumber) {
         String accountNumber = "";
         for (Customer customer : DB.getCustomerDB().getCustomers()) {

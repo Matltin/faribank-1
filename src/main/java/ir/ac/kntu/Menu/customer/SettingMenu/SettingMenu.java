@@ -1,7 +1,6 @@
 package ir.ac.kntu.Menu.customer.SettingMenu;
 
 import ir.ac.kntu.Menu.Menu;
-import ir.ac.kntu.Menu.customer.CustomerMenu.CustomerMenuOption;
 import ir.ac.kntu.Person.Customer.Customer;
 
 public class SettingMenu extends Menu {

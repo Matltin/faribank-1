@@ -66,5 +66,10 @@ public abstract class Menu {
         return ScannerWrapper.getInstance().next();
     }
 
+    public String getMessage() {
+        System.out.println("Enter Message : ");
+        return ScannerWrapper.getInstance().next();
+    }
+
 
 }

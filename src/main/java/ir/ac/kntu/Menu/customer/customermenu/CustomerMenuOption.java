@@ -1,4 +1,4 @@
-package ir.ac.kntu.Menu.customer.CustomerMenu;
+package ir.ac.kntu.Menu.customer.customermenu;
 
 public enum CustomerMenuOption {
     TRANSFER_MONEY,

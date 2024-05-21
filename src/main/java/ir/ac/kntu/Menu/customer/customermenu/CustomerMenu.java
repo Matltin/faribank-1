@@ -1,7 +1,6 @@
-package ir.ac.kntu.Menu.customer.CustomerMenu;
+package ir.ac.kntu.Menu.customer.customermenu;
 
 import ir.ac.kntu.Menu.Menu;
-import ir.ac.kntu.Person.Customer.Customer;
 
 public class CustomerMenu extends Menu {
 
@@ -32,9 +31,5 @@ public class CustomerMenu extends Menu {
         CustomerMenuOption.printOption();
         System.out.print("Enter your choice : ");
         return getOption(CustomerMenuOption.class);
-    }
-
-    private void support() {
-
     }
 }

@@ -1,6 +1,5 @@
 package ir.ac.kntu.Menu.customer.accountmangemenu;
 
-import ir.ac.kntu.Menu.customer.CustomerMenu.CustomerMenuOption;
 import ir.ac.kntu.Menu.Menu;
 import ir.ac.kntu.Person.Customer.Customer;
 import ir.ac.kntu.Transaction.Transaction;

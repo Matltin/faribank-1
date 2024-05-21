@@ -1,7 +1,6 @@
-package ir.ac.kntu.Menu.customer.LoginCustomerMenu;
+package ir.ac.kntu.Menu.customer.logincustomermenu;
 
 import ir.ac.kntu.DB.DB;
-import ir.ac.kntu.Menu.MainMenu.MainMenuOption;
 import ir.ac.kntu.Menu.Menu;
 import ir.ac.kntu.Person.Customer.Customer;
 

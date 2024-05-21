@@ -2,8 +2,6 @@ package ir.ac.kntu.Menu.customer.TransferMoneyMenu;
 
 import ir.ac.kntu.DB.DB;
 import ir.ac.kntu.Menu.Menu;
-import ir.ac.kntu.Menu.customer.CustomerMenu.CustomerMenu;
-import ir.ac.kntu.Menu.customer.CustomerMenu.CustomerMenuOption;
 import ir.ac.kntu.Person.ContactPerson;
 import ir.ac.kntu.Person.Customer.Customer;
 

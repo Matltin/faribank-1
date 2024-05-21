@@ -1,4 +1,4 @@
-package ir.ac.kntu.Menu.customer.LoginCustomerMenu;
+package ir.ac.kntu.Menu.customer.logincustomermenu;
 
 public enum LoginCustomerMenuOption {
     LOGIN,
