@@ -18,10 +18,11 @@ public class MainMenu extends Menu {
                     default:
                         break;
                 }
+            } else {
+                System.out.println("invalid input!!");
             }
             mainMenuOption = printMenuOptions();
         }
-
     }
 
     private MainMenuOption printMenuOptions() {

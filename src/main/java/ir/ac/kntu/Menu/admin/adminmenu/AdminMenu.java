@@ -8,6 +8,18 @@ public class AdminMenu extends Menu {
     public void show() {
         System.out.println("admin Menu");
         AdminMenuOption adminMenuOption = printMenuOption();
+        while (adminMenuOption != AdminMenuOption.BACK) {
+            if(adminMenuOption != null) {
+                switch (adminMenuOption) {
+                    case AUTHENTICATION:
+                    case REQUEST:
+                    case USER_ACCESS:
+                }
+            } else {
+                System.out.println("invalid input");
+            }
+            adminMenuOption = printMenuOption();
+        }
     }
 
     private AdminMenuOption printMenuOption() {

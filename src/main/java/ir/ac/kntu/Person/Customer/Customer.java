@@ -77,6 +77,14 @@ public class Customer extends Person {
         this.recentTransaction = recentTransaction;
     }
 
+    public State getState() {
+        return state;
+    }
+
+    public void setState(State state) {
+        this.state = state;
+    }
+
     public void addContactPerson(String firstName, String lastName, String phoneNumber) {
         String accountNumber = "";
         for (Customer customer : DB.getCustomerDB().getCustomers()) {
