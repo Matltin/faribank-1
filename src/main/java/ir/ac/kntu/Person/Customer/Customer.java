@@ -2,11 +2,13 @@ package ir.ac.kntu.Person.Customer;
 
 import ir.ac.kntu.DB.ContactPersonDB;
 import ir.ac.kntu.DB.DB;
+import ir.ac.kntu.DB.MessageDB;
 import ir.ac.kntu.DB.RecentTransactionDB;
 import ir.ac.kntu.FariBank.Account.Account;
 import ir.ac.kntu.Person.ContactPerson;
 import ir.ac.kntu.Person.Person;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class Customer extends Person {
@@ -18,6 +20,7 @@ public class Customer extends Person {
     private RecentTransactionDB recentTransaction;
     private boolean contactAvailable;
     private State state;
+    private MessageDB messageDB;
 
     public Customer(String firstName, String lastName, String password, String iDocument, String phoneNumber) {
         super(firstName, lastName, password);
@@ -27,6 +30,7 @@ public class Customer extends Person {
         recentTransaction = new RecentTransactionDB();
         contactAvailable = true;
         state = State.PROGRESSING;
+        messageDB = new MessageDB();
     }
 
     public String getIDocument() {

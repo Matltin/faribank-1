@@ -2,7 +2,6 @@ package ir.ac.kntu.Menu.admin.adminmenu;
 
 import ir.ac.kntu.DB.DB;
 import ir.ac.kntu.Menu.Menu;
-import ir.ac.kntu.Menu.customer.CustomerMenu.CustomerMenuOption;
 import ir.ac.kntu.Person.Customer.Customer;
 import ir.ac.kntu.Person.Customer.State;
 
