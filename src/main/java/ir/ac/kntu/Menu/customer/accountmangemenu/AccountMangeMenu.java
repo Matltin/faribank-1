@@ -27,7 +27,7 @@ public class AccountMangeMenu extends Menu {
 
     private AccountMangeMenuOption printMenuOption() {
         System.out.println("----------account Menu----------");
-        CustomerMenuOption.printOption();
+        AccountMangeMenuOption.printOption();
         System.out.print("Enter your choice : ");
         return getOption(AccountMangeMenuOption.class);
     }

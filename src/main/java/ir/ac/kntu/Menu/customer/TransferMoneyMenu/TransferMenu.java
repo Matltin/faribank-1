@@ -31,7 +31,7 @@ public class TransferMenu extends Menu {
 
     private TransferMenuOption printMenuOption() {
         System.out.println("----------customer Menu----------");
-        CustomerMenuOption.printOption();
+        TransferMenuOption.printOption();
         System.out.print("Enter your choice : ");
         return getOption(TransferMenuOption.class);
     }

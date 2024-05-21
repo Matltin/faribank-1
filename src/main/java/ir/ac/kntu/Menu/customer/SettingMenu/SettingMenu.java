@@ -29,7 +29,7 @@ public class SettingMenu extends Menu {
 
     private SettingMenuOption printMenuOption() {
         System.out.println("----------account Menu----------");
-        CustomerMenuOption.printOption();
+        SettingMenuOption.printOption();
         System.out.print("Enter your choice : ");
         return getOption(SettingMenuOption.class);
     }

@@ -30,7 +30,7 @@ public class LoginCustomerMenu extends Menu {
 
     private LoginCustomerMenuOption printMenuOption() {
         System.out.println("----------logging Menu----------");
-        MainMenuOption.printOption();
+        LoginCustomerMenuOption.printOption();
         System.out.print("Enter your choice : ");
         return getOption(LoginCustomerMenuOption.class);
     }

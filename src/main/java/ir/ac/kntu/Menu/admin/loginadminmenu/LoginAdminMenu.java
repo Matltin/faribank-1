@@ -29,7 +29,7 @@ public class LoginAdminMenu extends Menu {
 
     private LoginAdminMenuOption printMenuOption() {
         System.out.println("----------logging Menu----------");
-        MainMenuOption.printOption();
+        LoginAdminMenuOption.printOption();
         System.out.print("Enter your choice : ");
         return getOption(LoginAdminMenuOption.class);
     }

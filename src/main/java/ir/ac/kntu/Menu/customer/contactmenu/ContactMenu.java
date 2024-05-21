@@ -28,7 +28,7 @@ public class ContactMenu extends Menu {
 
     private ContactMenuOption printMenuOption() {
         System.out.println("----------account Menu----------");
-        CustomerMenuOption.printOption();
+        ContactMenuOption.printOption();
         System.out.print("Enter your choice : ");
         return getOption(ContactMenuOption.class);
     }

@@ -31,7 +31,7 @@ public class RecentTransactionMenu extends Menu {
 
     private RecentTransactionMenuOption printMenuOption() {
         System.out.println("----------search by----------");
-        CustomerMenuOption.printOption();
+        RecentTransactionMenuOption.printOption();
         System.out.print("Enter your choice : ");
         return getOption(RecentTransactionMenuOption.class);
     }
