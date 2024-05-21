@@ -17,6 +17,7 @@ public class Customer extends Person {
     private ContactPersonDB contactPersonDB;
     private RecentTransactionDB recentTransaction;
     private boolean contactAvailable;
+    private State state;
 
     public Customer(String firstName, String lastName, String password, String iDocument, String phoneNumber) {
         super(firstName, lastName, password);
@@ -25,9 +26,10 @@ public class Customer extends Person {
         contactPersonDB = new ContactPersonDB();
         recentTransaction = new RecentTransactionDB();
         contactAvailable = true;
+        state = State.PROGRESSING;
     }
 
-    public String getId() {
+    public String getIDocument() {
         return iDocument;
     }
 

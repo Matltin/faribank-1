@@ -1,4 +1,4 @@
-package ir.ac.kntu.Menu.customer.MainMenu;
+package ir.ac.kntu.Menu.MainMenu;
 
 public enum MainMenuOption {
     ADMIN,
