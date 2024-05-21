@@ -24,5 +24,15 @@ public class TransactionDB {
         transactions.add(transaction);
     }
 
+    public void printTransactions() {
+        int counter = 1;
+        for(Transaction transaction : transactions) {
+            System.out.println(counter + "." + transaction);
+            counter++;
+        }
+    }
+
+
+
 
 }

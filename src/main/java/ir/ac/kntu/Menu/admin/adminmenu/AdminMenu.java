@@ -16,14 +16,14 @@ public class AdminMenu extends Menu {
                     case USER_ACCESS:
                 }
             } else {
-                System.out.println("invalid input");
+                System.out.println("invalid input!!");
             }
             adminMenuOption = printMenuOption();
         }
     }
 
     private AdminMenuOption printMenuOption() {
-        System.out.println("----------customer Menu----------");
+        System.out.println("----------admin Menu----------");
         AdminMenuOption.printOption();
         System.out.print("Enter your choice : ");
         return getOption(AdminMenuOption.class);

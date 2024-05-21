@@ -106,6 +106,16 @@ public class Customer extends Person {
     }
 
     @Override
+    public String toString() {
+        return "Customer{" +
+                super.toString() +
+                "phoneNumber='" + phoneNumber + '\'' +
+                ", iDocument='" + iDocument + '\'' +
+                ", state=" + state +
+                '}';
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
