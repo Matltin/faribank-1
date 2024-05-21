@@ -13,12 +13,26 @@ public class SearchUserMenu extends Menu {
             if(userAccessMenuOption != null) {
                 switch (userAccessMenuOption) {
                     case BY_FIRST_NAME:
+                        searchByFirstName();
+                        break;
                     case BY_LAST_NAME:
+                        searchByLastName();
+                        break;
                     case BY_PHONE_NUMBER:
+                        searchByPhoneNumber();
+                        break;
                     case BY_FIRST_LAST_NAME:
+                        searchByFirstLastName();
+                        break;
                     case BY_FIRST_NAME_PHONE_NUMBER:
+                        searchByFirstNamePhoneNumber();
+                        break;
                     case BY_LAST_NAME_PHONE_NUMBER:
+                        searchByLastNamePhoneNumber();
+                        break;
                     case BY_FIRST_LAST_NAME_PHONE_NUMBER:
+                        searchByFirstLastNamePhoneNumber();
+                        break;
                     default:
                         break;
                 }
