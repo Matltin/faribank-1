@@ -52,7 +52,7 @@ public class SearchUserMenu extends Menu {
         int counter = 1;
         for(Customer customer : DB.getCustomerDB().getCustomers()) {
             if(customer.getFirstName().equals(firstName)) {
-                System.out.println(counter + "." + customer + " " +customer.getAccount().getTransactionDB());
+                System.out.println(counter + "." + customer + " " + customer.getAccount().getTransactionDB());
                 counter++;
             }
         }
@@ -62,7 +62,7 @@ public class SearchUserMenu extends Menu {
         String lastName = getLastName();
         for(Customer customer : DB.getCustomerDB().getCustomers()) {
             if(customer.getLastName().equals(lastName)) {
-                System.out.println(counter + "." + customer + " " +customer.getAccount().getTransactionDB());
+                System.out.println(counter + "." + customer + " " + customer.getAccount().getTransactionDB());
                 counter++;
             }
         }
@@ -73,7 +73,7 @@ public class SearchUserMenu extends Menu {
         String phoneNumber = getPhoneNumber();
         for(Customer customer : DB.getCustomerDB().getCustomers()) {
             if(customer.getPhoneNumber().equals(phoneNumber)) {
-                System.out.println(counter + "." + customer + " " +customer.getAccount().getTransactionDB());
+                System.out.println(counter + "." + customer + " " + customer.getAccount().getTransactionDB());
                 counter++;
             }
         }
@@ -85,7 +85,7 @@ public class SearchUserMenu extends Menu {
         String lastName = getLastName();
         for(Customer customer : DB.getCustomerDB().getCustomers()) {
             if(customer.getFirstName().equals(firstName) && customer.getLastName().equals(lastName)) {
-                System.out.println(counter + "." + customer + " " +customer.getAccount().getTransactionDB());
+                System.out.println(counter + "." + customer + " " + customer.getAccount().getTransactionDB());
                 counter++;
             }
         }
@@ -97,7 +97,7 @@ public class SearchUserMenu extends Menu {
         String phoneNumber = getPhoneNumber();
         for(Customer customer : DB.getCustomerDB().getCustomers()) {
             if(customer.getFirstName().equals(firstName) && customer.getPhoneNumber().equals(phoneNumber)) {
-                System.out.println(counter + "." + customer + " " +customer.getAccount().getTransactionDB());
+                System.out.println(counter + "." + customer + " " + customer.getAccount().getTransactionDB());
                 counter++;
             }
         }
@@ -109,7 +109,7 @@ public class SearchUserMenu extends Menu {
         String phoneNumber = getPhoneNumber();
         for(Customer customer : DB.getCustomerDB().getCustomers()) {
             if(customer.getLastName().equals(lastName) && customer.getPhoneNumber().equals(phoneNumber)) {
-                System.out.println(counter + "." + customer + " " +customer.getAccount().getTransactionDB());
+                System.out.println(counter + "." + customer + " " + customer.getAccount().getTransactionDB());
                 counter++;
             }
         }
@@ -122,7 +122,7 @@ public class SearchUserMenu extends Menu {
         String phoneNumber = getPhoneNumber();
         for(Customer customer : DB.getCustomerDB().getCustomers()) {
             if(customer.getFirstName().equals(firstName) && customer.getLastName().equals(lastName) && customer.getPhoneNumber().equals(phoneNumber)) {
-                System.out.println(counter + "." + customer + " " +customer.getAccount().getTransactionDB());
+                System.out.println(counter + "." + customer + " " + customer.getAccount().getTransactionDB());
                 counter++;
             }
         }

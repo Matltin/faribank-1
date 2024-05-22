@@ -35,7 +35,7 @@ public class AdminMenu extends Menu {
     private void authentication() {
         int counter = 1;
         for(Customer customer : DB.getCustomerDB().getCustomers()) {
-            if (customer.getState() == State.PROGRESSING) {
+            if (customer.getState() == State.IN_PROGRESSING) {
                 System.out.println(counter + "." + customer);
                 counter++;
             }
@@ -43,7 +43,7 @@ public class AdminMenu extends Menu {
         int number = getNumber();
         counter = 0;
         for(Customer customer : DB.getCustomerDB().getCustomers()) {
-            if (customer.getState() == State.PROGRESSING) {
+            if (customer.getState() == State.IN_PROGRESSING) {
                 counter++;
                 if(counter == number) {
                     customer.setState(State.ACCEPTED);

@@ -4,7 +4,7 @@ import ir.ac.kntu.Constance;
 
 public enum State {
     ACCEPTED(Constance.GREEN + "Accepted"),
-    PROGRESSING(Constance.YELLOW + "Progressing"),
+    IN_PROGRESSING(Constance.YELLOW + "in Progressing"),
     REJECT(Constance.RED + "Reject");
 
     private final String  state;

@@ -5,17 +5,31 @@ import ir.ac.kntu.message.Message;
 import java.util.List;
 
 public class AnswerDB {
-    private List<Message> messageQueue;
+    private List<Message> messageList;
 
     public AnswerDB(List<Message> messageQueue) {
-        this.messageQueue = messageQueue;
+        this.messageList = messageQueue;
+    }
+
+    public List<Message> getMessageList() {
+        return messageList;
     }
 
     public void add(Message message){
-        messageQueue.add(message);
+        messageList.add(message);
     }
 
     public void remove(Message message) {
-        messageQueue.remove(message);
+        messageList.remove(message);
+    }
+
+    public void printMessage() {
+        int counter = 1;
+        for(Message message : messageList) {
+            System.out.println(counter + "." + "message branch : " + message.getMessageOption()
+                    + "phone number : " + message.getPhoneNumber());
+            counter++;
+        }
+
     }
 }

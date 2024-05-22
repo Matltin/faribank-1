@@ -28,7 +28,7 @@ public class Customer extends Person {
         contactPersonDB = new ContactPersonDB();
         recentTransaction = new RecentTransactionDB();
         contactAvailable = true;
-        state = State.PROGRESSING;
+        state = State.IN_PROGRESSING;
         messageDB = new MessageDB();
     }
 

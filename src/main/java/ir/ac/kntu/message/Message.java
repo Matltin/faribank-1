@@ -6,12 +6,14 @@ public class Message {
     private String message;
     private String messageAnswer;
     private String phoneNumber;
+    private State state;
 
     public Message(String phoneNumber, String message, MessageOption messageOption) {
         this.phoneNumber = phoneNumber;
         this.message = message;
         this.messageOption = messageOption;
         this.messageAnswer = "";
+        state = State.SUBMIT;
     }
 
     public MessageOption getMessageOption() {
@@ -46,18 +48,28 @@ public class Message {
         this.phoneNumber = phoneNumber;
     }
 
+    public State getState() {
+        return state;
+    }
+
+    public void setState(State state) {
+        this.state = state;
+    }
+
     @Override
     public String toString() {
         if(messageAnswer.isEmpty()) {
             return "Message{" +
-                    "message='" + message + '\'' +
-                    ", messageOption=" + messageOption + '\'' +
+                    "messageOption=" + messageOption +
+                    ", message='" + message + '\'' +
+                    ", state=" + state +
                     '}';
         }
         return "Message{" +
-                "message='" + message + '\'' +
-                ", messageOption=" + messageOption + '\'' +
-                ", messageAnswer='" + messageAnswer +
+                "messageOption=" + messageOption +
+                ", message='" + message + '\'' +
+                ", messageAnswer='" + messageAnswer + '\'' +
+                ", state=" + state +
                 '}';
     }
 }
