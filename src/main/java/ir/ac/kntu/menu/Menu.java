@@ -63,12 +63,12 @@ public abstract class Menu {
 
     public String getUserName() {
         System.out.println("Enter userName : ");
-        return ScannerWrapper.getInstance().next();
+        return ScannerWrapper.getInstance().nextLine();
     }
 
     public String getMessage() {
         System.out.println("Enter Message : ");
-        return ScannerWrapper.getInstance().next();
+        return ScannerWrapper.getInstance().nextLine();
     }
 
 

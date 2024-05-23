@@ -16,6 +16,8 @@ public class AccountMangeMenu extends Menu {
                     case INCREASE_CREDIT:
                     case ACCOUNT_BALANCE:
                     case TRANSACTION_LIST:
+                    default:
+                        break;
                 }
             } else {
                 System.out.println("invalid input!!");

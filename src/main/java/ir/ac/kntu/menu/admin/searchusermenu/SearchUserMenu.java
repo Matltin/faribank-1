@@ -36,7 +36,10 @@ public class SearchUserMenu extends Menu {
                     default:
                         break;
                 }
+            } else {
+                System.out.println("invalid input!!");
             }
+            userAccessMenuOption = printMenuOption();
         }
     }
 

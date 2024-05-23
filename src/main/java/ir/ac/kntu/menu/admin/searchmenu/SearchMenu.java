@@ -1,6 +1,9 @@
 package ir.ac.kntu.menu.admin.searchmenu;
 
+import ir.ac.kntu.db.AnswerDB;
 import ir.ac.kntu.menu.Menu;
+import ir.ac.kntu.message.Message;
+import ir.ac.kntu.message.State;
 
 public class SearchMenu extends Menu {
     @Override
@@ -29,5 +32,19 @@ public class SearchMenu extends Menu {
         SearchMenuOption.printOption();
         System.out.print("Enter your choice : ");
         return getOption(SearchMenuOption.class);
+    }
+
+    private void searchByUser(AnswerDB answerDB) {
+        String phoneNumber = getPhoneNumber();
+        for(Message message : answerDB.getMessageList()) {
+            if(message.getPhoneNumber().equals(phoneNumber)) {
+                System.out.println(message);
+                String answer = getMessage();
+                message.setMessageAnswer(answer);
+                message.setState(State.CLOSED);
+                return;
+            }
+        }
+        System.out.println("the phone number does not exist!!");
     }
 }
