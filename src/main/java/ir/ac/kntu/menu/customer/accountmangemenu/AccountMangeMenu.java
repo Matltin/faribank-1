@@ -11,7 +11,7 @@ public class AccountMangeMenu extends Menu {
         System.out.println("account Menu");
         AccountMangeMenuOption accountMangeMenuOption = printMenuOption();
         while (accountMangeMenuOption != AccountMangeMenuOption.BACK) {
-            if(accountMangeMenuOption != null) {
+            if (accountMangeMenuOption != null) {
                 switch (accountMangeMenuOption) {
                     case INCREASE_CREDIT:
                     case ACCOUNT_BALANCE:
@@ -43,7 +43,7 @@ public class AccountMangeMenu extends Menu {
     }
 
     private void showTransactionList(Customer customer) {
-        for(Transaction transaction : customer.getAccount().getTransactionDB().getTransactions()) {
+        for (Transaction transaction : customer.getAccount().getTransactionDB().getTransactions()) {
             System.out.println(transaction);
         }
     }

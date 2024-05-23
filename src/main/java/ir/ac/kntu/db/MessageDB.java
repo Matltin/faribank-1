@@ -27,7 +27,7 @@ public class MessageDB {
 
     public void printMessage() {
         int counter = 1;
-        for(Message message : messageList) {
+        for (Message message : messageList) {
             System.out.println(counter + "." + message.getMessage());
             counter++;
         }

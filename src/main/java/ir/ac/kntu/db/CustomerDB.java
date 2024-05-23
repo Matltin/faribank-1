@@ -17,8 +17,8 @@ public class CustomerDB {
     }
 
     public void removeCustomer(Customer customer) {
-        try{
-            if(doesExist(customer)) {
+        try {
+            if (doesExist(customer)) {
                 customers.remove(customer);
             } else {
                 throw new RuntimeException("customer not found!!");

@@ -11,7 +11,7 @@ public class SearchMenu extends Menu {
         System.out.println("search menu");
         SearchMenuOption searchMenuOption = printMenuOption();
         while (searchMenuOption != SearchMenuOption.BACK) {
-            if(searchMenuOption != null) {
+            if (searchMenuOption != null) {
                 switch (searchMenuOption) {
                     case STATE:
                     case BRANCH:
@@ -36,8 +36,8 @@ public class SearchMenu extends Menu {
 
     private void searchByUser(AnswerDB answerDB) {
         String phoneNumber = getPhoneNumber();
-        for(Message message : answerDB.getMessageList()) {
-            if(message.getPhoneNumber().equals(phoneNumber)) {
+        for (Message message : answerDB.getMessageList()) {
+            if (message.getPhoneNumber().equals(phoneNumber)) {
                 System.out.println(message);
                 String answer = getMessage();
                 message.setMessageAnswer(answer);

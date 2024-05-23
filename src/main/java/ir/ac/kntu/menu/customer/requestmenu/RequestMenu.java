@@ -12,7 +12,7 @@ public class RequestMenu extends Menu {
         System.out.println("request menu");
         MessageOption messageOption = printMenuOption();
         while (messageOption != MessageOption.BACK) {
-            if(messageOption != null) {
+            if (messageOption != null) {
                 switch (messageOption) {
                     case CONTACT:
 //                        contact(customer, answerDB);

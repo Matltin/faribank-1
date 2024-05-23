@@ -8,7 +8,7 @@ public class SupportMenu extends Menu {
     public void show() {
         SupportMEnuOption supportMEnuOption = printMenuOption();
         while (supportMEnuOption != SupportMEnuOption.BACK) {
-            if(supportMEnuOption != null) {
+            if (supportMEnuOption != null) {
                 switch (supportMEnuOption) {
                     case REQUEST:
                     case SHOW_REQUEST:

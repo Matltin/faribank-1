@@ -14,8 +14,11 @@ public class AdminDB {
         admins.add(new Admin("reyhane", "arabshahi", "Rr@1383", "pota"));
     }
 
-    public void addAdmin() {}
-    public void removeAdmin() {}
+    public void addAdmin() {
+    }
+
+    public void removeAdmin() {
+    }
 
     public Set<Admin> getAdmins() {
         return admins;

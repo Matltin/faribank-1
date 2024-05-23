@@ -7,7 +7,7 @@ public enum State {
     IN_PROGRESSING(Constance.YELLOW + "in Progressing"),
     REJECT(Constance.RED + "Reject");
 
-    private final String  state;
+    private final String state;
 
     private State(String state) {
         this.state = state;

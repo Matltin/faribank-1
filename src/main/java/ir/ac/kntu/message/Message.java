@@ -58,7 +58,7 @@ public class Message {
 
     @Override
     public String toString() {
-        if(messageAnswer.isEmpty()) {
+        if (messageAnswer.isEmpty()) {
             return "Message{" +
                     "messageOption=" + messageOption +
                     ", message='" + message + '\'' +

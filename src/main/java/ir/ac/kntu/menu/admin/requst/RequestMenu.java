@@ -10,7 +10,7 @@ public class RequestMenu extends Menu {
         System.out.println("request menu");
         RequestMenuOption requestMenuOption = printMenuOption();
         while (requestMenuOption != RequestMenuOption.BACK) {
-            if(requestMenuOption != null) {
+            if (requestMenuOption != null) {
                 switch (requestMenuOption) {
                     case SEARCH:
                     case SHOW:

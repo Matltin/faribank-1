@@ -10,7 +10,7 @@ public class SettingMenu extends Menu {
         System.out.println("setting menu");
         SettingMenuOption settingMenuOption = printMenuOption();
         while (settingMenuOption != SettingMenuOption.BACK) {
-            if(settingMenuOption != null) {
+            if (settingMenuOption != null) {
                 switch (settingMenuOption) {
                     case EDIT_USER_PASSWORD:
                     case EDIT_CARD_PASSWORD:

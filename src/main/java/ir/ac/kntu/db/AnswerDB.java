@@ -15,7 +15,7 @@ public class AnswerDB {
         return messageList;
     }
 
-    public void add(Message message){
+    public void add(Message message) {
         messageList.add(message);
     }
 
@@ -25,7 +25,7 @@ public class AnswerDB {
 
     public void printMessage() {
         int counter = 1;
-        for(Message message : messageList) {
+        for (Message message : messageList) {
             System.out.println(counter + "." + "message branch : " + message.getMessageOption()
                     + "phone number : " + message.getPhoneNumber());
             counter++;

@@ -1,6 +1,6 @@
 package ir.ac.kntu.menu.admin.requst;
 
-public enum RequestMenuOption{
+public enum RequestMenuOption {
     SEARCH,
     SHOW,
     BACK;

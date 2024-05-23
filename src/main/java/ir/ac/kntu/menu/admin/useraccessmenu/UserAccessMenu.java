@@ -35,7 +35,7 @@ public class UserAccessMenu extends Menu {
 
     private void showUser() {
         int counter = 1;
-        for(Customer customer : DB.getCustomerDB().getCustomers()) {
+        for (Customer customer : DB.getCustomerDB().getCustomers()) {
             System.out.println(counter + ". " + customer.getFirstName() + " " + customer.getLastName() + " " + customer.getPhoneNumber());
             counter++;
         }

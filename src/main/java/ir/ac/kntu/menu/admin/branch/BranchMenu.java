@@ -12,7 +12,7 @@ public class BranchMenu extends Menu {
         System.out.println("request menu");
         MessageOption messageOption = printMenuOption();
         while (messageOption != MessageOption.BACK) {
-            if(messageOption != null) {
+            if (messageOption != null) {
                 switch (messageOption) {
                     case CONTACT:
 
@@ -47,8 +47,8 @@ public class BranchMenu extends Menu {
         print(answerDB, MessageOption.CONTACT);
         int number = getNumber();
         int counter = 0;
-        for(Message message : answerDB.getMessageList()) {
-            if(message.getMessageOption() == MessageOption.CONTACT) {
+        for (Message message : answerDB.getMessageList()) {
+            if (message.getMessageOption() == MessageOption.CONTACT) {
                 counter++;
                 checkForClosed(counter, number, message);
             }
@@ -59,8 +59,8 @@ public class BranchMenu extends Menu {
         print(answerDB, MessageOption.SETTING);
         int number = getNumber();
         int counter = 0;
-        for(Message message : answerDB.getMessageList()) {
-            if(message.getMessageOption() == MessageOption.SETTING) {
+        for (Message message : answerDB.getMessageList()) {
+            if (message.getMessageOption() == MessageOption.SETTING) {
                 counter++;
                 checkForClosed(counter, number, message);
             }
@@ -71,8 +71,8 @@ public class BranchMenu extends Menu {
         print(answerDB, MessageOption.TRANSFER);
         int number = getNumber();
         int counter = 0;
-        for(Message message : answerDB.getMessageList()) {
-            if(message.getMessageOption() == MessageOption.TRANSFER) {
+        for (Message message : answerDB.getMessageList()) {
+            if (message.getMessageOption() == MessageOption.TRANSFER) {
                 counter++;
                 checkForClosed(counter, number, message);
             }
@@ -83,8 +83,8 @@ public class BranchMenu extends Menu {
         print(answerDB, MessageOption.REPORT);
         int number = getNumber();
         int counter = 0;
-        for(Message message : answerDB.getMessageList()) {
-            if(message.getMessageOption() == MessageOption.REPORT) {
+        for (Message message : answerDB.getMessageList()) {
+            if (message.getMessageOption() == MessageOption.REPORT) {
                 counter++;
                 checkForClosed(counter, number, message);
             }
@@ -92,7 +92,7 @@ public class BranchMenu extends Menu {
     }
 
     private void checkForClosed(int counter, int number, Message message) {
-        if(counter == number) {
+        if (counter == number) {
             System.out.println(message);
             String answer = getMessage();
             message.setMessageAnswer(answer);
@@ -102,8 +102,8 @@ public class BranchMenu extends Menu {
 
     private void print(AnswerDB answerDB, MessageOption messageOption) {
         int counter = 1;
-        for(Message message : answerDB.getMessageList()) {
-            if(message.getMessageOption() == messageOption) {
+        for (Message message : answerDB.getMessageList()) {
+            if (message.getMessageOption() == messageOption) {
                 System.out.println(counter + "." + message);
                 counter++;
             }

@@ -10,7 +10,7 @@ public class SearchUserMenu extends Menu {
         System.out.println("search menu");
         SearchUserMenuOption userAccessMenuOption = printMenuOption();
         while (userAccessMenuOption != SearchUserMenuOption.BACK) {
-            if(userAccessMenuOption != null) {
+            if (userAccessMenuOption != null) {
                 switch (userAccessMenuOption) {
                     case BY_FIRST_NAME:
                         searchByFirstName();
@@ -50,81 +50,82 @@ public class SearchUserMenu extends Menu {
         return getOption(SearchUserMenuOption.class);
     }
 
-    private void searchByFirstName(){
+    private void searchByFirstName() {
         String firstName = getFirstName();
         int counter = 1;
-        for(Customer customer : DB.getCustomerDB().getCustomers()) {
-            if(customer.getFirstName().equals(firstName)) {
+        for (Customer customer : DB.getCustomerDB().getCustomers()) {
+            if (customer.getFirstName().equals(firstName)) {
                 System.out.println(counter + "." + customer + " " + customer.getAccount().getTransactionDB());
                 counter++;
             }
         }
     }
-    private void searchByLastName(){
+
+    private void searchByLastName() {
         int counter = 1;
         String lastName = getLastName();
-        for(Customer customer : DB.getCustomerDB().getCustomers()) {
-            if(customer.getLastName().equals(lastName)) {
+        for (Customer customer : DB.getCustomerDB().getCustomers()) {
+            if (customer.getLastName().equals(lastName)) {
                 System.out.println(counter + "." + customer + " " + customer.getAccount().getTransactionDB());
                 counter++;
             }
         }
     }
 
-    private void searchByPhoneNumber(){
+    private void searchByPhoneNumber() {
         int counter = 1;
         String phoneNumber = getPhoneNumber();
-        for(Customer customer : DB.getCustomerDB().getCustomers()) {
-            if(customer.getPhoneNumber().equals(phoneNumber)) {
+        for (Customer customer : DB.getCustomerDB().getCustomers()) {
+            if (customer.getPhoneNumber().equals(phoneNumber)) {
                 System.out.println(counter + "." + customer + " " + customer.getAccount().getTransactionDB());
                 counter++;
             }
         }
     }
 
-    private void searchByFirstLastName(){
-        int counter = 1;
-        String firstName = getFirstName();
-        String lastName = getLastName();
-        for(Customer customer : DB.getCustomerDB().getCustomers()) {
-            if(customer.getFirstName().equals(firstName) && customer.getLastName().equals(lastName)) {
-                System.out.println(counter + "." + customer + " " + customer.getAccount().getTransactionDB());
-                counter++;
-            }
-        }
-    }
-
-    private void searchByFirstNamePhoneNumber(){
-        int counter = 1;
-        String firstName = getFirstName();
-        String phoneNumber = getPhoneNumber();
-        for(Customer customer : DB.getCustomerDB().getCustomers()) {
-            if(customer.getFirstName().equals(firstName) && customer.getPhoneNumber().equals(phoneNumber)) {
-                System.out.println(counter + "." + customer + " " + customer.getAccount().getTransactionDB());
-                counter++;
-            }
-        }
-    }
-
-    private void searchByLastNamePhoneNumber(){
-        int counter = 1;
-        String lastName = getLastName();
-        String phoneNumber = getPhoneNumber();
-        for(Customer customer : DB.getCustomerDB().getCustomers()) {
-            if(customer.getLastName().equals(lastName) && customer.getPhoneNumber().equals(phoneNumber)) {
-                System.out.println(counter + "." + customer + " " + customer.getAccount().getTransactionDB());
-                counter++;
-            }
-        }
-    }
-
-    private void searchByFirstLastNamePhoneNumber(){
+    private void searchByFirstLastName() {
         int counter = 1;
         String firstName = getFirstName();
         String lastName = getLastName();
+        for (Customer customer : DB.getCustomerDB().getCustomers()) {
+            if (customer.getFirstName().equals(firstName) && customer.getLastName().equals(lastName)) {
+                System.out.println(counter + "." + customer + " " + customer.getAccount().getTransactionDB());
+                counter++;
+            }
+        }
+    }
+
+    private void searchByFirstNamePhoneNumber() {
+        int counter = 1;
+        String firstName = getFirstName();
         String phoneNumber = getPhoneNumber();
-        for(Customer customer : DB.getCustomerDB().getCustomers()) {
-            if(customer.getFirstName().equals(firstName) && customer.getLastName().equals(lastName) && customer.getPhoneNumber().equals(phoneNumber)) {
+        for (Customer customer : DB.getCustomerDB().getCustomers()) {
+            if (customer.getFirstName().equals(firstName) && customer.getPhoneNumber().equals(phoneNumber)) {
+                System.out.println(counter + "." + customer + " " + customer.getAccount().getTransactionDB());
+                counter++;
+            }
+        }
+    }
+
+    private void searchByLastNamePhoneNumber() {
+        int counter = 1;
+        String lastName = getLastName();
+        String phoneNumber = getPhoneNumber();
+        for (Customer customer : DB.getCustomerDB().getCustomers()) {
+            if (customer.getLastName().equals(lastName) && customer.getPhoneNumber().equals(phoneNumber)) {
+                System.out.println(counter + "." + customer + " " + customer.getAccount().getTransactionDB());
+                counter++;
+            }
+        }
+    }
+
+    private void searchByFirstLastNamePhoneNumber() {
+        int counter = 1;
+        String firstName = getFirstName();
+        String lastName = getLastName();
+        String phoneNumber = getPhoneNumber();
+        for (Customer customer : DB.getCustomerDB().getCustomers()) {
+            if (customer.getFirstName().equals(firstName) && customer.getLastName().equals(lastName) && customer.getPhoneNumber().equals(phoneNumber)) {
                 System.out.println(counter + "." + customer + " " + customer.getAccount().getTransactionDB());
                 counter++;
             }

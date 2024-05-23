@@ -10,7 +10,7 @@ public class ContactMenu extends Menu {
         System.out.println("contact menu");
         ContactMenuOption contactMenuOption = printMenuOption();
         while (contactMenuOption != ContactMenuOption.BACK) {
-            if(contactMenuOption != null) {
+            if (contactMenuOption != null) {
                 switch (contactMenuOption) {
                     case SHOW_CONTACT_LIST:
                     case EDIT_CONTACT_INFO:
@@ -36,7 +36,7 @@ public class ContactMenu extends Menu {
         int number;
         customer.getContactPerson().printContactPerson();
         number = getNumber();
-        if(0 < number && number <= customer.getContactPerson().getContactPerson().size()) {
+        if (0 < number && number <= customer.getContactPerson().getContactPerson().size()) {
             System.out.println(customer.getContactPerson().getContactPerson().get(number - 1));
         } else {
             System.out.println("Number out of range!");
@@ -46,7 +46,7 @@ public class ContactMenu extends Menu {
     public void editContactINFO(Customer customer) {
         String phoneNumber = getPhoneNumber();
         ContactPerson contactPerson = customer.getContactPerson().findPerson(phoneNumber);
-        if(contactPerson != null) {
+        if (contactPerson != null) {
             customer.getContactPerson().removePerson(contactPerson);
             String firstName = getFirstName();
             String lastName = getLastName();
@@ -62,7 +62,7 @@ public class ContactMenu extends Menu {
         String firstName = getFirstName();
         String lastName = getLastName();
         String phoneNumber = getPhoneNumber();
-        if(customer.getContactPerson().findPerson(phoneNumber) != null) {
+        if (customer.getContactPerson().findPerson(phoneNumber) != null) {
             System.out.println("The contact is already exist");
             return;
         }

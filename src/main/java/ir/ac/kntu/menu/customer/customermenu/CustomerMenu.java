@@ -9,7 +9,7 @@ public class CustomerMenu extends Menu {
         System.out.println("customer Menu");
         CustomerMenuOption customerMenuOption = printMenuOption();
         while (customerMenuOption != CustomerMenuOption.BACK) {
-            if(customerMenuOption != null) {
+            if (customerMenuOption != null) {
                 switch (customerMenuOption) {
                     case TRANSFER_MONEY:
                     case ACCOUNT_MANAGE:

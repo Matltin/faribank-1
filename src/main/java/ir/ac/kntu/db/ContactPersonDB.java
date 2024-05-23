@@ -26,8 +26,8 @@ public class ContactPersonDB {
     }
 
     public ContactPerson findPerson(String phoneNumber) {
-        for(ContactPerson contactPerson : contactPersonList) {
-            if(contactPerson.getAccountNumber().equals(phoneNumber)) {
+        for (ContactPerson contactPerson : contactPersonList) {
+            if (contactPerson.getAccountNumber().equals(phoneNumber)) {
                 return contactPerson;
             }
         }
@@ -35,8 +35,8 @@ public class ContactPersonDB {
     }
 
     public void removePerson(ContactPerson contactPerson) {
-        try{
-            if(doesExist(contactPerson)) {
+        try {
+            if (doesExist(contactPerson)) {
                 contactPersonList.remove(contactPerson);
             } else {
                 throw new RuntimeException("contact not found!!");
@@ -52,15 +52,15 @@ public class ContactPersonDB {
 
     public void printContactPerson() {
         int counter = 1;
-        for(ContactPerson contactPerson : contactPersonList) {
+        for (ContactPerson contactPerson : contactPersonList) {
             System.out.println(counter + "." + contactPerson.getFirstName() + " " + contactPerson.getLastName());
             counter++;
         }
     }
 
     public boolean checkContact(String accountNO) {
-        for(ContactPerson contactPerson : contactPersonList) {
-            if(contactPerson.getAccountNumber().equals(accountNO)) {
+        for (ContactPerson contactPerson : contactPersonList) {
+            if (contactPerson.getAccountNumber().equals(accountNO)) {
                 return true;
             }
         }

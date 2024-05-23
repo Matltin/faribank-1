@@ -13,7 +13,7 @@ public class RecentTransactionMenu extends Menu {
         System.out.println("search by");
         RecentTransactionMenuOption recentTransactionMenuOption = printMenuOption();
         while (recentTransactionMenuOption != RecentTransactionMenuOption.BACK) {
-            if(recentTransactionMenuOption != null) {
+            if (recentTransactionMenuOption != null) {
                 switch (recentTransactionMenuOption) {
                     case BY_NUMBER:
                     case BY_TIME:
@@ -60,9 +60,9 @@ public class RecentTransactionMenu extends Menu {
         Date secondDate = simpleDateFormat.parse(secondStr);
 
         int size = customer.getAccount().getTransactionDB().getTransactions().size();
-        for(int i = size - 1; i >= 0; i++) {
+        for (int i = size - 1; i >= 0; i++) {
             long time = customer.getAccount().getTransactionDB().getTransactions().get(i).getDate().getTime();
-            if(firstDate.getTime() <= time && time <= secondDate.getTime()) {
+            if (firstDate.getTime() <= time && time <= secondDate.getTime()) {
                 System.out.println(customer.getAccount().getTransactionDB().getTransactions().get(i));
             }
         }

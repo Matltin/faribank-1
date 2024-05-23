@@ -26,7 +26,7 @@ public class RecentTransactionDB {
 
     public void printRecentContact() {
         int counter = 1;
-        for(ContactPerson contactPerson : contactPersonList) {
+        for (ContactPerson contactPerson : contactPersonList) {
             System.out.println(counter + "." + contactPerson.getFirstName() + " " + contactPerson.getLastName());
             counter++;
         }

@@ -26,13 +26,11 @@ public class TransactionDB {
 
     public void printTransactions() {
         int counter = 1;
-        for(Transaction transaction : transactions) {
+        for (Transaction transaction : transactions) {
             System.out.println(counter + "." + transaction);
             counter++;
         }
     }
-
-
 
 
 }

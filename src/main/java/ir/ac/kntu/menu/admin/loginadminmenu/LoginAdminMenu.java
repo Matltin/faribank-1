@@ -10,7 +10,7 @@ public class LoginAdminMenu extends Menu {
         System.out.println("logging page");
         LoginAdminMenuOption loginAdminMenuOption = printMenuOption();
         while (loginAdminMenuOption != LoginAdminMenuOption.BACK) {
-            if(loginAdminMenuOption != null) {
+            if (loginAdminMenuOption != null) {
                 switch (loginAdminMenuOption) {
                     case LOGIN:
                         login();
@@ -36,8 +36,8 @@ public class LoginAdminMenu extends Menu {
     private void login() {
         String userName = getUserName();
         String password = getPassword();
-        for(Admin admin : DB.getAdminDB().getAdmins()) {
-            if(admin.getUserName().equals(userName) && admin.getPassword().equals(password)) {
+        for (Admin admin : DB.getAdminDB().getAdmins()) {
+            if (admin.getUserName().equals(userName) && admin.getPassword().equals(password)) {
 
                 return;
             }
