@@ -2,7 +2,7 @@ package ir.ac.kntu.faribank.account;
 
 import ir.ac.kntu.Constance;
 import ir.ac.kntu.db.CustomerDB;
-import ir.ac.kntu.db.DB;
+import ir.ac.kntu.db.DataBase;
 import ir.ac.kntu.db.TransactionDB;
 import ir.ac.kntu.person.customer.Customer;
 import ir.ac.kntu.transaction.Transaction;
@@ -36,13 +36,13 @@ public class Account {
         this.accountNO = accountNO;
     }
 
-    public void increaseCredit(long inputMoney) {
-        setBalance(getBalance() + inputMoney);
-        CustomerDB customers = DB.getCustomerDB();
-        Customer customer = customers.findCustomer(accountNO);
-        Transaction transaction = new Transaction(customer.getFirstName(), customer.getLastName(), customer.getAccount().getAccountNO(), getAccountNO(), TransactionType.INCREASE_CREDIT);
-        transactionDB.addTransaction(transaction);
-    }
+//    public void increaseCredit(long inputMoney) {
+//        setBalance(getBalance() + inputMoney);
+//        CustomerDB customers = DataBase.getCustomerDB();
+//        Customer customer = customers.findCustomer(accountNO);
+//        Transaction transaction = new Transaction(customer.getFirstName(), customer.getLastName(), customer.getAccount().getAccountNO(), getAccountNO(), TransactionType.INCREASE_CREDIT);
+//        transactionDB.addTransaction(transaction);
+//    }
 
     public TransactionDB getTransactionDB() {
         return transactionDB;
@@ -53,23 +53,23 @@ public class Account {
     }
 
     public void transferMoney(long inputMoney, String accountNO) {
-        try {
-            if (inputMoney + Constance.WAGE <= balance) {
-                setBalance(getBalance() - inputMoney - Constance.WAGE);
-                transferMoneyToCustomer(inputMoney, accountNO);
-            } else {
-                throw new RuntimeException("input money : " + inputMoney + " Your balance!!");
-            }
-        } catch (Exception e) {
-            System.err.println(e.getMessage());
-        }
+//        try {
+//            if (inputMoney + Constance.WAGE <= balance) {
+//                setBalance(getBalance() - inputMoney - Constance.WAGE);
+//                transferMoneyToCustomer(inputMoney, accountNO);
+//            } else {
+//                throw new RuntimeException("input money : " + inputMoney + " Your balance!!");
+//            }
+//        } catch (Exception e) {
+//            System.err.println(e.getMessage());
+//        }
     }
 
     private void transferMoneyToCustomer(long money, String accountNO) {
-        CustomerDB customers = DB.getCustomerDB();
-        Customer customer = customers.findCustomer(accountNO);
-        customer.getAccount().setBalance(money + getBalance());
-        Transaction transaction = new Transaction(customer.getFirstName(), customer.getLastName(), customer.getAccount().getAccountNO(), getAccountNO(), TransactionType.TRANSFER);
-        transactionDB.addTransaction(transaction);
+//        CustomerDB customers = DataBase.getCustomerDB();
+//        Customer customer = customers.findCustomer(accountNO);
+//        customer.getAccount().setBalance(money + getBalance());
+//        Transaction transaction = new Transaction(customer.getFirstName(), customer.getLastName(), customer.getAccount().getAccountNO(), getAccountNO(), TransactionType.TRANSFER);
+//        transactionDB.addTransaction(transaction);
     }
 }

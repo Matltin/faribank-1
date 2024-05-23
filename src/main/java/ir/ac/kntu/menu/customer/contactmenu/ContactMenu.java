@@ -59,13 +59,13 @@ public class ContactMenu extends Menu {
     }
 
     public void addContact(Customer customer) {
-        String firstName = getFirstName();
-        String lastName = getLastName();
-        String phoneNumber = getPhoneNumber();
-        if (customer.getContactPerson().findPerson(phoneNumber) != null) {
-            System.out.println("The contact is already exist");
-            return;
-        }
-        customer.addContactPerson(firstName, lastName, phoneNumber);
+//        String firstName = getFirstName();
+//        String lastName = getLastName();
+//        String phoneNumber = getPhoneNumber();
+//        if (customer.getContactPerson().findPerson(phoneNumber) != null) {
+//            System.out.println("The contact is already exist");
+//            return;
+//        }
+//        customer.addContactPerson(firstName, lastName, phoneNumber);
     }
 }

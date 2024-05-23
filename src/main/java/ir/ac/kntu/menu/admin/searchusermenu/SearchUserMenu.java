@@ -1,10 +1,18 @@
 package ir.ac.kntu.menu.admin.searchusermenu;
 
-import ir.ac.kntu.db.DB;
+import ir.ac.kntu.db.CustomerDB;
+import ir.ac.kntu.db.DataBase;
 import ir.ac.kntu.menu.Menu;
 import ir.ac.kntu.person.customer.Customer;
 
 public class SearchUserMenu extends Menu {
+
+    private CustomerDB customerDB;
+
+    public SearchUserMenu(CustomerDB customerDB) {
+        this.customerDB = customerDB;
+    }
+
     @Override
     public void show() {
         System.out.println("search menu");
@@ -53,7 +61,7 @@ public class SearchUserMenu extends Menu {
     private void searchByFirstName() {
         String firstName = getFirstName();
         int counter = 1;
-        for (Customer customer : DB.getCustomerDB().getCustomers()) {
+        for (Customer customer : customerDB.getCustomers()) {
             if (customer.getFirstName().equals(firstName)) {
                 System.out.println(counter + "." + customer + " " + customer.getAccount().getTransactionDB());
                 counter++;
@@ -64,7 +72,7 @@ public class SearchUserMenu extends Menu {
     private void searchByLastName() {
         int counter = 1;
         String lastName = getLastName();
-        for (Customer customer : DB.getCustomerDB().getCustomers()) {
+        for (Customer customer : customerDB.getCustomers()) {
             if (customer.getLastName().equals(lastName)) {
                 System.out.println(counter + "." + customer + " " + customer.getAccount().getTransactionDB());
                 counter++;
@@ -75,7 +83,7 @@ public class SearchUserMenu extends Menu {
     private void searchByPhoneNumber() {
         int counter = 1;
         String phoneNumber = getPhoneNumber();
-        for (Customer customer : DB.getCustomerDB().getCustomers()) {
+        for (Customer customer : customerDB.getCustomers()) {
             if (customer.getPhoneNumber().equals(phoneNumber)) {
                 System.out.println(counter + "." + customer + " " + customer.getAccount().getTransactionDB());
                 counter++;
@@ -87,7 +95,7 @@ public class SearchUserMenu extends Menu {
         int counter = 1;
         String firstName = getFirstName();
         String lastName = getLastName();
-        for (Customer customer : DB.getCustomerDB().getCustomers()) {
+        for (Customer customer : customerDB.getCustomers()) {
             if (customer.getFirstName().equals(firstName) && customer.getLastName().equals(lastName)) {
                 System.out.println(counter + "." + customer + " " + customer.getAccount().getTransactionDB());
                 counter++;
@@ -99,7 +107,7 @@ public class SearchUserMenu extends Menu {
         int counter = 1;
         String firstName = getFirstName();
         String phoneNumber = getPhoneNumber();
-        for (Customer customer : DB.getCustomerDB().getCustomers()) {
+        for (Customer customer : customerDB.getCustomers()) {
             if (customer.getFirstName().equals(firstName) && customer.getPhoneNumber().equals(phoneNumber)) {
                 System.out.println(counter + "." + customer + " " + customer.getAccount().getTransactionDB());
                 counter++;
@@ -111,7 +119,7 @@ public class SearchUserMenu extends Menu {
         int counter = 1;
         String lastName = getLastName();
         String phoneNumber = getPhoneNumber();
-        for (Customer customer : DB.getCustomerDB().getCustomers()) {
+        for (Customer customer : customerDB.getCustomers()) {
             if (customer.getLastName().equals(lastName) && customer.getPhoneNumber().equals(phoneNumber)) {
                 System.out.println(counter + "." + customer + " " + customer.getAccount().getTransactionDB());
                 counter++;
@@ -124,7 +132,7 @@ public class SearchUserMenu extends Menu {
         String firstName = getFirstName();
         String lastName = getLastName();
         String phoneNumber = getPhoneNumber();
-        for (Customer customer : DB.getCustomerDB().getCustomers()) {
+        for (Customer customer : customerDB.getCustomers()) {
             if (customer.getFirstName().equals(firstName) && customer.getLastName().equals(lastName) && customer.getPhoneNumber().equals(phoneNumber)) {
                 System.out.println(counter + "." + customer + " " + customer.getAccount().getTransactionDB());
                 counter++;

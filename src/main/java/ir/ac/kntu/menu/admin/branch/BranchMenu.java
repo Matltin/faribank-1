@@ -7,6 +7,13 @@ import ir.ac.kntu.message.MessageOption;
 import ir.ac.kntu.message.State;
 
 public class BranchMenu extends Menu {
+
+    private AnswerDB answerDB;
+
+    public BranchMenu(AnswerDB answerDB) {
+        this.answerDB = answerDB;
+    }
+
     @Override
     public void show() {
         System.out.println("request menu");
@@ -15,16 +22,16 @@ public class BranchMenu extends Menu {
             if (messageOption != null) {
                 switch (messageOption) {
                     case CONTACT:
-
+                        showByContact(answerDB);
                         break;
                     case SETTING:
-
+                        showSetting(answerDB);
                         break;
                     case TRANSFER:
-
+                        showTransfer(answerDB);
                         break;
                     case REPORT:
-
+                        showReport(answerDB);
                         break;
                     default:
                         break;

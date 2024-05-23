@@ -1,10 +1,18 @@
 package ir.ac.kntu.menu.customer.logincustomermenu;
 
-import ir.ac.kntu.db.DB;
+import ir.ac.kntu.db.CustomerDB;
+import ir.ac.kntu.db.DataBase;
 import ir.ac.kntu.menu.Menu;
 import ir.ac.kntu.person.customer.Customer;
+import ir.ac.kntu.person.customer.State;
 
 public class LoginCustomerMenu extends Menu {
+
+    private CustomerDB customerDB;
+
+    public LoginCustomerMenu(CustomerDB customerDB) {
+        this.customerDB = customerDB;
+    }
 
     @Override
     public void show() {
@@ -38,14 +46,20 @@ public class LoginCustomerMenu extends Menu {
         String iDocument = getIDocument();
         String phoneNumber = getPhoneNumber();
         Customer cust = null;
-        for (Customer customer : DB.getCustomerDB().getCustomers()) {
+        for (Customer customer : customerDB.getCustomers()) {
             if (customer.getIDocument().equals(iDocument) && customer.getPhoneNumber().equals(phoneNumber)) {
                 cust = customer;
                 break;
             }
         }
         if (cust != null) {
+            if(cust.getState() == State.ACCEPTED) {
 
+            } else if(cust.getState() == State.IN_PROGRESSING) {
+                System.out.println("in progressing!!");
+            } else if(cust.getState() == State.REJECT) {
+                System.out.println(cust.getMessageDB().getMessageList().get(0));
+            }
         } else {
             System.out.println("IDocument or PhoneNumber is invalid!!");
         }
@@ -57,7 +71,7 @@ public class LoginCustomerMenu extends Menu {
         String phoneNumber = getPhoneNumber();
         String iDocument = getIDocument();
         String password = getPassword();
-        for (Customer customer : DB.getCustomerDB().getCustomers()) {
+        for (Customer customer : customerDB.getCustomers()) {
             if (customer.getPhoneNumber().equals(phoneNumber) || customer.getIDocument().equals(iDocument)) {
                 System.out.println("the phone number or the iDocument is already exist");
                 return;
@@ -69,7 +83,7 @@ public class LoginCustomerMenu extends Menu {
             password = getPassword();
         }
         Customer customer = new Customer(firstName, lastName, password, iDocument, phoneNumber);
-        DB.getCustomerDB().addCustomer(customer);
+        customerDB.addCustomer(customer);
     }
 
     private boolean checkPassword(String password) {

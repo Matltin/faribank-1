@@ -23,6 +23,10 @@ public class AnswerDB {
         messageList.remove(message);
     }
 
+    public int size() {
+        return messageList.size();
+    }
+
     public void printMessage() {
         int counter = 1;
         for (Message message : messageList) {

@@ -6,7 +6,7 @@ import ir.ac.kntu.message.Message;
 import ir.ac.kntu.message.MessageOption;
 import ir.ac.kntu.person.customer.Customer;
 
-public class RequestMenu extends Menu {
+public class RequestCustomerMenu extends Menu {
     @Override
     public void show() {
         System.out.println("request menu");

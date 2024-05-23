@@ -1,19 +1,33 @@
-package ir.ac.kntu.menu.admin.requst;
+package ir.ac.kntu.menu.admin.requstmenu;
 
 import ir.ac.kntu.db.AnswerDB;
 import ir.ac.kntu.menu.Menu;
+import ir.ac.kntu.menu.admin.searchmenu.SearchMenu;
 import ir.ac.kntu.message.State;
 
-public class RequestMenu extends Menu {
+public class RequestAdminMenu extends Menu {
+
+    private AnswerDB answerDB;
+    private SearchMenu searchMenu;
+
+    public RequestAdminMenu(AnswerDB answerDB, SearchMenu searchMenu) {
+        this.answerDB = answerDB;
+        this.searchMenu = searchMenu;
+    }
+
     @Override
     public void show() {
         System.out.println("request menu");
-        RequestMenuOption requestMenuOption = printMenuOption();
-        while (requestMenuOption != RequestMenuOption.BACK) {
-            if (requestMenuOption != null) {
+        RequestAdminMenuOption requestMenuOption = printMenuOption();
+        while (requestMenuOption != RequestAdminMenuOption.BACK) {
+            if(requestMenuOption != null) {
                 switch (requestMenuOption) {
                     case SEARCH:
+                        searchMenu.show();
+                        break;
                     case SHOW:
+                        showRequest(answerDB);
+                        break;
                     default:
                         break;
                 }
@@ -24,18 +38,21 @@ public class RequestMenu extends Menu {
         }
     }
 
-    private RequestMenuOption printMenuOption() {
+    private RequestAdminMenuOption printMenuOption() {
         System.out.println("----------request Menu----------");
-        RequestMenuOption.printOption();
+        RequestAdminMenuOption.printOption();
         System.out.print("Enter your choice : ");
-        return getOption(RequestMenuOption.class);
+        return getOption(RequestAdminMenuOption.class);
     }
 
     private void showRequest(AnswerDB answerDB) {
         answerDB.printMessage();
+        if(answerDB.size() == 0) {
+            System.out.println("size of request is empty!!");
+            return;
+        }
         int number = getNumber();
         answerDB.getMessageList().get(number - 1).setState(State.IN_PROGRESS);
         System.out.println(answerDB.getMessageList().get(number - 1) + "phone number : " + answerDB.getMessageList().get(number - 1).getPhoneNumber());
     }
-
 }

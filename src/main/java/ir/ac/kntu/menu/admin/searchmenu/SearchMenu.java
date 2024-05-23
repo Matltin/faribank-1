@@ -2,10 +2,25 @@ package ir.ac.kntu.menu.admin.searchmenu;
 
 import ir.ac.kntu.db.AnswerDB;
 import ir.ac.kntu.menu.Menu;
+import ir.ac.kntu.menu.admin.branch.BranchMenu;
+import ir.ac.kntu.menu.admin.statemenu.StateMenu;
 import ir.ac.kntu.message.Message;
 import ir.ac.kntu.message.State;
 
+import java.lang.reflect.AnnotatedWildcardType;
+
 public class SearchMenu extends Menu {
+
+    private AnswerDB answerDB;
+    private StateMenu stateMenu;
+    private BranchMenu branchMenu;
+
+    public SearchMenu(AnswerDB answerDB, StateMenu stateMenu, BranchMenu branchMenu) {
+        this.answerDB = answerDB;
+        this.stateMenu = stateMenu;
+        this.branchMenu = branchMenu;
+    }
+
     @Override
     public void show() {
         System.out.println("search menu");
@@ -14,8 +29,11 @@ public class SearchMenu extends Menu {
             if (searchMenuOption != null) {
                 switch (searchMenuOption) {
                     case STATE:
+                        stateMenu.show();
                     case BRANCH:
+                        branchMenu.show();
                     case USER:
+                        searchByUser(answerDB);
                     default:
                         break;
                 }

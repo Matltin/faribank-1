@@ -1,10 +1,21 @@
 package ir.ac.kntu.menu.admin.useraccessmenu;
 
-import ir.ac.kntu.db.DB;
+import ir.ac.kntu.db.CustomerDB;
+import ir.ac.kntu.db.DataBase;
 import ir.ac.kntu.menu.Menu;
+import ir.ac.kntu.menu.admin.searchusermenu.SearchUserMenu;
 import ir.ac.kntu.person.customer.Customer;
 
 public class UserAccessMenu extends Menu {
+
+    private CustomerDB customerDB;
+    private SearchUserMenu searchUserMenu;
+
+    public UserAccessMenu(CustomerDB customerDB, SearchUserMenu searchUserMenu) {
+        this.customerDB = customerDB;
+        this.searchUserMenu = searchUserMenu;
+    }
+
     @Override
     public void show() {
         System.out.println("user access menu");
@@ -14,7 +25,10 @@ public class UserAccessMenu extends Menu {
                 switch (userAccessMenuOption) {
                     case SHOW_USER:
                         showUser();
+                        break;
                     case SEARCH_USER:
+                        searchUserMenu.show();
+                        break;
                     default:
                         break;
                 }
@@ -23,7 +37,6 @@ public class UserAccessMenu extends Menu {
             }
             userAccessMenuOption = printMenuOption();
         }
-
     }
 
     private UserAccessMenuOption printMenuOption() {
@@ -35,9 +48,12 @@ public class UserAccessMenu extends Menu {
 
     private void showUser() {
         int counter = 1;
-        for (Customer customer : DB.getCustomerDB().getCustomers()) {
+        for (Customer customer : customerDB.getCustomers()) {
             System.out.println(counter + ". " + customer.getFirstName() + " " + customer.getLastName() + " " + customer.getPhoneNumber());
             counter++;
+        }
+        if(customerDB.size() == 0) {
+            System.out.println("it is empty!!");
         }
 
     }

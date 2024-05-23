@@ -1,10 +1,21 @@
 package ir.ac.kntu.menu.admin.loginadminmenu;
 
-import ir.ac.kntu.db.DB;
+import ir.ac.kntu.db.AdminDB;
+import ir.ac.kntu.db.DataBase;
 import ir.ac.kntu.menu.Menu;
+import ir.ac.kntu.menu.admin.adminmenu.AdminMenu;
 import ir.ac.kntu.person.admin.Admin;
 
 public class LoginAdminMenu extends Menu {
+
+    private AdminDB adminDB;
+    private AdminMenu adminMenu;
+
+    public LoginAdminMenu(AdminDB adminDB, AdminMenu adminMenu) {
+        this.adminDB = adminDB;
+        this.adminMenu = adminMenu;
+    }
+
     @Override
     public void show() {
         System.out.println("logging page");
@@ -14,8 +25,10 @@ public class LoginAdminMenu extends Menu {
                 switch (loginAdminMenuOption) {
                     case LOGIN:
                         login();
+                        break;
                     case REGISTER:
                         register();
+                        break;
                     default:
                         break;
                 }
@@ -36,9 +49,9 @@ public class LoginAdminMenu extends Menu {
     private void login() {
         String userName = getUserName();
         String password = getPassword();
-        for (Admin admin : DB.getAdminDB().getAdmins()) {
+        for (Admin admin : adminDB.getAdmins()) {
             if (admin.getUserName().equals(userName) && admin.getPassword().equals(password)) {
-
+                adminMenu.show(admin);
                 return;
             }
         }

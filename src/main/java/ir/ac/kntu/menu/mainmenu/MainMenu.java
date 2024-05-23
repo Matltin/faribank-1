@@ -1,9 +1,21 @@
 package ir.ac.kntu.menu.mainmenu;
 
+import ir.ac.kntu.db.AdminDB;
 import ir.ac.kntu.menu.Menu;
+import ir.ac.kntu.menu.admin.adminmenu.AdminMenu;
+import ir.ac.kntu.menu.admin.loginadminmenu.LoginAdminMenu;
+import ir.ac.kntu.menu.customer.customermenu.CustomerMenu;
+import ir.ac.kntu.menu.customer.logincustomermenu.LoginCustomerMenu;
 
 public class MainMenu extends Menu {
 
+    private LoginAdminMenu loginAdminMenu;
+    private LoginCustomerMenu loginCustomerMenu;
+
+    public MainMenu(LoginAdminMenu loginAdminMenu, LoginCustomerMenu loginCustomerMenu) {
+        this.loginAdminMenu = loginAdminMenu;
+        this.loginCustomerMenu = loginCustomerMenu;
+    }
 
     @Override
     public void show() {
@@ -13,8 +25,11 @@ public class MainMenu extends Menu {
             if (mainMenuOption != null) {
                 switch (mainMenuOption) {
                     case ADMIN:
+                        loginAdminMenu.show();
+                        break;
                     case CUSTOMER:
-
+                        loginAdminMenu.show();
+                        break;
                     default:
                         break;
                 }

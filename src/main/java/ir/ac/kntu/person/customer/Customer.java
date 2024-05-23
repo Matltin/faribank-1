@@ -1,9 +1,6 @@
 package ir.ac.kntu.person.customer;
 
-import ir.ac.kntu.db.ContactPersonDB;
-import ir.ac.kntu.db.DB;
-import ir.ac.kntu.db.MessageDB;
-import ir.ac.kntu.db.RecentTransactionDB;
+import ir.ac.kntu.db.*;
 import ir.ac.kntu.faribank.account.Account;
 import ir.ac.kntu.person.ContactPerson;
 import ir.ac.kntu.person.Person;
@@ -96,25 +93,27 @@ public class Customer extends Person {
         this.messageDB = messageDB;
     }
 
-    public void addContactPerson(String firstName, String lastName, String phoneNumber) {
-        String accountNumber = "";
-        for (Customer customer : DB.getCustomerDB().getCustomers()) {
-            if (customer.getPhoneNumber().equals(phoneNumber)) {
-                accountNumber = customer.getAccount().getAccountNO();
-                break;
-            }
-        }
-        try {
-            if (!accountNumber.isEmpty()) {
-                ContactPerson contactPerson = new ContactPerson(firstName, lastName, phoneNumber, accountNumber);
-                contactPersonDB.addContactPerson(contactPerson);
-            } else {
-                throw new RuntimeException("404 : user not found!!");
-            }
-        } catch (Exception e) {
-            System.err.println(e.getMessage());
-        }
-    }
+
+
+//    public void addContactPerson(String firstName, String lastName, String phoneNumber) {
+//        String accountNumber = "";
+//        for (Customer customer : DataBase.getCustomerDB().getCustomers()) {
+//            if (customer.getPhoneNumber().equals(phoneNumber)) {
+//                accountNumber = customer.getAccount().getAccountNO();
+//                break;
+//            }
+//        }
+//        try {
+//            if (!accountNumber.isEmpty()) {
+//                ContactPerson contactPerson = new ContactPerson(firstName, lastName, phoneNumber, accountNumber);
+//                contactPersonDB.addContactPerson(contactPerson);
+//            } else {
+//                throw new RuntimeException("404 : user not found!!");
+//            }
+//        } catch (Exception e) {
+//            System.err.println(e.getMessage());
+//        }
+//    }
 
     @Override
     public String toString() {

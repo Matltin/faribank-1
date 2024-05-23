@@ -48,4 +48,8 @@ public class CustomerDB {
     public boolean doesExist(Customer customer) {
         return customers.contains(customer);
     }
+
+    public int size() {
+        return customers.size();
+    }
 }

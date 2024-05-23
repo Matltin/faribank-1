@@ -7,6 +7,13 @@ import ir.ac.kntu.message.MessageOption;
 import ir.ac.kntu.message.State;
 
 public class StateMenu extends Menu {
+
+    private AnswerDB answerDB;
+
+    public StateMenu(AnswerDB answerDB) {
+        this.answerDB = answerDB;
+    }
+
     @Override
     public void show() {
         System.out.println("state menu");
@@ -15,8 +22,13 @@ public class StateMenu extends Menu {
             if (state != null) {
                 switch (state) {
                     case SUBMIT:
+                        showSubmit(answerDB);
+                        break;
                     case IN_PROGRESS:
+                        showInProgress(answerDB);
+                        break;
                     case CLOSED:
+                        showClosed(answerDB);
                     default:
                         break;
                 }

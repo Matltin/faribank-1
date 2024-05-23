@@ -34,8 +34,8 @@ public class AccountMangeMenu extends Menu {
     }
 
     private void increaseCredit(Customer customer) {
-        long inputMoney = getInputMoney();
-        customer.getAccount().increaseCredit(inputMoney);
+//        long inputMoney = getInputMoney();
+//        customer.getAccount().increaseCredit(inputMoney);
     }
 
     private void showAccountBalance(Customer customer) {

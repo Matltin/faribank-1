@@ -1,6 +1,6 @@
 package ir.ac.kntu.menu.customer.transfermoneymenu;
 
-import ir.ac.kntu.db.DB;
+import ir.ac.kntu.db.DataBase;
 import ir.ac.kntu.menu.Menu;
 import ir.ac.kntu.person.ContactPerson;
 import ir.ac.kntu.person.customer.Customer;
@@ -40,7 +40,7 @@ public class TransferMenu extends Menu {
         if (0 < number && number <= customer.getRecentTransaction().getContactPersonList().size()) {
             ContactPerson contactPerson = customer.getRecentTransaction().getContactPersonList().get(number - 1);
             long inputMoney = getInputMoney();
-            customer.getAccount().transferMoney(inputMoney, customer.getAccount().getAccountNO());
+//            customer.getAccount().transferMoney(inputMoney, customer.getAccount().getAccountNO());
         } else {
             System.out.println("Number out of range!");
         }
@@ -64,27 +64,27 @@ public class TransferMenu extends Menu {
 
     private void transferByAccount(Customer customer) {
         String accountNo = getAccountNumber();
-        Customer cust = DB.getCustomerDB().findCustomer(accountNo);
-        if (cust != null) {
-            long inputMoney = getInputMoney();
-            customer.getAccount().transferMoney(inputMoney, accountNo);
-            ContactPerson contactPerson1 = new ContactPerson(cust.getFirstName(), cust.getLastName(), cust.getPhoneNumber(), cust.getAccount().getAccountNO());
-            customer.getRecentTransaction().addContactPersonList(contactPerson1);
-        } else {
-            System.out.println("There is co person with this account number !!");
-        }
+//        Customer cust = DataBase.getCustomerDB().findCustomer(accountNo);
+//        if (cust != null) {
+//            long inputMoney = getInputMoney();
+//            customer.getAccount().transferMoney(inputMoney, accountNo);
+//            ContactPerson contactPerson1 = new ContactPerson(cust.getFirstName(), cust.getLastName(), cust.getPhoneNumber(), cust.getAccount().getAccountNO());
+//            customer.getRecentTransaction().addContactPersonList(contactPerson1);
+//        } else {
+//            System.out.println("There is co person with this account number !!");
+//        }
     }
 
     private void checkContact(int number, Customer customer) {
-        ContactPerson contactPerson = customer.getContactPerson().getContactPerson().get(number - 1);
-        Customer cust = DB.getCustomerDB().findCustomer(contactPerson.getAccountNumber());
-        if (cust.getContactPerson().checkContact(customer.getAccount().getAccountNO())) {
-            long inputMoney = getInputMoney();
-            customer.getAccount().transferMoney(inputMoney, cust.getAccount().getAccountNO());
-            ContactPerson contactPerson1 = new ContactPerson(cust.getFirstName(), cust.getLastName(), cust.getPhoneNumber(), cust.getAccount().getAccountNO());
-            customer.getRecentTransaction().addContactPersonList(contactPerson1);
-        } else {
-            System.out.println("your are not contact of " + cust.getFirstName() + " " + cust.getFirstName());
-        }
+//        ContactPerson contactPerson = customer.getContactPerson().getContactPerson().get(number - 1);
+//        Customer cust = DataBase.getCustomerDB().findCustomer(contactPerson.getAccountNumber());
+//        if (cust.getContactPerson().checkContact(customer.getAccount().getAccountNO())) {
+//            long inputMoney = getInputMoney();
+//            customer.getAccount().transferMoney(inputMoney, cust.getAccount().getAccountNO());
+//            ContactPerson contactPerson1 = new ContactPerson(cust.getFirstName(), cust.getLastName(), cust.getPhoneNumber(), cust.getAccount().getAccountNO());
+//            customer.getRecentTransaction().addContactPersonList(contactPerson1);
+//        } else {
+//            System.out.println("your are not contact of " + cust.getFirstName() + " " + cust.getFirstName());
+//        }
     }
 }

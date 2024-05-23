@@ -48,17 +48,17 @@ public abstract class Menu {
 
     public String getAccountNumber() {
         System.out.println("Enter Account number : ");
-        return ScannerWrapper.getInstance().next();
+        return ScannerWrapper.getInstance().nextLine();
     }
 
     public String getDate() {
         System.out.println("Enter date : ");
-        return ScannerWrapper.getInstance().next();
+        return ScannerWrapper.getInstance().nextLine();
     }
 
     public String getPassword() {
         System.out.println("Enter password : ");
-        return ScannerWrapper.getInstance().next();
+        return ScannerWrapper.getInstance().nextLine();
     }
 
     public String getUserName() {
@@ -70,6 +70,13 @@ public abstract class Menu {
         System.out.println("Enter Message : ");
         return ScannerWrapper.getInstance().nextLine();
     }
+
+    public String getYesNo() {
+        System.out.println("Do you want accept ? (Y/N) : ");
+        return ScannerWrapper.getInstance().nextLine();
+    }
+
+
 
 
 }
