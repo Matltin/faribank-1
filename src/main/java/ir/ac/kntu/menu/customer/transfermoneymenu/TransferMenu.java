@@ -1,7 +1,6 @@
 package ir.ac.kntu.menu.customer.transfermoneymenu;
 
 import ir.ac.kntu.db.CustomerDB;
-import ir.ac.kntu.db.DataBase;
 import ir.ac.kntu.menu.Menu;
 import ir.ac.kntu.person.ContactPerson;
 import ir.ac.kntu.person.customer.Customer;
@@ -59,7 +58,7 @@ public class TransferMenu extends Menu {
         if (0 < number && number <= customer.getRecentTransaction().getContactPersonList().size()) {
             ContactPerson contactPerson = customer.getRecentTransaction().getContactPersonList().get(number - 1);
             long inputMoney = getInputMoney();
-            customer.getAccount().transferMoney(inputMoney, customer.getAccount().getAccountNO());
+            customer.getAccount().transferMoney(inputMoney, customer.getAccount().getAccountNO(), customerDB);
         } else {
             System.out.println("Number out of range!");
         }
@@ -86,7 +85,7 @@ public class TransferMenu extends Menu {
         Customer cust = customerDB.findCustomer(accountNo);
         if (cust != null) {
             long inputMoney = getInputMoney();
-            customer.getAccount().transferMoney(inputMoney, accountNo);
+            customer.getAccount().transferMoney(inputMoney, accountNo, customerDB);
             ContactPerson contactPerson1 = new ContactPerson(cust.getFirstName(), cust.getLastName(), cust.getPhoneNumber(), cust.getAccount().getAccountNO());
             customer.getRecentTransaction().addContactPersonList(contactPerson1);
         } else {
@@ -99,7 +98,7 @@ public class TransferMenu extends Menu {
         Customer cust = customerDB.findCustomer(contactPerson.getAccountNumber());
         if (cust.getContactPerson().checkContact(customer.getAccount().getAccountNO())) {
             long inputMoney = getInputMoney();
-            customer.getAccount().transferMoney(inputMoney, cust.getAccount().getAccountNO());
+            customer.getAccount().transferMoney(inputMoney, cust.getAccount().getAccountNO(), customerDB);
             ContactPerson contactPerson1 = new ContactPerson(cust.getFirstName(), cust.getLastName(), cust.getPhoneNumber(), cust.getAccount().getAccountNO());
             customer.getRecentTransaction().addContactPersonList(contactPerson1);
         } else {

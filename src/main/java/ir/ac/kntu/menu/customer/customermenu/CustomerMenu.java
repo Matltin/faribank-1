@@ -6,7 +6,6 @@ import ir.ac.kntu.menu.customer.contactmenu.ContactMenu;
 import ir.ac.kntu.menu.customer.settingmenu.SettingMenu;
 import ir.ac.kntu.menu.customer.support.SupportMenu;
 import ir.ac.kntu.menu.customer.transfermoneymenu.TransferMenu;
-import ir.ac.kntu.menu.customer.transfermoneymenu.TransferMenuOption;
 import ir.ac.kntu.person.customer.Customer;
 
 public class CustomerMenu extends Menu {

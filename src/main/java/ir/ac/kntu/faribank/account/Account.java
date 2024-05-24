@@ -2,7 +2,6 @@ package ir.ac.kntu.faribank.account;
 
 import ir.ac.kntu.Constance;
 import ir.ac.kntu.db.CustomerDB;
-import ir.ac.kntu.db.DataBase;
 import ir.ac.kntu.db.TransactionDB;
 import ir.ac.kntu.person.customer.Customer;
 import ir.ac.kntu.transaction.Transaction;
@@ -51,11 +50,11 @@ public class Account {
         this.transactionDB = transactionDB;
     }
 
-    public void transferMoney(long inputMoney, String accountNO) {
+    public void transferMoney(long inputMoney, String accountNO, CustomerDB customerDB) {
         try {
             if (inputMoney + Constance.WAGE <= balance) {
                 setBalance(getBalance() - inputMoney - Constance.WAGE);
-                transferMoneyToCustomer(inputMoney, accountNO);
+                transferMoneyToCustomer(inputMoney, accountNO, customerDB);
             } else {
                 throw new RuntimeException("input money : " + inputMoney + " Your balance!!");
             }
@@ -64,9 +63,8 @@ public class Account {
         }
     }
 
-    private void transferMoneyToCustomer(long money, String accountNO) {
-        CustomerDB customers = DataBase.getCustomerDB();
-        Customer customer = customers.findCustomer(accountNO);
+    private void transferMoneyToCustomer(long money, String accountNO, CustomerDB customerDB) {
+        Customer customer = customerDB.findCustomer(accountNO);
         customer.getAccount().setBalance(money + getBalance());
         Transaction transaction = new Transaction(customer.getFirstName(), customer.getLastName(), customer.getAccount().getAccountNO(), getAccountNO(), TransactionType.TRANSFER);
         transactionDB.addTransaction(transaction);

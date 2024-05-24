@@ -22,14 +22,14 @@ public class Admin extends Person {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) {
+    public boolean equals(Object obj) {
+        if (this == obj) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        Admin admin = (Admin) o;
+        Admin admin = (Admin) obj;
         return Objects.equals(userName, admin.userName);
     }
 

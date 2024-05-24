@@ -19,9 +19,17 @@ public class SettingMenu extends Menu {
             if (settingMenuOption != null) {
                 switch (settingMenuOption) {
                     case EDIT_USER_PASSWORD:
+                        editUserPassword();
+                        break;
                     case EDIT_CARD_PASSWORD:
+                        editCardPassword();
+                        break;
                     case ACTIVATION_CONTACT:
+                        activationContact();
+                        break;
                     case UN_ACTIVATION_CONTACT:
+                        unActivationContact();
+                        break;
                     default:
                         break;
                 }

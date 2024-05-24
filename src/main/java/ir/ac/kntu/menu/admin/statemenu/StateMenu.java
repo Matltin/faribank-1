@@ -3,7 +3,6 @@ package ir.ac.kntu.menu.admin.statemenu;
 import ir.ac.kntu.db.AnswerDB;
 import ir.ac.kntu.menu.Menu;
 import ir.ac.kntu.message.Message;
-import ir.ac.kntu.message.MessageOption;
 import ir.ac.kntu.message.State;
 
 public class StateMenu extends Menu {

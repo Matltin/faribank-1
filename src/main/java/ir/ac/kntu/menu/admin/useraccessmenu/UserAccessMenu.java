@@ -1,7 +1,6 @@
 package ir.ac.kntu.menu.admin.useraccessmenu;
 
 import ir.ac.kntu.db.CustomerDB;
-import ir.ac.kntu.db.DataBase;
 import ir.ac.kntu.menu.Menu;
 import ir.ac.kntu.menu.admin.searchusermenu.SearchUserMenu;
 import ir.ac.kntu.person.customer.Customer;

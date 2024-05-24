@@ -1,7 +1,6 @@
 package ir.ac.kntu.menu.admin.loginadminmenu;
 
 import ir.ac.kntu.db.AdminDB;
-import ir.ac.kntu.db.DataBase;
 import ir.ac.kntu.menu.Menu;
 import ir.ac.kntu.menu.admin.adminmenu.AdminMenu;
 import ir.ac.kntu.person.admin.Admin;

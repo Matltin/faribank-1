@@ -1,10 +1,7 @@
 package ir.ac.kntu.menu.mainmenu;
 
-import ir.ac.kntu.db.AdminDB;
 import ir.ac.kntu.menu.Menu;
-import ir.ac.kntu.menu.admin.adminmenu.AdminMenu;
 import ir.ac.kntu.menu.admin.loginadminmenu.LoginAdminMenu;
-import ir.ac.kntu.menu.customer.customermenu.CustomerMenu;
 import ir.ac.kntu.menu.customer.logincustomermenu.LoginCustomerMenu;
 
 public class MainMenu extends Menu {

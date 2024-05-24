@@ -7,8 +7,6 @@ import ir.ac.kntu.menu.admin.statemenu.StateMenu;
 import ir.ac.kntu.message.Message;
 import ir.ac.kntu.message.State;
 
-import java.lang.reflect.AnnotatedWildcardType;
-
 public class SearchMenu extends Menu {
 
     private AnswerDB answerDB;
