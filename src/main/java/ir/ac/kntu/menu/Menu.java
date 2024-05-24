@@ -38,12 +38,12 @@ public abstract class Menu {
 
     public Long getInputMoney() {
         System.out.println("Enter the money : ");
-        return ScannerWrapper.getInstance().nextLong();
+        return Long.valueOf(ScannerWrapper.getInstance().nextLine());
     }
 
     public Integer getNumber() {
         System.out.println("Enter number : ");
-        return ScannerWrapper.getInstance().nextInt();
+        return Integer.valueOf(ScannerWrapper.getInstance().nextLine());
     }
 
     public String getAccountNumber() {

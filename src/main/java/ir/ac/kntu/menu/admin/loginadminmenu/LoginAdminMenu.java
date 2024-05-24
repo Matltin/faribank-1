@@ -1,5 +1,6 @@
 package ir.ac.kntu.menu.admin.loginadminmenu;
 
+import ir.ac.kntu.Constance;
 import ir.ac.kntu.db.AdminDB;
 import ir.ac.kntu.menu.Menu;
 import ir.ac.kntu.menu.admin.adminmenu.AdminMenu;
@@ -39,7 +40,7 @@ public class LoginAdminMenu extends Menu {
     }
 
     private LoginAdminMenuOption printMenuOption() {
-        System.out.println("----------logging Menu----------");
+        System.out.println("----------logging admin Menu----------");
         LoginAdminMenuOption.printOption();
         System.out.print("Enter your choice : ");
         return getOption(LoginAdminMenuOption.class);
@@ -54,7 +55,7 @@ public class LoginAdminMenu extends Menu {
                 return;
             }
         }
-        System.out.println("invalid username or password");
+        System.out.println(Constance.RED + "invalid username or password");
     }
 
     private void register() {

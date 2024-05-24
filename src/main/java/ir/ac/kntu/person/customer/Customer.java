@@ -6,6 +6,7 @@ import ir.ac.kntu.person.ContactPerson;
 import ir.ac.kntu.person.Person;
 
 import java.util.Objects;
+import java.util.Random;
 
 public class Customer extends Person {
 
@@ -27,6 +28,7 @@ public class Customer extends Person {
         contactAvailable = true;
         state = State.IN_PROGRESSING;
         messageDB = new MessageDB();
+        account = new Account(0, randomAccountNO());
     }
 
     public String getIDocument() {
@@ -93,8 +95,6 @@ public class Customer extends Person {
         this.messageDB = messageDB;
     }
 
-
-
     public void addContactPerson(String firstName, String lastName, String phoneNumber, CustomerDB customerDB) {
         String accountNumber = "";
         for (Customer customer : customerDB.getCustomers()) {
@@ -113,6 +113,11 @@ public class Customer extends Person {
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
+    }
+
+    private String randomAccountNO() {
+        Random r = new Random();
+        return String.valueOf(r.nextInt((int)Math.pow(10, 8), (int)Math.pow(10, 9)));
     }
 
     @Override

@@ -1,5 +1,6 @@
 package ir.ac.kntu.menu.customer.logincustomermenu;
 
+import ir.ac.kntu.Constance;
 import ir.ac.kntu.db.CustomerDB;
 import ir.ac.kntu.menu.Menu;
 import ir.ac.kntu.menu.customer.customermenu.CustomerMenu;
@@ -29,8 +30,10 @@ public class LoginCustomerMenu extends Menu {
                 switch (loginCustomerMenuOption) {
                     case LOGIN:
                         login();
+                        break;
                     case REGISTER:
                         register();
+                        break;
                     default:
                         break;
                 }
@@ -42,7 +45,7 @@ public class LoginCustomerMenu extends Menu {
     }
 
     private LoginCustomerMenuOption printMenuOption() {
-        System.out.println("----------logging Menu----------");
+        System.out.println("----------logging customer Menu----------");
         LoginCustomerMenuOption.printOption();
         System.out.print("Enter your choice : ");
         return getOption(LoginCustomerMenuOption.class);
@@ -62,7 +65,7 @@ public class LoginCustomerMenu extends Menu {
             if(cust.getState() == State.ACCEPTED) {
                 customerMenu.show(cust);
             } else if(cust.getState() == State.IN_PROGRESSING) {
-                System.out.println("in progressing!!");
+                System.out.println(Constance.YELLOW + "in progressing!!");
             } else if(cust.getState() == State.REJECT) {
                 System.out.println(cust.getMessageDB().getMessageList().get(0));
             }
@@ -83,7 +86,7 @@ public class LoginCustomerMenu extends Menu {
                 return;
             }
         }
-        while (!checkPassword(password)) {
+        while (!checkPasswordStrength(password)) {
             System.out.println("password is too weak!");
             System.out.println("password must have lower case and upperCase and numeric and special character(@,#,$,&,*)");
             password = getPassword();
@@ -92,28 +95,29 @@ public class LoginCustomerMenu extends Menu {
         customerDB.addCustomer(customer);
     }
 
-    private boolean checkPassword(String password) {
-        boolean upperCase = false;
-        boolean lowerCase = false;
-        boolean number = false;
-        boolean character = false;
-        if (password.length() < 8) {
-            return false;
-        }
-        for (int i = 0; i < password.length(); i++) {
-            if (Character.isUpperCase(password.charAt(i))) {
-                upperCase = true;
-            } else if (Character.isLowerCase(password.charAt(i))) {
-                lowerCase = true;
-            } else if (Character.isDigit(password.charAt(i))) {
-                number = true;
-            } else if (isCharacter(password.charAt(i))) {
-                character = true;
-            } else if (isInvalidCharacter(password.charAt(i))) {
-                return false;
-            }
-        }
-        return upperCase && lowerCase && number && character;
+    private boolean checkPasswordStrength(String password) {
+//        boolean upperCase = false;
+//        boolean lowerCase = false;
+//        boolean number = false;
+//        boolean character = false;
+//        if (password.length() < 8) {
+//            return false;
+//        }
+//        for (int i = 0; i < password.length(); i++) {
+//            if (Character.isUpperCase(password.charAt(i))) {
+//                upperCase = true;
+//            } else if (Character.isLowerCase(password.charAt(i))) {
+//                lowerCase = true;
+//            } else if (Character.isDigit(password.charAt(i))) {
+//                number = true;
+//            } else if (isCharacter(password.charAt(i))) {
+//                character = true;
+//            } else if (isInvalidCharacter(password.charAt(i))) {
+//                return false;
+//            }
+//        }
+//        return upperCase && lowerCase && number && character;
+        return true;
     }
 
     private boolean isCharacter(char ch) {

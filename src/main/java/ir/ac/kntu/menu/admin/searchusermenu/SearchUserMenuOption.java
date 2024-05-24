@@ -11,7 +11,7 @@ public enum SearchUserMenuOption {
     BACK;
 
     public static void printOption() {
-        System.out.println("Search by" +
+        System.out.println("\nSearch by\n" +
                 "1.First name\n" +
                 "2.Last name\n" +
                 "3.Phone number\n" +

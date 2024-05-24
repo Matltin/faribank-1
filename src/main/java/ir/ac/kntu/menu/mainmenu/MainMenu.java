@@ -1,5 +1,6 @@
 package ir.ac.kntu.menu.mainmenu;
 
+import ir.ac.kntu.Constance;
 import ir.ac.kntu.menu.Menu;
 import ir.ac.kntu.menu.admin.loginadminmenu.LoginAdminMenu;
 import ir.ac.kntu.menu.customer.logincustomermenu.LoginCustomerMenu;
@@ -25,13 +26,13 @@ public class MainMenu extends Menu {
                         loginAdminMenu.show();
                         break;
                     case CUSTOMER:
-                        loginAdminMenu.show();
+                        loginCustomerMenu.show();
                         break;
                     default:
                         break;
                 }
             } else {
-                System.out.println("invalid input!!");
+                System.out.println(Constance.RED + "invalid input!!");
             }
             mainMenuOption = printMenuOptions();
         }

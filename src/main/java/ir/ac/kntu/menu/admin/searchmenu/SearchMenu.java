@@ -1,5 +1,6 @@
 package ir.ac.kntu.menu.admin.searchmenu;
 
+import ir.ac.kntu.Constance;
 import ir.ac.kntu.db.AnswerDB;
 import ir.ac.kntu.menu.Menu;
 import ir.ac.kntu.menu.admin.branch.BranchMenu;
@@ -28,10 +29,13 @@ public class SearchMenu extends Menu {
                 switch (searchMenuOption) {
                     case STATE:
                         stateMenu.show();
+                        break;
                     case BRANCH:
                         branchMenu.show();
+                        break;
                     case USER:
                         searchByUser(answerDB);
+                        break;
                     default:
                         break;
                 }
@@ -51,6 +55,10 @@ public class SearchMenu extends Menu {
     }
 
     private void searchByUser(AnswerDB answerDB) {
+        if(answerDB.size() == 0) {
+            System.out.println(Constance.RED + "there is no customer to show" + Constance.WHITE);
+            return;
+        }
         String phoneNumber = getPhoneNumber();
         for (Message message : answerDB.getMessageList()) {
             if (message.getPhoneNumber().equals(phoneNumber)) {

@@ -1,5 +1,6 @@
 package ir.ac.kntu.menu.admin.requstmenu;
 
+import ir.ac.kntu.Constance;
 import ir.ac.kntu.db.AnswerDB;
 import ir.ac.kntu.menu.Menu;
 import ir.ac.kntu.menu.admin.searchmenu.SearchMenu;
@@ -48,7 +49,7 @@ public class RequestAdminMenu extends Menu {
     private void showRequest(AnswerDB answerDB) {
         answerDB.printMessage();
         if(answerDB.size() == 0) {
-            System.out.println("size of request is empty!!");
+            System.out.println(Constance.RED + "there is no customer to show");
             return;
         }
         int number = getNumber();

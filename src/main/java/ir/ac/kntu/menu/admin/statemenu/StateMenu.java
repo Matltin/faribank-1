@@ -1,5 +1,6 @@
 package ir.ac.kntu.menu.admin.statemenu;
 
+import ir.ac.kntu.Constance;
 import ir.ac.kntu.db.AnswerDB;
 import ir.ac.kntu.menu.Menu;
 import ir.ac.kntu.message.Message;
@@ -46,6 +47,9 @@ public class StateMenu extends Menu {
     }
 
     private void showSubmit(AnswerDB answerDB) {
+        if(answerDB.size() == 0) {
+            System.out.println(Constance.RED + "there is no customer to show!!");
+        }
         print(answerDB, State.SUBMIT);
         int number = getNumber();
         int counter = 0;
@@ -58,6 +62,9 @@ public class StateMenu extends Menu {
     }
 
     private void showInProgress(AnswerDB answerDB) {
+        if(answerDB.size() == 0) {
+            System.out.println(Constance.RED + "there is no customer to show!!");
+        }
         print(answerDB, State.IN_PROGRESS);
         int number = getNumber();
         int counter = 0;
@@ -70,6 +77,9 @@ public class StateMenu extends Menu {
     }
 
     private void showClosed(AnswerDB answerDB) {
+        if(answerDB.size() == 0) {
+            System.out.println(Constance.RED + "there is no customer to show!!");
+        }
         int counter = 1;
         for (Message message : answerDB.getMessageList()) {
             if (message.getState() == State.CLOSED) {

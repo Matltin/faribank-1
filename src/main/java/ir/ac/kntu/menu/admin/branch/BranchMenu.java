@@ -1,5 +1,6 @@
 package ir.ac.kntu.menu.admin.branch;
 
+import ir.ac.kntu.Constance;
 import ir.ac.kntu.db.AnswerDB;
 import ir.ac.kntu.menu.Menu;
 import ir.ac.kntu.message.Message;
@@ -51,6 +52,10 @@ public class BranchMenu extends Menu {
     }
 
     private void showByContact(AnswerDB answerDB) {
+        if(answerDB.size() == 0) {
+            System.out.println(Constance.RED + "there is no customer" + Constance.WHITE);
+            return;
+        }
         print(answerDB, MessageOption.CONTACT);
         int number = getNumber();
         int counter = 0;
@@ -63,6 +68,10 @@ public class BranchMenu extends Menu {
     }
 
     private void showSetting(AnswerDB answerDB) {
+        if(answerDB.size() == 0) {
+            System.out.println(Constance.RED + "there is no customer" + Constance.WHITE);
+            return;
+        }
         print(answerDB, MessageOption.SETTING);
         int number = getNumber();
         int counter = 0;
@@ -75,6 +84,10 @@ public class BranchMenu extends Menu {
     }
 
     private void showTransfer(AnswerDB answerDB) {
+        if(answerDB.size() == 0) {
+            System.out.println(Constance.RED + "there is no customer" + Constance.WHITE);
+            return;
+        }
         print(answerDB, MessageOption.TRANSFER);
         int number = getNumber();
         int counter = 0;
@@ -87,6 +100,10 @@ public class BranchMenu extends Menu {
     }
 
     private void showReport(AnswerDB answerDB) {
+        if(answerDB.size() == 0) {
+            System.out.println(Constance.RED + "there is no customer");
+            return;
+        }
         print(answerDB, MessageOption.REPORT);
         int number = getNumber();
         int counter = 0;
