@@ -3,6 +3,7 @@ package ir.ac.kntu.faribank.account;
 import ir.ac.kntu.Constance;
 import ir.ac.kntu.db.CustomerDB;
 import ir.ac.kntu.db.TransactionDB;
+import ir.ac.kntu.faribank.card.Card;
 import ir.ac.kntu.person.customer.Customer;
 import ir.ac.kntu.transaction.Transaction;
 import ir.ac.kntu.transaction.TransactionType;
@@ -12,6 +13,7 @@ public class Account {
     private long balance;
     private String accountNO;
     private TransactionDB transactionDB;
+    private Card card;
 
     public Account(long balance, String accountNO) {
         this.balance = balance;
@@ -33,6 +35,10 @@ public class Account {
 
     public void setAccountNO(String accountNO) {
         this.accountNO = accountNO;
+    }
+
+    public Card getCard() {
+        return card;
     }
 
     public void increaseCredit(long inputMoney, CustomerDB customerDB) {

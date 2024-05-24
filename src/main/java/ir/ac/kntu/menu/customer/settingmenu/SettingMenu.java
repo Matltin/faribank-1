@@ -53,7 +53,12 @@ public class SettingMenu extends Menu {
     }
 
     private void editCardPassword() {
-        System.out.println("this feature is coming soon!!");
+        String password = getPassword();
+        if(password.matches("[0-9]{4}")) {
+            customer.getAccount().getCard().setPassword(password);
+        } else {
+            System.out.println("invalid password format!!");
+        }
     }
 
     private void activationContact() {
