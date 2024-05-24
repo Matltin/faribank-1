@@ -1,9 +1,22 @@
 package ir.ac.kntu.menu.customer.support;
 
 import ir.ac.kntu.menu.Menu;
+import ir.ac.kntu.menu.customer.requestmenu.RequestCustomerMenu;
 import ir.ac.kntu.person.customer.Customer;
 
 public class SupportMenu extends Menu {
+
+    private Customer customer;
+    private RequestCustomerMenu requestCustomerMenu;
+
+    public SupportMenu(RequestCustomerMenu requestCustomerMenu) {
+        this.requestCustomerMenu = requestCustomerMenu;
+    }
+
+    public void show(Customer customer) {
+        this.customer = customer;
+    }
+
     @Override
     public void show() {
         SupportMEnuOption supportMEnuOption = printMenuOption();
@@ -11,8 +24,10 @@ public class SupportMenu extends Menu {
             if (supportMEnuOption != null) {
                 switch (supportMEnuOption) {
                     case REQUEST:
+                        requestCustomerMenu.show(customer);
                     case SHOW_REQUEST:
-//                        showRequest();
+                        showRequest();
+                        break;
                     default:
                         break;
                 }
@@ -31,7 +46,7 @@ public class SupportMenu extends Menu {
         return getOption(SupportMEnuOption.class);
     }
 
-    private void showRequest(Customer customer) {
+    private void showRequest() {
         customer.getMessageDB().printMessage();
         int number = getNumber();
         System.out.println(customer.getMessageDB().getMessageList().get(number - 1));

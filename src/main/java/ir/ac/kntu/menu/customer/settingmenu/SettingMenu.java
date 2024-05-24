@@ -5,6 +5,12 @@ import ir.ac.kntu.person.customer.Customer;
 
 public class SettingMenu extends Menu {
 
+    private Customer customer;
+
+    public void show(Customer customer) {
+        this.customer = customer;
+    }
+
     @Override
     public void show() {
         System.out.println("setting menu");
@@ -33,20 +39,20 @@ public class SettingMenu extends Menu {
         return getOption(SettingMenuOption.class);
     }
 
-    private void editUserPassword(Customer customer) {
+    private void editUserPassword() {
         String password = getPassword();
         customer.setPassword(password);
     }
 
-    private void editCardPassword(Customer customer) {
+    private void editCardPassword() {
         System.out.println("this feature is coming soon!!");
     }
 
-    private void activationContact(Customer customer) {
+    private void activationContact() {
         customer.setContactAvailable(true);
     }
 
-    private void unActivationContact(Customer customer) {
+    private void unActivationContact() {
         customer.setContactAvailable(false);
     }
 }

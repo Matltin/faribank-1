@@ -3,12 +3,19 @@ package ir.ac.kntu.menu.customer.logincustomermenu;
 import ir.ac.kntu.db.CustomerDB;
 import ir.ac.kntu.db.DataBase;
 import ir.ac.kntu.menu.Menu;
+import ir.ac.kntu.menu.customer.customermenu.CustomerMenu;
 import ir.ac.kntu.person.customer.Customer;
 import ir.ac.kntu.person.customer.State;
 
 public class LoginCustomerMenu extends Menu {
 
     private CustomerDB customerDB;
+    private CustomerMenu customerMenu;
+
+    public LoginCustomerMenu(CustomerDB customerDB, CustomerMenu customerMenu) {
+        this.customerDB = customerDB;
+        this.customerMenu = customerMenu;
+    }
 
     public LoginCustomerMenu(CustomerDB customerDB) {
         this.customerDB = customerDB;
@@ -54,7 +61,7 @@ public class LoginCustomerMenu extends Menu {
         }
         if (cust != null) {
             if(cust.getState() == State.ACCEPTED) {
-
+                customerMenu.show(cust);
             } else if(cust.getState() == State.IN_PROGRESSING) {
                 System.out.println("in progressing!!");
             } else if(cust.getState() == State.REJECT) {

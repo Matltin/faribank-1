@@ -7,6 +7,19 @@ import ir.ac.kntu.message.MessageOption;
 import ir.ac.kntu.person.customer.Customer;
 
 public class RequestCustomerMenu extends Menu {
+
+    private Customer customer;
+    private AnswerDB answerDB;
+
+    public RequestCustomerMenu(AnswerDB answerDB) {
+        this.answerDB = answerDB;
+    }
+
+    public void show(Customer customer) {
+        this.customer = customer;
+        show();
+    }
+
     @Override
     public void show() {
         System.out.println("request menu");
@@ -15,16 +28,16 @@ public class RequestCustomerMenu extends Menu {
             if (messageOption != null) {
                 switch (messageOption) {
                     case CONTACT:
-//                        contact(customer, answerDB);
+                        contact();
                         break;
                     case SETTING:
-//                        setting(customer, answerDB);
+                        setting();
                         break;
                     case TRANSFER:
-//                        transfer(customer, answerDB);
+                        transfer();
                         break;
                     case REPORT:
-//                        report(customer, answerDB);
+                        report();
                         break;
                     default:
                         break;
@@ -43,28 +56,28 @@ public class RequestCustomerMenu extends Menu {
         return getOption(MessageOption.class);
     }
 
-    private void contact(Customer customer, AnswerDB answerDB) {
+    private void contact() {
         String message = getMessage();
         Message newMessage = new Message(customer.getPhoneNumber(), message, MessageOption.CONTACT);
         customer.getMessageDB().addMessage(newMessage);
         answerDB.add(newMessage);
     }
 
-    private void setting(Customer customer, AnswerDB answerDB) {
+    private void setting() {
         String message = getMessage();
         Message newMessage = new Message(customer.getPhoneNumber(), message, MessageOption.SETTING);
         customer.getMessageDB().addMessage(newMessage);
         answerDB.add(newMessage);
     }
 
-    private void transfer(Customer customer, AnswerDB answerDB) {
+    private void transfer() {
         String message = getMessage();
         Message newMessage = new Message(customer.getPhoneNumber(), message, MessageOption.TRANSFER);
         customer.getMessageDB().addMessage(newMessage);
         answerDB.add(newMessage);
     }
 
-    private void report(Customer customer, AnswerDB answerDB) {
+    private void report() {
         String message = getMessage();
         Message newMessage = new Message(customer.getPhoneNumber(), message, MessageOption.REPORT);
         customer.getMessageDB().addMessage(newMessage);

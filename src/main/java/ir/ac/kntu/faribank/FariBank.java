@@ -12,10 +12,18 @@ import ir.ac.kntu.menu.admin.searchmenu.SearchMenu;
 import ir.ac.kntu.menu.admin.searchusermenu.SearchUserMenu;
 import ir.ac.kntu.menu.admin.statemenu.StateMenu;
 import ir.ac.kntu.menu.admin.useraccessmenu.UserAccessMenu;
+import ir.ac.kntu.menu.customer.accountmangemenu.AccountMangeMenu;
+import ir.ac.kntu.menu.customer.contactmenu.ContactMenu;
 import ir.ac.kntu.menu.customer.customermenu.CustomerMenu;
 import ir.ac.kntu.menu.customer.logincustomermenu.LoginCustomerMenu;
+import ir.ac.kntu.menu.customer.requestmenu.RequestCustomerMenu;
+import ir.ac.kntu.menu.customer.settingmenu.SettingMenu;
+import ir.ac.kntu.menu.customer.support.SupportMenu;
+import ir.ac.kntu.menu.customer.transfermoneymenu.TransferMenu;
+import ir.ac.kntu.menu.customer.transfermoneymenu.TransferMenuOption;
 import ir.ac.kntu.menu.mainmenu.MainMenu;
 
+import javax.swing.plaf.ActionMapUIResource;
 import java.util.ArrayList;
 import java.util.HashSet;
 
@@ -45,10 +53,19 @@ public class FariBank {
         UserAccessMenu userAccessMenu = new UserAccessMenu(customerDB, searchUserMenu);
         DataBase dataBase = new DataBase(adminDB, customerDB);
         AdminMenu adminMenu = new AdminMenu(customerDB, requestAdminMenu, userAccessMenu);
-        CustomerMenu customerMenu = new CustomerMenu(customerDB);
+
+        RequestCustomerMenu requestCustomerMenu = new RequestCustomerMenu(answerDB);
+
+        TransferMenu transferMenu = new TransferMenu(customerDB);
+        AccountMangeMenu accountMangeMenu = new AccountMangeMenu(customerDB);
+        ContactMenu contactMenu = new ContactMenu(customerDB);
+        SupportMenu supportMenu = new SupportMenu(requestCustomerMenu);
+        SettingMenu settingMenu = new SettingMenu();
+
+        CustomerMenu customerMenu = new CustomerMenu(transferMenu, accountMangeMenu, contactMenu, supportMenu, settingMenu);
 
         LoginAdminMenu loginAdminMenu = new LoginAdminMenu(adminDB, adminMenu);
-        LoginCustomerMenu loginCustomerMenu = new LoginCustomerMenu(customerDB);
+        LoginCustomerMenu loginCustomerMenu = new LoginCustomerMenu(customerDB, customerMenu);
 
 
 

@@ -95,25 +95,25 @@ public class Customer extends Person {
 
 
 
-//    public void addContactPerson(String firstName, String lastName, String phoneNumber) {
-//        String accountNumber = "";
-//        for (Customer customer : DataBase.getCustomerDB().getCustomers()) {
-//            if (customer.getPhoneNumber().equals(phoneNumber)) {
-//                accountNumber = customer.getAccount().getAccountNO();
-//                break;
-//            }
-//        }
-//        try {
-//            if (!accountNumber.isEmpty()) {
-//                ContactPerson contactPerson = new ContactPerson(firstName, lastName, phoneNumber, accountNumber);
-//                contactPersonDB.addContactPerson(contactPerson);
-//            } else {
-//                throw new RuntimeException("404 : user not found!!");
-//            }
-//        } catch (Exception e) {
-//            System.err.println(e.getMessage());
-//        }
-//    }
+    public void addContactPerson(String firstName, String lastName, String phoneNumber, CustomerDB customerDB) {
+        String accountNumber = "";
+        for (Customer customer : customerDB.getCustomers()) {
+            if (customer.getPhoneNumber().equals(phoneNumber)) {
+                accountNumber = customer.getAccount().getAccountNO();
+                break;
+            }
+        }
+        try {
+            if (!accountNumber.isEmpty()) {
+                ContactPerson contactPerson = new ContactPerson(firstName, lastName, phoneNumber, accountNumber);
+                contactPersonDB.addContactPerson(contactPerson);
+            } else {
+                throw new RuntimeException("404 : user not found!!");
+            }
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+    }
 
     @Override
     public String toString() {

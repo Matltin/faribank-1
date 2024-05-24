@@ -1,10 +1,23 @@
 package ir.ac.kntu.menu.customer.contactmenu;
 
+import ir.ac.kntu.db.CustomerDB;
 import ir.ac.kntu.menu.Menu;
 import ir.ac.kntu.person.ContactPerson;
 import ir.ac.kntu.person.customer.Customer;
 
 public class ContactMenu extends Menu {
+
+    private Customer customer;
+    private CustomerDB customerDB;
+
+    public ContactMenu(CustomerDB customerDB) {
+        this.customerDB = customerDB;
+    }
+
+    public void show(Customer customer) {
+        this.customer = customer;
+    }
+
     @Override
     public void show() {
         System.out.println("contact menu");
@@ -13,8 +26,14 @@ public class ContactMenu extends Menu {
             if (contactMenuOption != null) {
                 switch (contactMenuOption) {
                     case SHOW_CONTACT_LIST:
+                        showContactList();
+                        break;
                     case EDIT_CONTACT_INFO:
+                        editContactINFO();
+                        break;
                     case ADD_CONTACT:
+                        addContact();
+                        break;
                     default:
                         break;
                 }
@@ -32,7 +51,7 @@ public class ContactMenu extends Menu {
         return getOption(ContactMenuOption.class);
     }
 
-    public void showContactList(Customer customer) {
+    private void showContactList() {
         int number;
         customer.getContactPerson().printContactPerson();
         number = getNumber();
@@ -43,7 +62,7 @@ public class ContactMenu extends Menu {
         }
     }
 
-    public void editContactINFO(Customer customer) {
+    private void editContactINFO() {
         String phoneNumber = getPhoneNumber();
         ContactPerson contactPerson = customer.getContactPerson().findPerson(phoneNumber);
         if (contactPerson != null) {
@@ -58,14 +77,14 @@ public class ContactMenu extends Menu {
         }
     }
 
-    public void addContact(Customer customer) {
-//        String firstName = getFirstName();
-//        String lastName = getLastName();
-//        String phoneNumber = getPhoneNumber();
-//        if (customer.getContactPerson().findPerson(phoneNumber) != null) {
-//            System.out.println("The contact is already exist");
-//            return;
-//        }
-//        customer.addContactPerson(firstName, lastName, phoneNumber);
+    private void addContact() {
+        String firstName = getFirstName();
+        String lastName = getLastName();
+        String phoneNumber = getPhoneNumber();
+        if (customer.getContactPerson().findPerson(phoneNumber) != null) {
+            System.out.println("The contact is already exist");
+            return;
+        }
+        customer.addContactPerson(firstName, lastName, phoneNumber, customerDB);
     }
 }
