@@ -33,10 +33,9 @@ public abstract class Menu {
     }
 
     public String getPhoneNumber() {
-        System.out.println("Enter Phone number : ");
         String phoneNumber;
         do {
-            System.out.println("Enter Phone number again : ");
+            System.out.println("Enter Phone number : ");
             phoneNumber = ScannerWrapper.getInstance().nextLine();
 
         } while (!checkPhoneNumber(phoneNumber));

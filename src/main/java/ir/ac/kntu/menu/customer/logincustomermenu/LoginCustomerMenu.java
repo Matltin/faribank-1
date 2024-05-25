@@ -65,13 +65,13 @@ public class LoginCustomerMenu extends Menu {
             if(cust.getState() == State.ACCEPTED) {
                 customerMenu.show(cust);
             } else if(cust.getState() == State.IN_PROGRESSING) {
-                System.out.println(Constance.YELLOW + "in progressing!!");
+                System.out.println(Constance.YELLOW + "in progressing!!" + Constance.RESET);
             } else if(cust.getState() == State.REJECT) {
+                customerDB.removeCustomer(cust);
                 System.out.println(cust.getMessageDB().getMessageList().get(0));
             }
         } else {
-            customerDB.removeCustomer(cust);
-            System.out.println("IDocument or PhoneNumber is invalid!!");
+            System.out.println(Constance.RED + "IDocument or PhoneNumber is invalid!!" + Constance.RESET);
         }
     }
 
@@ -83,7 +83,7 @@ public class LoginCustomerMenu extends Menu {
         String password = getPassword();
         for (Customer customer : customerDB.getCustomers()) {
             if (customer.getPhoneNumber().equals(phoneNumber) || customer.getIDocument().equals(iDocument)) {
-                System.out.println("the phone number or the iDocument is already exist");
+                System.out.println(Constance.RED + "the phone number or the iDocument is already exist" + Constance.RESET);
                 return;
             }
         }
