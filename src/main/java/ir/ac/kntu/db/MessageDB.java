@@ -17,6 +17,10 @@ public class MessageDB {
         return messageList;
     }
 
+    public int size() {
+        return messageList.size();
+    }
+
     public void setMessageList(List<Message> messageList) {
         this.messageList = messageList;
     }

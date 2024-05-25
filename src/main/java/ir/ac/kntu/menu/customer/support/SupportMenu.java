@@ -26,6 +26,7 @@ public class SupportMenu extends Menu {
                 switch (supportMEnuOption) {
                     case REQUEST:
                         requestCustomerMenu.show(customer);
+                        break;
                     case SHOW_REQUEST:
                         showRequest();
                         break;
@@ -48,6 +49,10 @@ public class SupportMenu extends Menu {
     }
 
     private void showRequest() {
+        if(customer.getMessageDB().size() == 0) {
+            System.out.println("there is no request to show!!");
+            return;
+        }
         customer.getMessageDB().printMessage();
         int number = getNumber();
         System.out.println(customer.getMessageDB().getMessageList().get(number - 1));

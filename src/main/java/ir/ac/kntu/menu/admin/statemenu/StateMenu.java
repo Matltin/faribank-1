@@ -22,13 +22,13 @@ public class StateMenu extends Menu {
             if (state != null) {
                 switch (state) {
                     case SUBMIT:
-                        showSubmit(answerDB);
+                        showSubmit();
                         break;
                     case IN_PROGRESS:
-                        showInProgress(answerDB);
+                        showInProgress();
                         break;
                     case CLOSED:
-                        showClosed(answerDB);
+                        showClosed();
                     default:
                         break;
                 }
@@ -46,11 +46,16 @@ public class StateMenu extends Menu {
         return getOption(State.class);
     }
 
-    private void showSubmit(AnswerDB answerDB) {
+    private void showSubmit() {
         if(answerDB.size() == 0) {
             System.out.println(Constance.RED + "there is no customer to show!!" + Constance.RESET);
+            return;
         }
-        print(answerDB, State.SUBMIT);
+        if(!checkState(State.SUBMIT)) {
+            System.out.println(Constance.RED + "there is no submitted customer!!" + Constance.RESET);
+            return;
+        }
+        print(State.SUBMIT);
         int number = getNumber();
         int counter = 0;
         for (Message message : answerDB.getMessageList()) {
@@ -61,11 +66,15 @@ public class StateMenu extends Menu {
         }
     }
 
-    private void showInProgress(AnswerDB answerDB) {
+    private void showInProgress() {
         if(answerDB.size() == 0) {
             System.out.println(Constance.RED + "there is no customer to show!!");
         }
-        print(answerDB, State.IN_PROGRESS);
+        if(!checkState(State.IN_PROGRESS)) {
+            System.out.println(Constance.RED + "there is no in progressed customer!!" + Constance.RESET);
+            return;
+        }
+        print(State.IN_PROGRESS);
         int number = getNumber();
         int counter = 0;
         for (Message message : answerDB.getMessageList()) {
@@ -76,16 +85,15 @@ public class StateMenu extends Menu {
         }
     }
 
-    private void showClosed(AnswerDB answerDB) {
+    private void showClosed() {
         if(answerDB.size() == 0) {
             System.out.println(Constance.RED + "there is no customer to show!!");
         }
-        int counter = 1;
-        for (Message message : answerDB.getMessageList()) {
-            if (message.getState() == State.CLOSED) {
-                System.out.println(counter + "." + message);
-            }
+        if(!checkState(State.CLOSED)) {
+            System.out.println(Constance.RED + "there is no closed customer!!" + Constance.RESET);
+            return;
         }
+        print(State.CLOSED);
     }
 
     private void checkForClosed(int counter, int number, Message message) {
@@ -97,7 +105,7 @@ public class StateMenu extends Menu {
         }
     }
 
-    private void print(AnswerDB answerDB, State state) {
+    private void print(State state) {
         int counter = 1;
         for (Message message : answerDB.getMessageList()) {
             if (message.getState() == state) {
@@ -105,5 +113,14 @@ public class StateMenu extends Menu {
                 counter++;
             }
         }
+    }
+
+    private boolean checkState(State state) {
+        for(Message message : answerDB.getMessageList()) {
+            if(message.getState() == state) {
+                return true;
+            }
+        }
+        return false;
     }
 }

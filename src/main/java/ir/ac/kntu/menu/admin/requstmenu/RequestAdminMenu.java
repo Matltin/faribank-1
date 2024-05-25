@@ -47,13 +47,13 @@ public class RequestAdminMenu extends Menu {
     }
 
     private void showRequest(AnswerDB answerDB) {
-        answerDB.printMessage();
         if(answerDB.size() == 0) {
             System.out.println(Constance.RED + "there is no customer to show");
             return;
         }
+        answerDB.printMessage();
         int number = getNumber();
         answerDB.getMessageList().get(number - 1).setState(State.IN_PROGRESS);
-        System.out.println(answerDB.getMessageList().get(number - 1) + "phone number : " + answerDB.getMessageList().get(number - 1).getPhoneNumber());
+        System.out.println(answerDB.getMessageList().get(number - 1) + " phone number : " + answerDB.getMessageList().get(number - 1).getPhoneNumber());
     }
 }

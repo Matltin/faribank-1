@@ -56,6 +56,10 @@ public class BranchMenu extends Menu {
             System.out.println(Constance.RED + "there is no customer" + Constance.RESET);
             return;
         }
+        if(!checkMessageOption(MessageOption.CONTACT)) {
+            System.out.println("there is no contact message to show!!");
+            return;
+        }
         print(answerDB, MessageOption.CONTACT);
         int number = getNumber();
         int counter = 0;
@@ -70,6 +74,10 @@ public class BranchMenu extends Menu {
     private void showSetting(AnswerDB answerDB) {
         if(answerDB.size() == 0) {
             System.out.println(Constance.RED + "there is no customer" + Constance.RESET);
+            return;
+        }
+        if(!checkMessageOption(MessageOption.SETTING)) {
+            System.out.println("there is no setting message to show!!");
             return;
         }
         print(answerDB, MessageOption.SETTING);
@@ -88,6 +96,10 @@ public class BranchMenu extends Menu {
             System.out.println(Constance.RED + "there is no customer" + Constance.RESET);
             return;
         }
+        if(!checkMessageOption(MessageOption.TRANSFER)) {
+            System.out.println("there is no transfer message to show!!");
+            return;
+        }
         print(answerDB, MessageOption.TRANSFER);
         int number = getNumber();
         int counter = 0;
@@ -102,6 +114,10 @@ public class BranchMenu extends Menu {
     private void showReport(AnswerDB answerDB) {
         if(answerDB.size() == 0) {
             System.out.println(Constance.RED + "there is no customer");
+            return;
+        }
+        if(!checkMessageOption(MessageOption.REPORT)) {
+            System.out.println("there is no report message to show!!");
             return;
         }
         print(answerDB, MessageOption.REPORT);
@@ -132,5 +148,14 @@ public class BranchMenu extends Menu {
                 counter++;
             }
         }
+    }
+
+    private boolean checkMessageOption(MessageOption messageOption) {
+        for(Message message : answerDB.getMessageList()) {
+            if(message.getMessageOption() == messageOption) {
+                return true;
+            }
+        }
+        return false;
     }
 }
