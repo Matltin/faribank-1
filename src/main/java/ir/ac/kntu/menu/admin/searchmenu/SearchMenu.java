@@ -56,7 +56,7 @@ public class SearchMenu extends Menu {
 
     private void searchByUser(AnswerDB answerDB) {
         if(answerDB.size() == 0) {
-            System.out.println(Constance.RED + "there is no customer to show" + Constance.WHITE);
+            System.out.println(Constance.RED + "there is no customer to show" + Constance.RESET);
             return;
         }
         String phoneNumber = getPhoneNumber();

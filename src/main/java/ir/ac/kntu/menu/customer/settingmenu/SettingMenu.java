@@ -9,6 +9,7 @@ public class SettingMenu extends Menu {
 
     public void show(Customer customer) {
         this.customer = customer;
+        show();
     }
 
     @Override

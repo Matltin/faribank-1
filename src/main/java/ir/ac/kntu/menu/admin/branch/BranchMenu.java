@@ -53,7 +53,7 @@ public class BranchMenu extends Menu {
 
     private void showByContact(AnswerDB answerDB) {
         if(answerDB.size() == 0) {
-            System.out.println(Constance.RED + "there is no customer" + Constance.WHITE);
+            System.out.println(Constance.RED + "there is no customer" + Constance.RESET);
             return;
         }
         print(answerDB, MessageOption.CONTACT);
@@ -69,7 +69,7 @@ public class BranchMenu extends Menu {
 
     private void showSetting(AnswerDB answerDB) {
         if(answerDB.size() == 0) {
-            System.out.println(Constance.RED + "there is no customer" + Constance.WHITE);
+            System.out.println(Constance.RED + "there is no customer" + Constance.RESET);
             return;
         }
         print(answerDB, MessageOption.SETTING);
@@ -85,7 +85,7 @@ public class BranchMenu extends Menu {
 
     private void showTransfer(AnswerDB answerDB) {
         if(answerDB.size() == 0) {
-            System.out.println(Constance.RED + "there is no customer" + Constance.WHITE);
+            System.out.println(Constance.RED + "there is no customer" + Constance.RESET);
             return;
         }
         print(answerDB, MessageOption.TRANSFER);

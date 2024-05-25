@@ -1,5 +1,6 @@
 package ir.ac.kntu.menu;
 
+import ir.ac.kntu.Constance;
 import ir.ac.kntu.util.ScannerWrapper;
 
 public abstract class Menu {
@@ -33,7 +34,13 @@ public abstract class Menu {
 
     public String getPhoneNumber() {
         System.out.println("Enter Phone number : ");
-        return ScannerWrapper.getInstance().nextLine();
+        String phoneNumber;
+        do {
+            System.out.println("Enter Phone number again : ");
+            phoneNumber = ScannerWrapper.getInstance().nextLine();
+
+        } while (!checkPhoneNumber(phoneNumber));
+        return phoneNumber;
     }
 
     public Long getInputMoney() {
@@ -74,6 +81,15 @@ public abstract class Menu {
     public String getYesNo() {
         System.out.println("Do you want accept ? (Y/N) : ");
         return ScannerWrapper.getInstance().nextLine();
+    }
+
+
+    private boolean checkPhoneNumber(String phoneNumber) {
+        if(!phoneNumber.matches("^(09)[0-9]{9}")) {
+            System.out.println(Constance.RED + "invalid phoneNumber format!!" + Constance.RESET);
+            return false;
+        }
+        return true;
     }
 
 

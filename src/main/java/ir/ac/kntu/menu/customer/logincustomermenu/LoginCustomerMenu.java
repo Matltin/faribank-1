@@ -70,6 +70,7 @@ public class LoginCustomerMenu extends Menu {
                 System.out.println(cust.getMessageDB().getMessageList().get(0));
             }
         } else {
+            customerDB.removeCustomer(cust);
             System.out.println("IDocument or PhoneNumber is invalid!!");
         }
     }

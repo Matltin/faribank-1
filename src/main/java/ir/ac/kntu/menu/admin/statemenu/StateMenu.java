@@ -48,7 +48,7 @@ public class StateMenu extends Menu {
 
     private void showSubmit(AnswerDB answerDB) {
         if(answerDB.size() == 0) {
-            System.out.println(Constance.RED + "there is no customer to show!!");
+            System.out.println(Constance.RED + "there is no customer to show!!" + Constance.RESET);
         }
         print(answerDB, State.SUBMIT);
         int number = getNumber();

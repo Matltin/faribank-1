@@ -55,7 +55,7 @@ public class LoginAdminMenu extends Menu {
                 return;
             }
         }
-        System.out.println(Constance.RED + "invalid username or password");
+        System.out.println(Constance.RED + "invalid username or password" + Constance.RESET);
     }
 
     private void register() {
