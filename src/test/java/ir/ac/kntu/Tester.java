@@ -2,9 +2,13 @@ package ir.ac.kntu;
 
 import ir.ac.kntu.db.AdminDB;
 import ir.ac.kntu.db.AnswerDB;
+import ir.ac.kntu.db.ContactPersonDB;
+import ir.ac.kntu.db.CustomerDB;
 import ir.ac.kntu.message.Message;
 import ir.ac.kntu.message.MessageOption;
+import ir.ac.kntu.person.ContactPerson;
 import ir.ac.kntu.person.admin.Admin;
+import ir.ac.kntu.person.customer.Customer;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;
@@ -45,4 +49,55 @@ public class Tester {
 
         answerDB.printMessage();
     }
+
+    @Test
+    void checkFindPerson() {
+        ContactPersonDB contactPersonDB = new ContactPersonDB();
+        ContactPerson contactPerson1 = new ContactPerson("ali", "mohammadi", "09127428575", "1234");
+        ContactPerson contactPerson2 = new ContactPerson("jafar", "ghasemi", "09126547895", "1235");
+        contactPersonDB.addContactPerson(contactPerson1);
+
+        assertEquals(contactPerson1, contactPersonDB.findPerson(contactPerson1.getAccountNumber()));
+        assertNull(contactPersonDB.findPerson(contactPerson2.getAccountNumber()));
+    }
+
+    @Test
+    void checkRemovePerson() {
+        ContactPersonDB contactPersonDB = new ContactPersonDB();
+        ContactPerson contactPerson1 = new ContactPerson("ali", "mohammadi", "09127428575", "1234");
+        ContactPerson contactPerson2 = new ContactPerson("jafar", "ghasemi", "09126547895", "1235");
+        contactPersonDB.addContactPerson(contactPerson1);
+
+        contactPersonDB.removePerson(contactPerson1);
+        contactPersonDB.removePerson(contactPerson2);
+
+        assertFalse(contactPersonDB.checkContact(contactPerson1.getAccountNumber()));
+    }
+
+    @Test
+    void printContactPerson() throws FileNotFoundException {
+        FileOutputStream f = new FileOutputStream("outputfile/PrintContactPerson.txt");
+        System.setOut(new PrintStream(f));
+
+        ContactPersonDB contactPersonDB = new ContactPersonDB();
+        ContactPerson contactPerson1 = new ContactPerson("ali", "mohammadi", "09127428575", "1234");
+        ContactPerson contactPerson2 = new ContactPerson("jafar", "ghasemi", "09126547895", "1235");
+        contactPersonDB.addContactPerson(contactPerson1);
+        contactPersonDB.addContactPerson(contactPerson2);
+
+        contactPersonDB.printContactPerson();
+    }
+
+    @Test
+    void checkFindCustomer() {
+        CustomerDB customerDB = new CustomerDB(new HashSet<>());
+        Customer customer1 = new Customer("ali", "mohsen", "1234", "40214433", "091260377011");
+        Customer customer2 = new Customer("erfan", "mohammadi", "1569", "9926213", "09059293062");
+        customerDB.addCustomer(customer1);
+        customerDB.addCustomer(customer2);
+
+        assertEquals(customer1, customerDB.findCustomer(customer1.getAccount().getAccountNO()));
+
+    }
+
 }
