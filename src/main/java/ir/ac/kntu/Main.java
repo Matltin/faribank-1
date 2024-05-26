@@ -10,7 +10,7 @@ public class Main {
     public static void main(String[] args) throws ParseException {
         FariBank fariBank = new FariBank();
         fariBank.start();
-
+        ScannerWrapper.getInstance().close();
     }
 
 }
