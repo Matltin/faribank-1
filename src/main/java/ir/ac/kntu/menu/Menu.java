@@ -3,9 +3,11 @@ package ir.ac.kntu.menu;
 import ir.ac.kntu.Constance;
 import ir.ac.kntu.util.ScannerWrapper;
 
+import java.text.ParseException;
+
 public abstract class Menu {
 
-    public abstract void show();
+    public abstract void show() throws ParseException;
 
     public <T extends Enum<T>> T getOption(Class<T> tEnum) {
         int choice = Integer.parseInt(ScannerWrapper.getInstance().nextLine()) - 1;

@@ -58,11 +58,10 @@ public class TransferMenu extends Menu {
         if (0 < number && number <= customer.getRecentTransaction().getContactPersonList().size()) {
             ContactPerson contactPerson = customer.getRecentTransaction().getContactPersonList().get(number - 1);
             long inputMoney = getInputMoney();
-            customer.getAccount().transferMoney(inputMoney, customer.getAccount().getAccountNO(), customerDB);
+            customer.getAccount().transferMoney(inputMoney, contactPerson.getAccountNumber(), customerDB);
         } else {
             System.out.println("Number out of range!");
         }
-
     }
 
     private void transferByContact() {

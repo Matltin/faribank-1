@@ -8,16 +8,30 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class RecentTransactionMenu extends Menu {
+
+    private Customer customer;
+
+    public void show(Customer customer) throws ParseException {
+        this.customer = customer;
+        show();
+    }
+
     @Override
-    public void show() {
+    public void show() throws ParseException {
         System.out.println("search by");
         RecentTransactionMenuOption recentTransactionMenuOption = printMenuOption();
         while (recentTransactionMenuOption != RecentTransactionMenuOption.BACK) {
             if (recentTransactionMenuOption != null) {
                 switch (recentTransactionMenuOption) {
                     case BY_NUMBER:
+                        searchByNumber();
+                        break;
                     case BY_TIME:
+                        searchByTime();
+                        break;
                     case ALL:
+                        searchAll();
+                        break;
                     default:
                         break;
                 }
@@ -35,7 +49,7 @@ public class RecentTransactionMenu extends Menu {
         return getOption(RecentTransactionMenuOption.class);
     }
 
-    private void searchByNumber(Customer customer) {
+    private void searchByNumber() {
         try {
             int number = getNumber();
             int size = customer.getAccount().getTransactionDB().getTransactions().size();
@@ -50,7 +64,7 @@ public class RecentTransactionMenu extends Menu {
         }
     }
 
-    private void searchByTime(Customer customer) throws ParseException {
+    private void searchByTime() throws ParseException {
         String firstStr = getDate();
         String secondStr = getDate();
 
@@ -68,7 +82,7 @@ public class RecentTransactionMenu extends Menu {
         }
     }
 
-    private void searchAll(Customer customer) {
+    private void searchAll() {
         try {
             int size = customer.getAccount().getTransactionDB().getTransactions().size();
             if (size == 0) {

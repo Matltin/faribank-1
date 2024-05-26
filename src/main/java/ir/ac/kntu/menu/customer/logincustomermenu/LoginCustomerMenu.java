@@ -7,6 +7,8 @@ import ir.ac.kntu.menu.customer.customermenu.CustomerMenu;
 import ir.ac.kntu.person.customer.Customer;
 import ir.ac.kntu.person.customer.State;
 
+import java.text.ParseException;
+
 public class LoginCustomerMenu extends Menu {
 
     private CustomerDB customerDB;
@@ -22,7 +24,7 @@ public class LoginCustomerMenu extends Menu {
     }
 
     @Override
-    public void show() {
+    public void show() throws ParseException {
         System.out.println("logging page");
         LoginCustomerMenuOption loginCustomerMenuOption = printMenuOption();
         while (loginCustomerMenuOption != LoginCustomerMenuOption.BACK) {
@@ -51,7 +53,7 @@ public class LoginCustomerMenu extends Menu {
         return getOption(LoginCustomerMenuOption.class);
     }
 
-    private void login() {
+    private void login() throws ParseException {
         String iDocument = getIDocument();
         String phoneNumber = getPhoneNumber();
         Customer cust = null;
@@ -121,12 +123,12 @@ public class LoginCustomerMenu extends Menu {
         return true;
     }
 
-    private boolean isCharacter(char ch) {
-        return ch == '@' || ch == '#' || ch == '$' || ch == '&' || ch == '*';
+    private boolean isCharacter(char character) {
+        return character == '@' || character == '#' || character == '$' || character == '&' || character == '*';
     }
 
-    private boolean isInvalidCharacter(char ch) {
-        return ch == '~' || ch == '!' || ch == '^' || ch == '(' || ch == ')' ||
-                ch == '-' || ch == '/' || ch == '=' || ch == '"' || ch == ':' || ch == '`';
+    private boolean isInvalidCharacter(char character) {
+        return character == '~' || character == '!' || character == '^' || character == '(' || character == ')' ||
+                character == '-' || character == '/' || character == '=' || character == '"' || character == ':' || character == '`';
     }
 }

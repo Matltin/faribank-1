@@ -10,8 +10,8 @@ public class Card {
     }
 
     private String randomPassword() {
-        Random r = new Random();
-        return String.valueOf(r.nextInt(1000,10000));
+        Random random = new Random();
+        return String.valueOf(random.nextInt(1000,10000));
     }
 
     public String getPassword() {

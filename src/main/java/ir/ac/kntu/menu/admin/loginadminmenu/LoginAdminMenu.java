@@ -51,7 +51,7 @@ public class LoginAdminMenu extends Menu {
         String password = getPassword();
         for (Admin admin : adminDB.getAdmins()) {
             if (admin.getUserName().equals(userName) && admin.getPassword().equals(password)) {
-                adminMenu.show(admin);
+                adminMenu.show();
                 return;
             }
         }

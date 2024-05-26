@@ -6,7 +6,6 @@ import ir.ac.kntu.menu.admin.requstmenu.RequestAdminMenu;
 import ir.ac.kntu.menu.admin.useraccessmenu.UserAccessMenu;
 import ir.ac.kntu.message.Message;
 import ir.ac.kntu.message.MessageOption;
-import ir.ac.kntu.person.admin.Admin;
 import ir.ac.kntu.person.customer.Customer;
 import ir.ac.kntu.person.customer.State;
 
@@ -15,17 +14,11 @@ public class AdminMenu extends Menu {
     private CustomerDB customerDB;
     private RequestAdminMenu requestAdminMenu;
     private UserAccessMenu userAccessMenu;
-    private Admin admin;
 
     public AdminMenu(CustomerDB customerDB, RequestAdminMenu requestAdminMenu, UserAccessMenu userAccessMenu) {
         this.customerDB = customerDB;
         this.requestAdminMenu = requestAdminMenu;
         this.userAccessMenu = userAccessMenu;
-    }
-
-    public void show(Admin admin) {
-        this.admin = admin;
-        show();
     }
 
     @Override
@@ -76,9 +69,9 @@ public class AdminMenu extends Menu {
         int number = getNumber();
 
         String yesOrNo = getYesNo();
-        if(yesOrNo.equals("Y")) {
+        if("Y".equals(yesOrNo)) {
             accessCustomer(number);
-        } else if(yesOrNo.equals("N")) {
+        } else if("N".equals(yesOrNo)) {
             rejectCustomer(number);
         } else {
             System.out.println("invalid input!!");

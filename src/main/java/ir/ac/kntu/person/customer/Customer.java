@@ -116,8 +116,8 @@ public class Customer extends Person {
     }
 
     private String randomAccountNO() {
-        Random r = new Random();
-        return String.valueOf(r.nextInt((int)Math.pow(10, 8), (int)Math.pow(10, 9)));
+        Random random = new Random();
+        return String.valueOf(random.nextInt((int)Math.pow(10, 8), (int)Math.pow(10, 9)));
     }
 
     @Override
@@ -131,14 +131,14 @@ public class Customer extends Person {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) {
+    public boolean equals(Object obj) {
+        if (this == obj) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        Customer customer = (Customer) o;
+        Customer customer = (Customer) obj;
         return contactAvailable == customer.contactAvailable && Objects.equals(iDocument, customer.iDocument) && Objects.equals(phoneNumber, customer.phoneNumber) && Objects.equals(account, customer.account) && Objects.equals(contactPersonDB, customer.contactPersonDB);
     }
 

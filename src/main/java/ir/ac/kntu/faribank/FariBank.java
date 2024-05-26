@@ -12,6 +12,7 @@ import ir.ac.kntu.menu.admin.searchusermenu.SearchUserMenu;
 import ir.ac.kntu.menu.admin.statemenu.StateMenu;
 import ir.ac.kntu.menu.admin.useraccessmenu.UserAccessMenu;
 import ir.ac.kntu.menu.customer.accountmangemenu.AccountMangeMenu;
+import ir.ac.kntu.menu.customer.accountmangemenu.recenttransactionmenu.RecentTransactionMenu;
 import ir.ac.kntu.menu.customer.contactmenu.ContactMenu;
 import ir.ac.kntu.menu.customer.customermenu.CustomerMenu;
 import ir.ac.kntu.menu.customer.logincustomermenu.LoginCustomerMenu;
@@ -21,6 +22,7 @@ import ir.ac.kntu.menu.customer.support.SupportMenu;
 import ir.ac.kntu.menu.customer.transfermoneymenu.TransferMenu;
 import ir.ac.kntu.menu.mainmenu.MainMenu;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashSet;
 
@@ -28,12 +30,12 @@ public class FariBank {
 
     private MainMenu mainMenu;
 
-    public void start() {
+    public void start() throws ParseException {
         initialize();
         mainMenu.show();
     }
 
-    public void initialize() {
+    private void initialize() {
         AdminDB adminDB = new AdminDB(new HashSet<>());
         CustomerDB customerDB = new CustomerDB(new HashSet<>());
         AnswerDB answerDB = new AnswerDB(new ArrayList<>());
@@ -47,7 +49,8 @@ public class FariBank {
         AdminMenu adminMenu = new AdminMenu(customerDB, requestAdminMenu, userAccessMenu);
         RequestCustomerMenu requestCustomerMenu = new RequestCustomerMenu(answerDB);
         TransferMenu transferMenu = new TransferMenu(customerDB);
-        AccountMangeMenu accountMangeMenu = new AccountMangeMenu(customerDB);
+        RecentTransactionMenu recentTransactionMenu = new RecentTransactionMenu();
+        AccountMangeMenu accountMangeMenu = new AccountMangeMenu(customerDB, recentTransactionMenu);
         ContactMenu contactMenu = new ContactMenu(customerDB);
         SupportMenu supportMenu = new SupportMenu(requestCustomerMenu);
         SettingMenu settingMenu = new SettingMenu();

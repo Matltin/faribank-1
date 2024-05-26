@@ -8,6 +8,8 @@ import ir.ac.kntu.menu.customer.support.SupportMenu;
 import ir.ac.kntu.menu.customer.transfermoneymenu.TransferMenu;
 import ir.ac.kntu.person.customer.Customer;
 
+import java.text.ParseException;
+
 public class CustomerMenu extends Menu {
 
     private Customer customer;
@@ -25,13 +27,13 @@ public class CustomerMenu extends Menu {
         this.settingMenu = settingMenu;
     }
 
-    public void show(Customer customer){
+    public void show(Customer customer) throws ParseException {
         this.customer = customer;
         show();
     }
 
     @Override
-    public void show() {
+    public void show() throws ParseException {
         System.out.println("customer Menu");
         CustomerMenuOption customerMenuOption = printMenuOption();
         while (customerMenuOption != CustomerMenuOption.BACK) {

@@ -5,6 +5,8 @@ import ir.ac.kntu.menu.Menu;
 import ir.ac.kntu.menu.admin.loginadminmenu.LoginAdminMenu;
 import ir.ac.kntu.menu.customer.logincustomermenu.LoginCustomerMenu;
 
+import java.text.ParseException;
+
 public class MainMenu extends Menu {
 
     private LoginAdminMenu loginAdminMenu;
@@ -16,7 +18,7 @@ public class MainMenu extends Menu {
     }
 
     @Override
-    public void show() {
+    public void show() throws ParseException {
         System.out.println("Welcome to Fari Bank");
         MainMenuOption mainMenuOption = printMenuOptions();
         while (mainMenuOption != MainMenuOption.EXIT) {
