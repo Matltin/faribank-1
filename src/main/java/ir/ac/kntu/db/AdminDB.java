@@ -10,11 +10,12 @@ public class AdminDB {
 
     public AdminDB(Set<Admin> admins) {
         this.admins = admins;
-        admins.add(new Admin("matin", "ahmadi", "1", "m"));
-        admins.add(new Admin("reyhane", "arabshahi", "Rr@1383", "pota"));
+        admins.add(new Admin("Matin", "Ahmadi", "1", "m"));
+
     }
 
-    public void addAdmin() {
+    public void addAdmin(Admin admin) {
+        admins.add(admin);
     }
 
     public void removeAdmin() {
