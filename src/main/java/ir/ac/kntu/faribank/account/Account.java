@@ -62,7 +62,7 @@ public class Account {
                 setBalance(getBalance() - inputMoney - Constance.WAGE);
                 transferMoneyToCustomer(inputMoney, accountNO, customerDB);
             } else {
-                throw new RuntimeException("input money : " + inputMoney + " Your balance!!");
+                throw new RuntimeException("input money : " + inputMoney + " more than your balance!!");
             }
         } catch (Exception e) {
             System.err.println(e.getMessage());

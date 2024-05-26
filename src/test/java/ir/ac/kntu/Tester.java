@@ -1,6 +1,7 @@
 package ir.ac.kntu;
 
 import ir.ac.kntu.db.*;
+import ir.ac.kntu.faribank.account.Account;
 import ir.ac.kntu.message.Message;
 import ir.ac.kntu.message.MessageOption;
 import ir.ac.kntu.person.ContactPerson;
@@ -32,7 +33,7 @@ public class Tester {
     }
 
     @Test
-    void checkPrintMessage() throws FileNotFoundException {
+    void checkPrintMessageAnswerDB() throws FileNotFoundException {
         FileOutputStream f = new FileOutputStream("outputfile/PrintMessage.txt");
         System.setOut(new PrintStream(f));
 
@@ -50,7 +51,7 @@ public class Tester {
     }
 
     @Test
-    void checkFindPerson() {
+    void checkFindPersonContactPersonDB() {
         ContactPersonDB contactPersonDB = new ContactPersonDB();
         ContactPerson contactPerson1 = new ContactPerson("ali", "mohammadi", "09127428575", "1234");
         ContactPerson contactPerson2 = new ContactPerson("jafar", "ghasemi", "09126547895", "1235");
@@ -61,7 +62,7 @@ public class Tester {
     }
 
     @Test
-    void checkRemovePerson() {
+    void checkRemovePersonContactPersonDB() {
         ContactPersonDB contactPersonDB = new ContactPersonDB();
         ContactPerson contactPerson1 = new ContactPerson("ali", "mohammadi", "09127428575", "1234");
         ContactPerson contactPerson2 = new ContactPerson("jafar", "ghasemi", "09126547895", "1235");
@@ -73,7 +74,7 @@ public class Tester {
     }
 
     @Test
-    void printContactPerson() throws FileNotFoundException {
+    void checkPrintContactPersonContactPersonDB() throws FileNotFoundException {
         FileOutputStream f = new FileOutputStream("outputfile/PrintContactPerson.txt");
         System.setOut(new PrintStream(f));
 
@@ -87,7 +88,7 @@ public class Tester {
     }
 
     @Test
-    void checkFindCustomer() {
+    void checkFindCustomerCustomerDB() {
         CustomerDB customerDB = new CustomerDB(new HashSet<>());
         Customer customer1 = new Customer("ali", "mohsen", "1234", "40214433", "091260377011");
         Customer customer2 = new Customer("erfan", "mohammadi", "1569", "9926213", "09059293062");
@@ -98,7 +99,7 @@ public class Tester {
     }
 
     @Test
-    void checkMessageSize() {
+    void checkMessageSizeMessageDB() {
         MessageDB messageDB = new MessageDB();
         Message message1 = new Message("09102607040", "contact", MessageOption.CONTACT);
         Message message2 = new Message("09059293062", "report", MessageOption.REPORT);
@@ -113,7 +114,7 @@ public class Tester {
     }
 
     @Test
-    void printMessage() throws FileNotFoundException {
+    void checkPrintMessageDB() throws FileNotFoundException {
         FileOutputStream f = new FileOutputStream("outputfile/PrintMessageDB.txt");
         System.setOut(new PrintStream(f));
 
@@ -131,7 +132,7 @@ public class Tester {
     }
 
     @Test
-    void printTransactions() throws FileNotFoundException {
+    void checkPrintTransactionsDB() throws FileNotFoundException {
         FileOutputStream f = new FileOutputStream("outputfile/PrintTransactionDB.txt");
         System.setOut(new PrintStream(f));
 
@@ -149,6 +150,34 @@ public class Tester {
 
         transactionDB.printTransactions();
     }
+
+    @Test
+    void checkAccountIncreaseC() {
+        CustomerDB customerDB = new CustomerDB(new HashSet<>());
+        Customer customer1 = new Customer("ali", "mohsen", "1234", "40214433", "091260377011");
+        Customer customer2 = new Customer("erfan", "mohammadi", "1569", "9926213", "09059293062");
+        customerDB.addCustomer(customer1);
+        customerDB.addCustomer(customer2);
+        Account account = new Account(0,customer1.getAccount().getAccountNO());
+        account.increaseCredit(10000, customerDB);
+
+        assertEquals(10000, account.getBalance());
+    }
+
+    @Test
+    void checkAccountTransferMoney() {
+        CustomerDB customerDB = new CustomerDB(new HashSet<>());
+        Customer customer1 = new Customer("ali", "mohsen", "1234", "40214433", "091260377011");
+        Customer customer2 = new Customer("erfan", "mohammadi", "1569", "9926213", "09059293062");
+        customerDB.addCustomer(customer1);
+        customerDB.addCustomer(customer2);
+        Account account = new Account(1500,customer1.getAccount().getAccountNO());
+        account.transferMoney(1000, customer2.getAccount().getAccountNO(), customerDB);
+        account.transferMoney(100, customer2.getAccount().getAccountNO(), customerDB);
+
+        assertEquals(0, customer1.getAccount().getBalance());
+    }
+    
 
 
 }
