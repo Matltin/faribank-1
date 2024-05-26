@@ -16,6 +16,7 @@ public class ContactMenu extends Menu {
 
     public void show(Customer customer) {
         this.customer = customer;
+        show();
     }
 
     @Override

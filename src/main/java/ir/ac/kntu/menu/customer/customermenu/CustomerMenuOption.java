@@ -14,7 +14,7 @@ public enum CustomerMenuOption {
                 "3.Contact menu\n" +
                 "4.Support\n" +
                 "5.Setting\n" +
-                "6.Back");
+                "6.Back\n");
     }
 
 }

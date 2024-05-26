@@ -1,9 +1,6 @@
 package ir.ac.kntu;
 
-import ir.ac.kntu.db.AdminDB;
-import ir.ac.kntu.db.AnswerDB;
-import ir.ac.kntu.db.ContactPersonDB;
-import ir.ac.kntu.db.CustomerDB;
+import ir.ac.kntu.db.*;
 import ir.ac.kntu.message.Message;
 import ir.ac.kntu.message.MessageOption;
 import ir.ac.kntu.person.ContactPerson;
@@ -17,6 +14,7 @@ import java.io.PrintStream;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashSet;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class Tester {
@@ -27,7 +25,7 @@ public class Tester {
         Admin admin1 = new Admin("Matin", "Ahmadi", "1", "m");
         Admin admin2 = new Admin("Erfan", "Dostmohammadi", "2", "e");
 
-        assertEquals(admin1 ,adminDB.findAdmin(admin1.getUserName()));
+        assertEquals(admin1, adminDB.findAdmin(admin1.getUserName()));
         assertNull(adminDB.findAdmin(admin2.getUserName()));
     }
 
@@ -97,6 +95,40 @@ public class Tester {
         customerDB.addCustomer(customer2);
 
         assertEquals(customer1, customerDB.findCustomer(customer1.getAccount().getAccountNO()));
+    }
+
+    @Test
+    void checkMessageSize() {
+        MessageDB messageDB = new MessageDB();
+        Message message1 = new Message("09102607040", "contact", MessageOption.CONTACT);
+        Message message2 = new Message("09059293062", "report", MessageOption.REPORT);
+        Message message3 = new Message("09126410299", "setting", MessageOption.SETTING);
+        Message message4 = new Message("09136942050", "transfer", MessageOption.TRANSFER);
+
+        messageDB.addMessage(message1);
+        messageDB.addMessage(message2);
+        messageDB.addMessage(message3);
+        messageDB.addMessage(message4);
+
+        assertEquals(4, messageDB.size());
+    }
+
+    @Test
+    void printMessage() throws FileNotFoundException {
+
+        FileOutputStream f = new FileOutputStream("outputfile/PrintMessageDB.txt");
+        System.setOut(new PrintStream(f));
+
+        MessageDB messageDB = new MessageDB();
+        Message message1 = new Message("09102607040", "contact", MessageOption.CONTACT);
+        Message message2 = new Message("09059293062", "report", MessageOption.REPORT);
+        Message message3 = new Message("09126410299", "setting", MessageOption.SETTING);
+        Message message4 = new Message("09136942050", "transfer", MessageOption.TRANSFER);
+
+        messageDB.addMessage(message1);
+        messageDB.addMessage(message2);
+        messageDB.addMessage(message3);
+        messageDB.addMessage(message4);
 
     }
 

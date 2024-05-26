@@ -11,7 +11,7 @@ public class AdminDB {
     public AdminDB(Set<Admin> admins) {
         this.admins = admins;
         admins.add(new Admin("Matin", "Ahmadi", "1", "m"));
-
+        admins.add(new Admin("Reyhane", "MirArabshahi", "Rr@138406", "r"));
     }
 
     public void addAdmin(Admin admin) {
