@@ -6,6 +6,8 @@ import ir.ac.kntu.message.MessageOption;
 import ir.ac.kntu.person.ContactPerson;
 import ir.ac.kntu.person.admin.Admin;
 import ir.ac.kntu.person.customer.Customer;
+import ir.ac.kntu.transaction.Transaction;
+import ir.ac.kntu.transaction.TransactionType;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;
@@ -31,7 +33,6 @@ public class Tester {
 
     @Test
     void checkPrintMessage() throws FileNotFoundException {
-
         FileOutputStream f = new FileOutputStream("outputfile/PrintMessage.txt");
         System.setOut(new PrintStream(f));
 
@@ -65,7 +66,6 @@ public class Tester {
         ContactPerson contactPerson1 = new ContactPerson("ali", "mohammadi", "09127428575", "1234");
         ContactPerson contactPerson2 = new ContactPerson("jafar", "ghasemi", "09126547895", "1235");
         contactPersonDB.addContactPerson(contactPerson1);
-
         contactPersonDB.removePerson(contactPerson1);
         contactPersonDB.removePerson(contactPerson2);
 
@@ -104,7 +104,6 @@ public class Tester {
         Message message2 = new Message("09059293062", "report", MessageOption.REPORT);
         Message message3 = new Message("09126410299", "setting", MessageOption.SETTING);
         Message message4 = new Message("09136942050", "transfer", MessageOption.TRANSFER);
-
         messageDB.addMessage(message1);
         messageDB.addMessage(message2);
         messageDB.addMessage(message3);
@@ -115,7 +114,6 @@ public class Tester {
 
     @Test
     void printMessage() throws FileNotFoundException {
-
         FileOutputStream f = new FileOutputStream("outputfile/PrintMessageDB.txt");
         System.setOut(new PrintStream(f));
 
@@ -124,12 +122,33 @@ public class Tester {
         Message message2 = new Message("09059293062", "report", MessageOption.REPORT);
         Message message3 = new Message("09126410299", "setting", MessageOption.SETTING);
         Message message4 = new Message("09136942050", "transfer", MessageOption.TRANSFER);
-
         messageDB.addMessage(message1);
         messageDB.addMessage(message2);
         messageDB.addMessage(message3);
         messageDB.addMessage(message4);
 
+        messageDB.printMessage();
     }
+
+    @Test
+    void printTransactions() throws FileNotFoundException {
+        FileOutputStream f = new FileOutputStream("outputfile/PrintTransactionDB.txt");
+        System.setOut(new PrintStream(f));
+
+        TransactionDB transactionDB = new TransactionDB();
+        Transaction transaction1 = new Transaction("kazem", "motalehi", "123456", "654321", TransactionType.TRANSFER);
+        Transaction transaction2 = new Transaction("armin", "fakhar", "456789", "654321", TransactionType.TRANSFER);
+        Transaction transaction3 = new Transaction("mohammad", "afar", "987654", "654321", TransactionType.TRANSFER);
+        Transaction transaction4 = new Transaction("mani", "abodi", "147258", "654321", TransactionType.TRANSFER);
+        Transaction transaction5 = new Transaction("matin", "ahmadi", "654321", "654321", TransactionType.INCREASE_CREDIT);
+        transactionDB.addTransaction(transaction1);
+        transactionDB.addTransaction(transaction2);
+        transactionDB.addTransaction(transaction3);
+        transactionDB.addTransaction(transaction4);
+        transactionDB.addTransaction(transaction5);
+
+        transactionDB.printTransactions();
+    }
+
 
 }
