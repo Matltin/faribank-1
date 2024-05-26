@@ -89,46 +89,7 @@ public class LoginCustomerMenu extends Menu {
                 return;
             }
         }
-        while (!checkPasswordStrength(password)) {
-            System.out.println("password is too weak!");
-            System.out.println("password must have lower case and upperCase and numeric and special character(@,#,$,&,*)");
-            password = getPassword();
-        }
         Customer customer = new Customer(firstName, lastName, password, iDocument, phoneNumber);
         customerDB.addCustomer(customer);
-    }
-
-    private boolean checkPasswordStrength(String password) {
-//        boolean upperCase = false;
-//        boolean lowerCase = false;
-//        boolean number = false;
-//        boolean character = false;
-//        if (password.length() < 8) {
-//            return false;
-//        }
-//        for (int i = 0; i < password.length(); i++) {
-//            if (Character.isUpperCase(password.charAt(i))) {
-//                upperCase = true;
-//            } else if (Character.isLowerCase(password.charAt(i))) {
-//                lowerCase = true;
-//            } else if (Character.isDigit(password.charAt(i))) {
-//                number = true;
-//            } else if (isCharacter(password.charAt(i))) {
-//                character = true;
-//            } else if (isInvalidCharacter(password.charAt(i))) {
-//                return false;
-//            }
-//        }
-//        return upperCase && lowerCase && number && character;
-        return true;
-    }
-
-    private boolean isCharacter(char character) {
-        return character == '@' || character == '#' || character == '$' || character == '&' || character == '*';
-    }
-
-    private boolean isInvalidCharacter(char character) {
-        return character == '~' || character == '!' || character == '^' || character == '(' || character == ')' ||
-                character == '-' || character == '/' || character == '=' || character == '"' || character == ':' || character == '`';
     }
 }

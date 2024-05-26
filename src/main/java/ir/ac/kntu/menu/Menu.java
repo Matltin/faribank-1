@@ -65,8 +65,12 @@ public abstract class Menu {
     }
 
     public String getPassword() {
-        System.out.println("Enter password : ");
-        return ScannerWrapper.getInstance().nextLine();
+        String password;
+        do{
+            System.out.println("Enter password : ");
+            password = ScannerWrapper.getInstance().nextLine();
+        } while (!checkPasswordStrength(password));
+        return password;
     }
 
     public String getUserName() {
@@ -93,7 +97,42 @@ public abstract class Menu {
         return true;
     }
 
+    private boolean checkPasswordStrength(String password) {
+        boolean upperCase = false;
+        boolean lowerCase = false;
+        boolean number = false;
+        boolean character = false;
+        if (password.length() < 8) {
+            return false;
+        }
+        for (int i = 0; i < password.length(); i++) {
+            if (Character.isUpperCase(password.charAt(i))) {
+                upperCase = true;
+            } else if (Character.isLowerCase(password.charAt(i))) {
+                lowerCase = true;
+            } else if (Character.isDigit(password.charAt(i))) {
+                number = true;
+            } else if (isCharacter(password.charAt(i))) {
+                character = true;
+            } else if (isInvalidCharacter(password.charAt(i))) {
+                return false;
+            }
+        }
+        if(upperCase && lowerCase && number && character) {
+            return true;
+        }
+        System.out.println("password is too weak!");
+        return false;
+    }
 
+    private boolean isCharacter(char character) {
+        return character == '@' || character == '#' || character == '$' || character == '&' || character == '*';
+    }
+
+    private boolean isInvalidCharacter(char character) {
+        return character == '~' || character == '!' || character == '^' || character == '(' || character == ')' ||
+                character == '-' || character == '/' || character == '=' || character == '"' || character == ':' || character == '`';
+    }
 
 
 }
