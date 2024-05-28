@@ -21,16 +21,10 @@ public class StateMenu extends Menu {
         while (state != State.BACK) {
             if (state != null) {
                 switch (state) {
-                    case SUBMIT:
-                        showSubmit();
-                        break;
-                    case IN_PROGRESS:
-                        showInProgress();
-                        break;
-                    case CLOSED:
-                        showClosed();
-                    default:
-                        break;
+                    case SUBMIT -> showSubmit();
+                    case IN_PROGRESS -> showInProgress();
+                    case CLOSED -> showClosed();
+                    default -> System.out.print("");
                 }
             } else {
                 System.out.println("invalid input!!");

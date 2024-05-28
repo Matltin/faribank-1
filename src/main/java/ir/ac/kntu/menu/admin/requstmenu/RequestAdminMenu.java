@@ -23,14 +23,9 @@ public class RequestAdminMenu extends Menu {
         while (requestMenuOption != RequestAdminMenuOption.BACK) {
             if(requestMenuOption != null) {
                 switch (requestMenuOption) {
-                    case SEARCH:
-                        searchMenu.show();
-                        break;
-                    case SHOW:
-                        showRequest(answerDB);
-                        break;
-                    default:
-                        break;
+                    case SEARCH -> searchMenu.show();
+                    case SHOW -> showRequest(answerDB);
+                    default -> System.out.print("");
                 }
             } else {
                 System.out.println("invalid input!!");

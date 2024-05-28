@@ -27,17 +27,10 @@ public class SearchMenu extends Menu {
         while (searchMenuOption != SearchMenuOption.BACK) {
             if (searchMenuOption != null) {
                 switch (searchMenuOption) {
-                    case STATE:
-                        stateMenu.show();
-                        break;
-                    case BRANCH:
-                        branchMenu.show();
-                        break;
-                    case USER:
-                        searchByUser(answerDB);
-                        break;
-                    default:
-                        break;
+                    case STATE -> stateMenu.show();
+                    case BRANCH -> branchMenu.show();
+                    case USER -> searchByUser(answerDB);
+                    default -> System.out.print("");
                 }
             } else {
                 System.out.println("invalid input!!");

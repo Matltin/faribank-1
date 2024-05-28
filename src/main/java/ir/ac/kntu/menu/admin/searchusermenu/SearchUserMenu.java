@@ -20,29 +20,14 @@ public class SearchUserMenu extends Menu {
         while (usrAcsMenuOption != SearchUserMenuOption.BACK) {
             if (usrAcsMenuOption != null) {
                 switch (usrAcsMenuOption) {
-                    case BY_FIRST_NAME:
-                        searchByFirstName();
-                        break;
-                    case BY_LAST_NAME:
-                        searchByLastName();
-                        break;
-                    case BY_PHONE_NUMBER:
-                        searchByPhoneNumber();
-                        break;
-                    case BY_FIRST_LAST_NAME:
-                        searchByFirstLastName();
-                        break;
-                    case BY_FIRST_NAME_PHONE_NUMBER:
-                        searchByFirstNamePhoneNumber();
-                        break;
-                    case BY_LAST_NAME_PHONE_NUMBER:
-                        searchByLastNamePhoneNumber();
-                        break;
-                    case BY_FIRST_LAST_NAME_PHONE_NUMBER:
-                        searchByFirstLastNamePhoneNumber();
-                        break;
-                    default:
-                        break;
+                    case BY_FIRST_NAME -> searchByFirstName();
+                    case BY_LAST_NAME -> searchByLastName();
+                    case BY_PHONE_NUMBER -> searchByPhoneNumber();
+                    case BY_FIRST_LAST_NAME -> searchByFirstLastName();
+                    case BY_FIRST_NAME_PHONE_NUMBER -> searchByFirstNamePhoneNumber();
+                    case BY_LAST_NAME_PHONE_NUMBER -> searchByLastNamePhoneNumber();
+                    case BY_FIRST_LAST_NAME_PHONE_NUMBER -> searchByFirstLastNamePhoneNumber();
+                    default -> System.out.print("");
                 }
             } else {
                 System.out.println("invalid input!!");

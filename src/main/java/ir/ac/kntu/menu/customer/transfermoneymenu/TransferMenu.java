@@ -26,17 +26,10 @@ public class TransferMenu extends Menu {
         while (transMenuOption != TransferMenuOption.BACK) {
             if (transMenuOption != null) {
                 switch (transMenuOption) {
-                    case TRANSFER_MONEY_RECENT_ACCOUNT:
-                        transferByRecentAccount();
-                        break;
-                    case TRANSFER_MONEY_CONTACT:
-                        transferByContact();
-                        break;
-                    case TRANSFER_MONEY_ACCOUNT:
-                        transferByAccount();
-                        break;
-                    default:
-                        break;
+                    case TRANSFER_MONEY_RECENT_ACCOUNT -> transferByRecentAccount();
+                    case TRANSFER_MONEY_CONTACT -> transferByContact();
+                    case TRANSFER_MONEY_ACCOUNT -> transferByAccount();
+                    default -> System.out.print("");
                 }
             } else {
                 System.out.println("invalid input!!");

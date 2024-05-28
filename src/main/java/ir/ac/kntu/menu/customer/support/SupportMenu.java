@@ -24,14 +24,9 @@ public class SupportMenu extends Menu {
         while (supportMEnuOption != SupportMEnuOption.BACK) {
             if (supportMEnuOption != null) {
                 switch (supportMEnuOption) {
-                    case REQUEST:
-                        requestCustMenu.show(customer);
-                        break;
-                    case SHOW_REQUEST:
-                        showRequest();
-                        break;
-                    default:
-                        break;
+                    case REQUEST -> requestCustMenu.show(customer);
+                    case SHOW_REQUEST -> showRequest();
+                    default -> System.out.print("");
                 }
             } else {
                 System.out.println("invalid input!!");

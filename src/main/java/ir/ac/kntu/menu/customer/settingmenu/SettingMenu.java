@@ -19,20 +19,11 @@ public class SettingMenu extends Menu {
         while (settingMenuOption != SettingMenuOption.BACK) {
             if (settingMenuOption != null) {
                 switch (settingMenuOption) {
-                    case EDIT_USER_PASSWORD:
-                        editUserPassword();
-                        break;
-                    case EDIT_CARD_PASSWORD:
-                        editCardPassword();
-                        break;
-                    case ACTIVATION_CONTACT:
-                        activationContact();
-                        break;
-                    case UN_ACTIVATION_CONTACT:
-                        unActivationContact();
-                        break;
-                    default:
-                        break;
+                    case EDIT_USER_PASSWORD -> editUserPassword();
+                    case EDIT_CARD_PASSWORD -> editCardPassword();
+                    case ACTIVATION_CONTACT -> activationContact();
+                    case UN_ACTIVATION_CONTACT -> unActivationContact();
+                    default -> System.out.print("");
                 }
             } else {
                 System.out.println("invalid input!!");

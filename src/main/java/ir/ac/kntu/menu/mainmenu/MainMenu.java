@@ -24,14 +24,9 @@ public class MainMenu extends Menu {
         while (mainMenuOption != MainMenuOption.EXIT) {
             if (mainMenuOption != null) {
                 switch (mainMenuOption) {
-                    case ADMIN:
-                        loginAdminMenu.show();
-                        break;
-                    case CUSTOMER:
-                        loginCustomerMenu.show();
-                        break;
-                    default:
-                        break;
+                    case ADMIN -> loginAdminMenu.show();
+                    case CUSTOMER -> loginCustomerMenu.show();
+                    default -> System.out.print("");
                 }
             } else {
                 System.out.println(Constance.RED + "invalid input!!");

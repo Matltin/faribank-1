@@ -30,18 +30,11 @@ public class AccountMangeMenu extends Menu {
         while (accMngMenuOption != AccountMangeMenuOption.BACK) {
             if (accMngMenuOption != null) {
                 switch (accMngMenuOption) {
-                    case INCREASE_CREDIT:
-                        increaseCredit();
-                        break;
-                    case ACCOUNT_BALANCE:
-                        showAccountBalance();
-                        break;
-                    case TRANSACTION_LIST:
-                        recentTransMenu.show(customer);
+                    case INCREASE_CREDIT -> increaseCredit();
+                    case ACCOUNT_BALANCE -> showAccountBalance();
+                    case TRANSACTION_LIST -> recentTransMenu.show(customer);
 //                        showTransactionList();
-                        break;
-                    default:
-                        break;
+                    default -> System.out.print("");
                 }
             } else {
                 System.out.println("invalid input!!");

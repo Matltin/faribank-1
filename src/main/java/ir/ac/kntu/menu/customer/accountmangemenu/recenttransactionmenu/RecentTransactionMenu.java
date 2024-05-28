@@ -23,17 +23,10 @@ public class RecentTransactionMenu extends Menu {
         while (rctTransOption != RecentTransactionMenuOption.BACK) {
             if (rctTransOption != null) {
                 switch (rctTransOption) {
-                    case BY_NUMBER:
-                        searchByNumber();
-                        break;
-                    case BY_TIME:
-                        searchByTime();
-                        break;
-                    case ALL:
-                        searchAll();
-                        break;
-                    default:
-                        break;
+                    case BY_NUMBER -> searchByNumber();
+                    case BY_TIME -> searchByTime();
+                    case ALL -> searchAll();
+                    default -> System.out.print("");
                 }
             } else {
                 System.out.println("invalid input!!");

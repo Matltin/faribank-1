@@ -26,17 +26,10 @@ public class ContactMenu extends Menu {
         while (contactMenuOption != ContactMenuOption.BACK) {
             if (contactMenuOption != null) {
                 switch (contactMenuOption) {
-                    case SHOW_CONTACT_LIST:
-                        showContactList();
-                        break;
-                    case EDIT_CONTACT_INFO:
-                        editContactINFO();
-                        break;
-                    case ADD_CONTACT:
-                        addContact();
-                        break;
-                    default:
-                        break;
+                    case SHOW_CONTACT_LIST -> showContactList();
+                    case EDIT_CONTACT_INFO -> editContactINFO();
+                    case ADD_CONTACT -> addContact();
+                    default -> System.out.print("");
                 }
             } else {
                 System.out.println("invalid input");

@@ -39,23 +39,12 @@ public class CustomerMenu extends Menu {
         while (custMenuOption != CustomerMenuOption.BACK) {
             if (custMenuOption != null) {
                 switch (custMenuOption) {
-                    case TRANSFER_MONEY:
-                        transferMenu.show(customer);
-                        break;
-                    case ACCOUNT_MANAGE:
-                        accountMangeMenu.show(customer);
-                        break;
-                    case CONTACT_MENU:
-                        contactMenu.show(customer);
-                        break;
-                    case SUPPORT:
-                        supportMenu.show(customer);
-                        break;
-                    case SETTING:
-                        settingMenu.show(customer);
-                        break;
-                    default:
-                        break;
+                    case TRANSFER_MONEY -> transferMenu.show(customer);
+                    case ACCOUNT_MANAGE -> accountMangeMenu.show(customer);
+                    case CONTACT_MENU -> contactMenu.show(customer);
+                    case SUPPORT -> supportMenu.show(customer);
+                    case SETTING -> settingMenu.show(customer);
+                    default -> System.out.print("");
                 }
             } else {
                 System.out.println("invalid input!!");

@@ -23,14 +23,9 @@ public class UserAccessMenu extends Menu {
         while (usrAcsMenuOption != UserAccessMenuOption.BACK) {
             if (usrAcsMenuOption != null) {
                 switch (usrAcsMenuOption) {
-                    case SHOW_USER:
-                        showUser();
-                        break;
-                    case SEARCH_USER:
-                        searchUserMenu.show();
-                        break;
-                    default:
-                        break;
+                    case SHOW_USER -> showUser();
+                    case SEARCH_USER -> searchUserMenu.show();
+                    default -> System.out.print("");
                 }
             } else {
                 System.out.println("invalid input!!");

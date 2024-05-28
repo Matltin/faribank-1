@@ -27,20 +27,11 @@ public class RequestCustomerMenu extends Menu {
         while (messageOption != MessageOption.BACK) {
             if (messageOption != null) {
                 switch (messageOption) {
-                    case CONTACT:
-                        contact();
-                        break;
-                    case SETTING:
-                        setting();
-                        break;
-                    case TRANSFER:
-                        transfer();
-                        break;
-                    case REPORT:
-                        report();
-                        break;
-                    default:
-                        break;
+                    case CONTACT -> contact();
+                    case SETTING -> setting();
+                    case TRANSFER -> transfer();
+                    case REPORT -> report();
+                    default -> System.out.print("");
                 }
             } else {
                 System.out.println("invalid input!!");

@@ -30,14 +30,9 @@ public class LoginCustomerMenu extends Menu {
         while (custMenuOption != LoginCustomerMenuOption.BACK) {
             if (custMenuOption != null) {
                 switch (custMenuOption) {
-                    case LOGIN:
-                        login();
-                        break;
-                    case REGISTER:
-                        register();
-                        break;
-                    default:
-                        break;
+                    case LOGIN -> login();
+                    case REGISTER -> register();
+                    default -> System.out.print("");
                 }
             } else {
                 System.out.println("invalid input!!");
