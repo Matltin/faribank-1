@@ -104,11 +104,11 @@ public class BranchMenu extends Menu {
 
     private void showReport(AnswerDB answerDB) {
         if(answerDB.size() == 0) {
-            System.out.println(Constance.RED + "there is no customer");
+            System.out.println(Constance.RED + "there is no customer" + Constance.RESET);
             return;
         }
         if(!checkMessageOption(MessageOption.REPORT)) {
-            System.out.println("there is no report message to show!!");
+            System.out.println(Constance.RED + "there is no report message to show!!" + Constance.RESET);
             return;
         }
         print(answerDB, MessageOption.REPORT);

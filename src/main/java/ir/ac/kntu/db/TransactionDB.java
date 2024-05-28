@@ -32,5 +32,11 @@ public class TransactionDB {
         }
     }
 
-
+    @Override
+    public String
+    toString() {
+        return "TransactionDB{" +
+                "transactions=" + transactions +
+                '}';
+    }
 }

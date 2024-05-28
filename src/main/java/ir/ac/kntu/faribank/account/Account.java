@@ -75,4 +75,14 @@ public class Account {
         Transaction transaction = new Transaction(customer.getFirstName(), customer.getLastName(), customer.getAccount().getAccountNO(), getAccountNO(), TransactionType.TRANSFER);
         transactionDB.addTransaction(transaction);
     }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "balance=" + balance +
+                ", accountNO='" + accountNO + '\'' +
+                ", transactionDB=" + transactionDB +
+                ", card=" + card +
+                '}';
+    }
 }

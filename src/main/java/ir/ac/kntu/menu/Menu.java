@@ -66,7 +66,7 @@ public abstract class Menu {
 
     public String getPassword() {
         String password;
-        do{
+        do {
             System.out.println("Enter password : ");
             password = ScannerWrapper.getInstance().nextLine();
         } while (!checkPasswordStrength(password));
@@ -88,9 +88,26 @@ public abstract class Menu {
         return ScannerWrapper.getInstance().nextLine();
     }
 
+    public String getCardPassword() {
+        String password;
+        do {
+            System.out.println("Enter password : ");
+            password = ScannerWrapper.getInstance().nextLine();
+        } while (!checkCardPassword(password));
+        return password;
+    }
+
+    private boolean checkCardPassword(String password) {
+        if (password.matches("[0-9]{4}")) {
+            return true;
+        } else {
+            System.out.println(Constance.RED + "invalid password format!!" + Constance.RESET);
+            return false;
+        }
+    }
 
     private boolean checkPhoneNumber(String phoneNumber) {
-        if(!phoneNumber.matches("^(09)[0-9]{9}")) {
+        if (!phoneNumber.matches("^(09)[0-9]{9}")) {
             System.out.println(Constance.RED + "invalid phoneNumber format!!" + Constance.RESET);
             return false;
         }
@@ -102,9 +119,6 @@ public abstract class Menu {
         boolean lowerCase = false;
         boolean number = false;
         boolean character = false;
-        if (password.length() < 8) {
-            return false;
-        }
         for (int i = 0; i < password.length(); i++) {
             if (Character.isUpperCase(password.charAt(i))) {
                 upperCase = true;
@@ -118,10 +132,10 @@ public abstract class Menu {
                 return false;
             }
         }
-        if(upperCase && lowerCase && number && character) {
+        if (upperCase && lowerCase && number && character) {
             return true;
         }
-        System.out.println("password is too weak!");
+        System.out.println(Constance.RED + "password is too weak!" + Constance.RESET);
         return false;
     }
 

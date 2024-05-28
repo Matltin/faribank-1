@@ -14,6 +14,16 @@ public class CustomerDB {
 
     public void addCustomer(Customer customer) {
         customers.add(customer);
+
+//        Customer customer1 = new Customer("a", "a", "Mm@1383", "12", "09102607040");
+//        Customer customer2 = new Customer("b", "b", "Rr@1384", "13", "09112607040");
+//        Customer customer3 = new Customer("c", "c", "Cc@1383", "14", "09122607040");
+//
+//
+//        customers.add(customer1);
+//        customers.add(customer2);
+//        customers.add(customer3);
+
     }
 
     public void removeCustomer(Customer customer) {

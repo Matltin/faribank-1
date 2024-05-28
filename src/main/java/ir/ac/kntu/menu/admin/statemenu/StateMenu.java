@@ -63,6 +63,7 @@ public class StateMenu extends Menu {
     private void showInProgress() {
         if(answerDB.size() == 0) {
             System.out.println(Constance.RED + "there is no customer to show!!");
+            return;
         }
         if(!checkState(State.IN_PROGRESS)) {
             System.out.println(Constance.RED + "there is no in progressed customer!!" + Constance.RESET);
@@ -82,6 +83,7 @@ public class StateMenu extends Menu {
     private void showClosed() {
         if(answerDB.size() == 0) {
             System.out.println(Constance.RED + "there is no customer to show!!");
+            return;
         }
         if(!checkState(State.CLOSED)) {
             System.out.println(Constance.RED + "there is no closed customer!!" + Constance.RESET);

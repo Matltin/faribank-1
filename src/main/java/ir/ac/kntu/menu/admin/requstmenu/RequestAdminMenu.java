@@ -21,7 +21,7 @@ public class RequestAdminMenu extends Menu {
         System.out.println("request menu");
         RequestAdminMenuOption requestMenuOption = printMenuOption();
         while (requestMenuOption != RequestAdminMenuOption.BACK) {
-            if(requestMenuOption != null) {
+            if (requestMenuOption != null) {
                 switch (requestMenuOption) {
                     case SEARCH -> searchMenu.show();
                     case SHOW -> showRequest(answerDB);
@@ -42,8 +42,8 @@ public class RequestAdminMenu extends Menu {
     }
 
     private void showRequest(AnswerDB answerDB) {
-        if(answerDB.size() == 0) {
-            System.out.println(Constance.RED + "there is no customer to show");
+        if (answerDB.size() == 0) {
+            System.out.println(Constance.RED + "there is no customer to show" + Constance.RESET);
             return;
         }
         answerDB.printMessage();

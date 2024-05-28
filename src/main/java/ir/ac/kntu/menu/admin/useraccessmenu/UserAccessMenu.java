@@ -48,7 +48,7 @@ public class UserAccessMenu extends Menu {
             return;
         }
         for (Customer customer : customerDB.getCustomers()) {
-            System.out.println(counter + ". " + customer.getFirstName() + " " + customer.getLastName() + " " + customer.getPhoneNumber());
+            System.out.println(counter + "." + customer.getFirstName() + " " + customer.getLastName() + " " + customer.getPhoneNumber());
             counter++;
         }
 

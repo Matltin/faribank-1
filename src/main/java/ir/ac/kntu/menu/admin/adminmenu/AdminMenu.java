@@ -55,12 +55,11 @@ public class AdminMenu extends Menu {
                 counter++;
             }
         }
-        if(customerDB.size() == 0) {
+        if(customerDB.size() == 0 || counter == 1) {
             System.out.println("it is empty!!");
             return;
         }
         int number = getNumber();
-
         String yesOrNo = getYesNo();
         if("Y".equals(yesOrNo)) {
             accessCustomer(number);
