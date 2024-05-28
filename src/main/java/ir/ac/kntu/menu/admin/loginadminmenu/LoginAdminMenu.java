@@ -23,14 +23,9 @@ public class LoginAdminMenu extends Menu {
         while (adminMenuOption != LoginAdminMenuOption.BACK) {
             if (adminMenuOption != null) {
                 switch (adminMenuOption) {
-                    case LOGIN:
-                        login();
-                        break;
-                    case REGISTER:
-                        register();
-                        break;
-                    default:
-                        break;
+                    case LOGIN -> login();
+                    case REGISTER -> register();
+                    default -> System.out.print("");
                 }
             } else {
                 System.out.println("invalid input!!");

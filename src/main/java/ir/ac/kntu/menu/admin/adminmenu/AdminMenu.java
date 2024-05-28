@@ -71,7 +71,7 @@ public class AdminMenu extends Menu {
         }
     }
 
-    public void accessCustomer(int number) {
+    private void accessCustomer(int number) {
         int counter = 0;
         for (Customer customer : customerDB.getCustomers()) {
             if (customer.getState() == State.IN_PROGRESSING) {
@@ -85,7 +85,7 @@ public class AdminMenu extends Menu {
         }
     }
 
-    public void rejectCustomer(int number) {
+    private void rejectCustomer(int number) {
         int counter = 0;
         for (Customer customer : customerDB.getCustomers()) {
             if (customer.getState() == State.IN_PROGRESSING) {
