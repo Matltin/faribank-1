@@ -1,5 +1,0 @@
-1.Transaction{followupNumber='4023', transactionType=TRANSFER, sourceAccountNO='654321', destinationAccountNO='123456', formatDate='2024/05/26 -- 17:52:28', lastNameDestination='motalehi', firstNameDestination='kazem'}
-2.Transaction{followupNumber='3961', transactionType=TRANSFER, sourceAccountNO='654321', destinationAccountNO='456789', formatDate='2024/05/26 -- 17:52:28', lastNameDestination='fakhar', firstNameDestination='armin'}
-3.Transaction{followupNumber='7008', transactionType=TRANSFER, sourceAccountNO='654321', destinationAccountNO='987654', formatDate='2024/05/26 -- 17:52:28', lastNameDestination='afar', firstNameDestination='mohammad'}
-4.Transaction{followupNumber='2693', transactionType=TRANSFER, sourceAccountNO='654321', destinationAccountNO='147258', formatDate='2024/05/26 -- 17:52:28', lastNameDestination='abodi', firstNameDestination='mani'}
-5.Transaction{followupNumber='3333', transactionType=INCREASE_CREDIT, sourceAccountNO='654321', destinationAccountNO='654321', formatDate='2024/05/26 -- 17:52:28', lastNameDestination='ahmadi', firstNameDestination='matin'}

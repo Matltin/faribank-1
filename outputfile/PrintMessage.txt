@@ -2,3 +2,33 @@
 2.message branch : REPORTphone number : 09059293062
 3.message branch : SETTINGphone number : 09126410299
 4.message branch : TRANSFERphone number : 09136942050
+src/main/java/ir/ac/kntu/faribank/FariBank.java:50:	LongVariable:	Avoid excessively long variable names like requestCustomerMenu
+src/main/java/ir/ac/kntu/faribank/FariBank.java:52:	LongVariable:	Avoid excessively long variable names like recentTransactionMenu
+src/main/java/ir/ac/kntu/menu/admin/loginadminmenu/LoginAdminMenu.java:22:	LongVariable:	Avoid excessively long variable names like loginAdminMenuOption
+src/main/java/ir/ac/kntu/menu/customer/support/SupportMenu.java:10:	LongVariable:	Avoid excessively long variable names like requestCustomerMenu
+src/main/java/ir/ac/kntu/menu/customer/support/SupportMenu.java:12:	LongVariable:	Avoid excessively long variable names like requestCustomerMenu
+src/main/java/ir/ac/kntu/menu/admin/useraccessmenu/UserAccessMenu.java:22:	LongVariable:	Avoid excessively long variable names like userAccessMenuOption
+src/main/java/ir/ac/kntu/menu/customer/accountmangemenu/AccountMangeMenu.java:14:	LongVariable:	Avoid excessively long variable names like recentTransactionMenu
+src/main/java/ir/ac/kntu/menu/customer/accountmangemenu/AccountMangeMenu.java:16:	LongVariable:	Avoid excessively long variable names like recentTransactionMenu
+src/main/java/ir/ac/kntu/menu/customer/accountmangemenu/AccountMangeMenu.java:29:	LongVariable:	Avoid excessively long variable names like accountMangeMenuOption
+src/main/java/ir/ac/kntu/menu/customer/customermenu/CustomerMenu.java:36:	NcssCount:	The method 'show()' has a NCSS line count of 26.
+src/main/java/ir/ac/kntu/menu/customer/customermenu/CustomerMenu.java:38:	LongVariable:	Avoid excessively long variable names like customerMenuOption
+src/main/java/ir/ac/kntu/menu/customer/logincustomermenu/LoginCustomerMenu.java:29:	LongVariable:	Avoid excessively long variable names like loginCustomerMenuOption
+src/main/java/ir/ac/kntu/transaction/Transaction.java:9:	LongVariable:	Avoid excessively long variable names like firstNameDestination
+src/main/java/ir/ac/kntu/transaction/Transaction.java:10:	LongVariable:	Avoid excessively long variable names like lastNameDestination
+src/main/java/ir/ac/kntu/transaction/Transaction.java:13:	LongVariable:	Avoid excessively long variable names like destinationAccountNO
+src/main/java/ir/ac/kntu/transaction/Transaction.java:18:	LongVariable:	Avoid excessively long variable names like firstNameDestination
+src/main/java/ir/ac/kntu/transaction/Transaction.java:18:	LongVariable:	Avoid excessively long variable names like lastNameDestination
+src/main/java/ir/ac/kntu/transaction/Transaction.java:19:	LongVariable:	Avoid excessively long variable names like destinationAccountNO
+src/main/java/ir/ac/kntu/menu/customer/transfermoneymenu/TransferMenu.java:25:	LongVariable:	Avoid excessively long variable names like transferMenuOption
+src/main/java/ir/ac/kntu/menu/customer/accountmangemenu/recenttransactionmenu/RecentTransactionMenu.java:22:	LongVariable:	Avoid excessively long variable names like recentTransactionMenuOption
+src/main/java/ir/ac/kntu/menu/Menu.java:100:	NcssCount:	The method 'checkPasswordStrength(String)' has a NCSS line count of 26.
+src/main/java/ir/ac/kntu/menu/admin/searchusermenu/SearchUserMenu.java:17:	NcssCount:	The method 'show()' has a NCSS line count of 32.
+src/main/java/ir/ac/kntu/menu/admin/searchusermenu/SearchUserMenu.java:19:	LongVariable:	Avoid excessively long variable names like userAccessMenuOption
+Found 23 PMD rule violations.
+Root is set to "/home/matin/Desktop/java/project2/src/main".
+Found 58 Java source files.
+Found 0 check style errors.
+Root is set to "/home/matin/Desktop/java/project2/src/main".
+Found 58 Java source files.
+Found 0 check style errors.

@@ -177,7 +177,20 @@ public class Tester {
 
         assertEquals(0, customer1.getAccount().getBalance());
     }
-    
+
+    @Test
+    void checkCustomerAddContactPerson() throws FileNotFoundException {
+        FileOutputStream f = new FileOutputStream("outputfile/PrintTransactionDB.txt");
+        System.setOut(new PrintStream(f));
+
+        CustomerDB customerDB = new CustomerDB(new HashSet<>());
+        Customer customer1 = new Customer("ali", "mohsen", "1234", "40214433", "091260377011");
+        Customer customer2 = new Customer("erfan", "mohammadi", "1569", "9926213", "09059293062");
+        customer1.addContactPerson("mmd", "mmadi", customer2.getPhoneNumber(), customerDB);
+
+        customer1.getContactPerson().printContactPerson();
+    }
+
 
 
 }
