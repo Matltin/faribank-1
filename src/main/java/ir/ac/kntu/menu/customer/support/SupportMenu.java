@@ -7,10 +7,10 @@ import ir.ac.kntu.person.customer.Customer;
 public class SupportMenu extends Menu {
 
     private Customer customer;
-    private RequestCustomerMenu requestCustomerMenu;
+    private RequestCustomerMenu requestCustMenu;
 
-    public SupportMenu(RequestCustomerMenu requestCustomerMenu) {
-        this.requestCustomerMenu = requestCustomerMenu;
+    public SupportMenu(RequestCustomerMenu requestCustMenu) {
+        this.requestCustMenu = requestCustMenu;
     }
 
     public void show(Customer customer) {
@@ -25,7 +25,7 @@ public class SupportMenu extends Menu {
             if (supportMEnuOption != null) {
                 switch (supportMEnuOption) {
                     case REQUEST:
-                        requestCustomerMenu.show(customer);
+                        requestCustMenu.show(customer);
                         break;
                     case SHOW_REQUEST:
                         showRequest();

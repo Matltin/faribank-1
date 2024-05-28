@@ -28,17 +28,10 @@ public class AdminMenu extends Menu {
         while (adminMenuOption != AdminMenuOption.BACK) {
             if (adminMenuOption != null) {
                 switch (adminMenuOption) {
-                    case AUTHENTICATION:
-                        authentication();
-                        break;
-                    case REQUEST:
-                        requestAdminMenu.show();
-                        break;
-                    case USER_ACCESS:
-                        userAccessMenu.show();
-                        break;
-                    default:
-                        break;
+                    case AUTHENTICATION -> authentication();
+                    case REQUEST -> requestAdminMenu.show();
+                    case USER_ACCESS -> userAccessMenu.show();
+                    default -> System.out.print("");
                 }
             } else {
                 System.out.println("invalid input!!");

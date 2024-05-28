@@ -22,10 +22,10 @@ public class TransferMenu extends Menu {
     @Override
     public void show() {
         System.out.println("transfer menu");
-        TransferMenuOption transferMenuOption = printMenuOption();
-        while (transferMenuOption != TransferMenuOption.BACK) {
-            if (transferMenuOption != null) {
-                switch (transferMenuOption) {
+        TransferMenuOption transMenuOption = printMenuOption();
+        while (transMenuOption != TransferMenuOption.BACK) {
+            if (transMenuOption != null) {
+                switch (transMenuOption) {
                     case TRANSFER_MONEY_RECENT_ACCOUNT:
                         transferByRecentAccount();
                         break;
@@ -41,7 +41,7 @@ public class TransferMenu extends Menu {
             } else {
                 System.out.println("invalid input!!");
             }
-            transferMenuOption = printMenuOption();
+            transMenuOption = printMenuOption();
         }
     }
 

@@ -19,10 +19,10 @@ public class UserAccessMenu extends Menu {
     @Override
     public void show() {
         System.out.println("user access menu");
-        UserAccessMenuOption userAccessMenuOption = printMenuOption();
-        while (userAccessMenuOption != UserAccessMenuOption.BACK) {
-            if (userAccessMenuOption != null) {
-                switch (userAccessMenuOption) {
+        UserAccessMenuOption usrAcsMenuOption = printMenuOption();
+        while (usrAcsMenuOption != UserAccessMenuOption.BACK) {
+            if (usrAcsMenuOption != null) {
+                switch (usrAcsMenuOption) {
                     case SHOW_USER:
                         showUser();
                         break;
@@ -35,7 +35,7 @@ public class UserAccessMenu extends Menu {
             } else {
                 System.out.println("invalid input!!");
             }
-            userAccessMenuOption = printMenuOption();
+            usrAcsMenuOption = printMenuOption();
         }
     }
 

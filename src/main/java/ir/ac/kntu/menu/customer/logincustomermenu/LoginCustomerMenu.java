@@ -26,10 +26,10 @@ public class LoginCustomerMenu extends Menu {
     @Override
     public void show() throws ParseException {
         System.out.println("logging page");
-        LoginCustomerMenuOption loginCustomerMenuOption = printMenuOption();
-        while (loginCustomerMenuOption != LoginCustomerMenuOption.BACK) {
-            if (loginCustomerMenuOption != null) {
-                switch (loginCustomerMenuOption) {
+        LoginCustomerMenuOption custMenuOption = printMenuOption();
+        while (custMenuOption != LoginCustomerMenuOption.BACK) {
+            if (custMenuOption != null) {
+                switch (custMenuOption) {
                     case LOGIN:
                         login();
                         break;
@@ -42,7 +42,7 @@ public class LoginCustomerMenu extends Menu {
             } else {
                 System.out.println("invalid input!!");
             }
-            loginCustomerMenuOption = printMenuOption();
+            custMenuOption = printMenuOption();
         }
     }
 

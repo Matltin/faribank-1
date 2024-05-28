@@ -11,11 +11,11 @@ public class AccountMangeMenu extends Menu {
 
     private Customer customer;
     private CustomerDB customerDB;
-    private RecentTransactionMenu recentTransactionMenu;
+    private RecentTransactionMenu recentTransMenu;
 
-    public AccountMangeMenu(CustomerDB customerDB, RecentTransactionMenu recentTransactionMenu) {
+    public AccountMangeMenu(CustomerDB customerDB, RecentTransactionMenu recentTransMenu) {
         this.customerDB = customerDB;
-        this.recentTransactionMenu = recentTransactionMenu;
+        this.recentTransMenu = recentTransMenu;
     }
 
     public void show(Customer customer) throws ParseException {
@@ -26,10 +26,10 @@ public class AccountMangeMenu extends Menu {
     @Override
     public void show() throws ParseException {
         System.out.println("account Menu");
-        AccountMangeMenuOption accountMangeMenuOption = printMenuOption();
-        while (accountMangeMenuOption != AccountMangeMenuOption.BACK) {
-            if (accountMangeMenuOption != null) {
-                switch (accountMangeMenuOption) {
+        AccountMangeMenuOption accMngMenuOption = printMenuOption();
+        while (accMngMenuOption != AccountMangeMenuOption.BACK) {
+            if (accMngMenuOption != null) {
+                switch (accMngMenuOption) {
                     case INCREASE_CREDIT:
                         increaseCredit();
                         break;
@@ -37,7 +37,7 @@ public class AccountMangeMenu extends Menu {
                         showAccountBalance();
                         break;
                     case TRANSACTION_LIST:
-                        recentTransactionMenu.show(customer);
+                        recentTransMenu.show(customer);
 //                        showTransactionList();
                         break;
                     default:
@@ -46,7 +46,7 @@ public class AccountMangeMenu extends Menu {
             } else {
                 System.out.println("invalid input!!");
             }
-            accountMangeMenuOption = printMenuOption();
+            accMngMenuOption = printMenuOption();
         }
     }
 

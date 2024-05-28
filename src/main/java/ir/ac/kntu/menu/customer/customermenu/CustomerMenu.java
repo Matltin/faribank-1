@@ -35,10 +35,10 @@ public class CustomerMenu extends Menu {
     @Override
     public void show() throws ParseException {
         System.out.println("customer Menu");
-        CustomerMenuOption customerMenuOption = printMenuOption();
-        while (customerMenuOption != CustomerMenuOption.BACK) {
-            if (customerMenuOption != null) {
-                switch (customerMenuOption) {
+        CustomerMenuOption custMenuOption = printMenuOption();
+        while (custMenuOption != CustomerMenuOption.BACK) {
+            if (custMenuOption != null) {
+                switch (custMenuOption) {
                     case TRANSFER_MONEY:
                         transferMenu.show(customer);
                         break;
@@ -60,7 +60,7 @@ public class CustomerMenu extends Menu {
             } else {
                 System.out.println("invalid input!!");
             }
-            customerMenuOption = printMenuOption();
+            custMenuOption = printMenuOption();
         }
     }
 

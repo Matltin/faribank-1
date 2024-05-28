@@ -19,10 +19,10 @@ public class RecentTransactionMenu extends Menu {
     @Override
     public void show() throws ParseException {
         System.out.println("search by");
-        RecentTransactionMenuOption recentTransactionMenuOption = printMenuOption();
-        while (recentTransactionMenuOption != RecentTransactionMenuOption.BACK) {
-            if (recentTransactionMenuOption != null) {
-                switch (recentTransactionMenuOption) {
+        RecentTransactionMenuOption rctTransOption = printMenuOption();
+        while (rctTransOption != RecentTransactionMenuOption.BACK) {
+            if (rctTransOption != null) {
+                switch (rctTransOption) {
                     case BY_NUMBER:
                         searchByNumber();
                         break;
@@ -38,7 +38,7 @@ public class RecentTransactionMenu extends Menu {
             } else {
                 System.out.println("invalid input!!");
             }
-            recentTransactionMenuOption = printMenuOption();
+            rctTransOption = printMenuOption();
         }
     }
 

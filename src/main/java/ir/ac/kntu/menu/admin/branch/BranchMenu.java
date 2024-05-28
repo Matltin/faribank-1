@@ -22,20 +22,11 @@ public class BranchMenu extends Menu {
         while (messageOption != MessageOption.BACK) {
             if (messageOption != null) {
                 switch (messageOption) {
-                    case CONTACT:
-                        showByContact(answerDB);
-                        break;
-                    case SETTING:
-                        showSetting(answerDB);
-                        break;
-                    case TRANSFER:
-                        showTransfer(answerDB);
-                        break;
-                    case REPORT:
-                        showReport(answerDB);
-                        break;
-                    default:
-                        break;
+                    case CONTACT -> showByContact(answerDB);
+                    case SETTING -> showSetting(answerDB);
+                    case TRANSFER -> showTransfer(answerDB);
+                    case REPORT -> showReport(answerDB);
+                    default -> System.out.print("");
                 }
             } else {
                 System.out.println("invalid input!!");

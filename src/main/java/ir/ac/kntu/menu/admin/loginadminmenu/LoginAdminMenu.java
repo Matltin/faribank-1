@@ -19,10 +19,10 @@ public class LoginAdminMenu extends Menu {
     @Override
     public void show() {
         System.out.println("logging page");
-        LoginAdminMenuOption loginAdminMenuOption = printMenuOption();
-        while (loginAdminMenuOption != LoginAdminMenuOption.BACK) {
-            if (loginAdminMenuOption != null) {
-                switch (loginAdminMenuOption) {
+        LoginAdminMenuOption adminMenuOption = printMenuOption();
+        while (adminMenuOption != LoginAdminMenuOption.BACK) {
+            if (adminMenuOption != null) {
+                switch (adminMenuOption) {
                     case LOGIN:
                         login();
                         break;
@@ -35,7 +35,7 @@ public class LoginAdminMenu extends Menu {
             } else {
                 System.out.println("invalid input!!");
             }
-            loginAdminMenuOption = printMenuOption();
+            adminMenuOption = printMenuOption();
         }
     }
 

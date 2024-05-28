@@ -6,22 +6,22 @@ import java.util.Date;
 
 public class Transaction {
 
-    private String firstNameDestination;
-    private String lastNameDestination;
+    private String fNameDestination;
+    private String lNameDestination;
     private Date date;
     private String formatDate;
-    private String destinationAccountNO;
+    private String destAccNO;
     private String sourceAccountNO;
     private TransactionType transactionType;
     private String followupNumber;    // شناره پیگیری
 
-    public Transaction(String firstNameDestination, String lastNameDestination,
-                       String destinationAccountNO, String sourceAccountNO, TransactionType transactionType) {
-        this.firstNameDestination = firstNameDestination;
-        this.lastNameDestination = lastNameDestination;
+    public Transaction(String fNameDestination, String lNameDestination,
+                       String destAccNO, String sourceAccountNO, TransactionType transactionType) {
+        this.fNameDestination = fNameDestination;
+        this.lNameDestination = lNameDestination;
         this.date = Calendar.getDate();
         this.formatDate = Calendar.getDateFormat(date);
-        this.destinationAccountNO = destinationAccountNO;
+        this.destAccNO = destAccNO;
         this.sourceAccountNO = sourceAccountNO;
         this.followupNumber = getRandom();
         this.transactionType = transactionType;
@@ -51,10 +51,10 @@ public class Transaction {
                 "followupNumber='" + followupNumber + '\'' +
                 ", transactionType=" + transactionType +
                 ", sourceAccountNO='" + sourceAccountNO + '\'' +
-                ", destinationAccountNO='" + destinationAccountNO + '\'' +
+                ", destinationAccountNO='" + destAccNO + '\'' +
                 ", formatDate='" + formatDate + '\'' +
-                ", lastNameDestination='" + lastNameDestination + '\'' +
-                ", firstNameDestination='" + firstNameDestination + '\'' +
+                ", lastNameDestination='" + lNameDestination + '\'' +
+                ", firstNameDestination='" + fNameDestination + '\'' +
                 '}';
     }
 }
