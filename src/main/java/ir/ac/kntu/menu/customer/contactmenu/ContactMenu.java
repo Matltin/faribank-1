@@ -1,5 +1,6 @@
 package ir.ac.kntu.menu.customer.contactmenu;
 
+import ir.ac.kntu.Constance;
 import ir.ac.kntu.db.CustomerDB;
 import ir.ac.kntu.menu.Menu;
 import ir.ac.kntu.person.ContactPerson;
@@ -48,6 +49,10 @@ public class ContactMenu extends Menu {
     private void showContactList() {
         int number;
         customer.getContactPerson().printContactPerson();
+        if(customer.getContactPerson().getContactPerson().isEmpty()) {
+            System.out.println(Constance.RED + "there is no customer to show!!" + Constance.RESET);
+            return;
+        }
         number = getNumber();
         if (0 < number && number <= customer.getContactPerson().getContactPerson().size()) {
             System.out.println(customer.getContactPerson().getContactPerson().get(number - 1));
@@ -57,6 +62,10 @@ public class ContactMenu extends Menu {
     }
 
     private void editContactINFO() {
+        if(customer.getContactPerson().getContactPerson().isEmpty()) {
+            System.out.println(Constance.RED + "there is no customer to show!!" + Constance.RESET);
+            return;
+        }
         String phoneNumber = getPhoneNumber();
         ContactPerson contactPerson = customer.getContactPerson().findPerson(phoneNumber);
         if (contactPerson != null) {

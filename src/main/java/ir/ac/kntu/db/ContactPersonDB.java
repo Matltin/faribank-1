@@ -27,7 +27,7 @@ public class ContactPersonDB {
 
     public ContactPerson findPerson(String phoneNumber) {
         for (ContactPerson contactPerson : contactPersonList) {
-            if (contactPerson.getAccountNumber().equals(phoneNumber)) {
+            if (contactPerson.getPhoneNumber().equals(phoneNumber)) {
                 return contactPerson;
             }
         }

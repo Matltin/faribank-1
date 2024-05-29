@@ -20,6 +20,10 @@ public class TransactionDB {
         this.transactions = transactions;
     }
 
+    public int size() {
+        return transactions.size();
+    }
+
     public void addTransaction(Transaction transaction) {
         transactions.add(transaction);
     }

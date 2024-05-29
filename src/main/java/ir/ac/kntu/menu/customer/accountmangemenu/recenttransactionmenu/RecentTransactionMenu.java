@@ -1,5 +1,6 @@
 package ir.ac.kntu.menu.customer.accountmangemenu.recenttransactionmenu;
 
+import ir.ac.kntu.Constance;
 import ir.ac.kntu.menu.Menu;
 import ir.ac.kntu.person.customer.Customer;
 
@@ -44,12 +45,12 @@ public class RecentTransactionMenu extends Menu {
 
     private void searchByNumber() {
         try {
-            int number = getNumber();
             int size = customer.getAccount().getTransactionDB().getTransactions().size();
             if (size == 0) {
                 throw new RuntimeException("there is no transaction yet!");
             }
-            for (int i = size - 1; i > size - number; i--) {
+            int number = getNumber();
+            for (int i = size - 1; i >= size - number; i--) {
                 System.out.println(customer.getAccount().getTransactionDB().getTransactions().get(i));
             }
         } catch (Exception e) {
@@ -58,20 +59,28 @@ public class RecentTransactionMenu extends Menu {
     }
 
     private void searchByTime() throws ParseException {
-        String firstStr = getDate();
-        String secondStr = getDate();
-
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd -- HH:mm:ss");
-
-        Date firstDate = simpleDateFormat.parse(firstStr);
-        Date secondDate = simpleDateFormat.parse(secondStr);
-
         int size = customer.getAccount().getTransactionDB().getTransactions().size();
-        for (int i = size - 1; i >= 0; i++) {
-            long time = customer.getAccount().getTransactionDB().getTransactions().get(i).getDate().getTime();
-            if (firstDate.getTime() <= time && time <= secondDate.getTime()) {
-                System.out.println(customer.getAccount().getTransactionDB().getTransactions().get(i));
+        if(size == 0) {
+            System.out.println(Constance.RED + "there is no transaction yet!" + Constance.RESET);
+            return;
+        }
+        try {
+            String firstStr = getDate();
+            String secondStr = getDate();
+
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd -- HH:mm:ss");
+
+            Date firstDate = simpleDateFormat.parse(firstStr);
+            Date secondDate = simpleDateFormat.parse(secondStr);
+
+            for (int i = size - 1; i >= 0; i++) {
+                long time = customer.getAccount().getTransactionDB().getTransactions().get(i).getDate().getTime();
+                if (firstDate.getTime() <= time && time <= secondDate.getTime()) {
+                    System.out.println(customer.getAccount().getTransactionDB().getTransactions().get(i));
+                }
             }
+        } catch (Exception e) {
+            System.out.println(Constance.RED + "invalid input!!" + Constance.RESET);
         }
     }
 

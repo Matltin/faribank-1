@@ -46,6 +46,7 @@ public class SettingMenu extends Menu {
 
     private void editCardPassword() {
         String password = getCardPassword();
+        customer.getAccount().getCard().setPassword(password);
     }
 
     private void activationContact() {

@@ -1,5 +1,6 @@
 package ir.ac.kntu.menu.customer.transfermoneymenu;
 
+import ir.ac.kntu.Constance;
 import ir.ac.kntu.db.CustomerDB;
 import ir.ac.kntu.menu.Menu;
 import ir.ac.kntu.person.ContactPerson;
@@ -32,7 +33,7 @@ public class TransferMenu extends Menu {
                     default -> System.out.print("");
                 }
             } else {
-                System.out.println("invalid input!!");
+                System.out.println(Constance.RED + "invalid input!!" + Constance.RESET);
             }
             transMenuOption = printMenuOption();
         }
@@ -46,6 +47,10 @@ public class TransferMenu extends Menu {
     }
 
     private void transferByRecentAccount() {
+        if(customer.getRecentTransaction().getContactPersonList().isEmpty()) {
+            System.out.println(Constance.RED + "there is no transaction to transfer money!!" + Constance.RESET);
+            return;
+        }
         customer.getRecentTransaction().printRecentContact();
         int number = getNumber();
         if (0 < number && number <= customer.getRecentTransaction().getContactPersonList().size()) {
@@ -53,7 +58,7 @@ public class TransferMenu extends Menu {
             long inputMoney = getInputMoney();
             customer.getAccount().transferMoney(inputMoney, contactPerson.getAccountNumber(), customerDB);
         } else {
-            System.out.println("Number out of range!");
+            System.out.println(Constance.RED + "Number out of range!" + Constance.RESET);
         }
     }
 
@@ -65,7 +70,7 @@ public class TransferMenu extends Menu {
             if (0 < number && number <= customer.getContactPerson().getContactPerson().size()) {
                 checkContact(number);
             } else {
-                System.out.println("Number out of range!");
+                System.out.println(Constance.RED + "Number out of range!" + Constance.RESET);
             }
         } else {
             System.out.println("Access to contacts is closed");
@@ -94,7 +99,7 @@ public class TransferMenu extends Menu {
             ContactPerson contactPerson1 = new ContactPerson(cust.getFirstName(), cust.getLastName(), cust.getPhoneNumber(), cust.getAccount().getAccountNO());
             customer.getRecentTransaction().addContactPersonList(contactPerson1);
         } else {
-            System.out.println("your are not contact of " + cust.getFirstName() + " " + cust.getFirstName());
+            System.out.println(Constance.RED + "your are not contact of " + cust.getFirstName() + " " + cust.getFirstName() +  Constance.RESET);
         }
     }
 }
