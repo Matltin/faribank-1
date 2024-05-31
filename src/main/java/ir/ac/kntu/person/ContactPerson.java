@@ -1,5 +1,7 @@
 package ir.ac.kntu.person;
 
+import java.util.Objects;
+
 public class ContactPerson {
     private String firstName;
     private String lastName;
@@ -52,5 +54,22 @@ public class ContactPerson {
                 ", lastName='" + lastName + '\'' +
                 ", firstName='" + firstName + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        ContactPerson that = (ContactPerson) obj;
+        return Objects.equals(phoneNumber, that.phoneNumber) && Objects.equals(accountNumber, that.accountNumber);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(phoneNumber, accountNumber);
     }
 }

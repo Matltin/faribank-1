@@ -47,7 +47,7 @@ public class TransferMenu extends Menu {
     }
 
     private void transferByRecentAccount() {
-        if(customer.getRecentTransaction().getContactPersonList().isEmpty()) {
+        if (customer.getRecentTransaction().getContactPersonList().isEmpty()) {
             System.out.println(Constance.RED + "there is no transaction to transfer money!!" + Constance.RESET);
             return;
         }
@@ -73,7 +73,7 @@ public class TransferMenu extends Menu {
                 System.out.println(Constance.RED + "Number out of range!" + Constance.RESET);
             }
         } else {
-            System.out.println("Access to contacts is closed");
+            System.out.println(Constance.RED + "Access to contacts is closed" + Constance.RESET);
         }
     }
 
@@ -81,6 +81,10 @@ public class TransferMenu extends Menu {
         String accountNo = getAccountNumber();
         Customer cust = customerDB.findCustomer(accountNo);
         if (cust != null) {
+            if(!isAcceptedCustomer(cust)) {
+                System.out.println(Constance.RED + "There is no customer" + Constance.RESET);
+                return;
+            }
             long inputMoney = getInputMoney();
             customer.getAccount().transferMoney(inputMoney, accountNo, customerDB);
             ContactPerson contactPerson1 = new ContactPerson(cust.getFirstName(), cust.getLastName(), cust.getPhoneNumber(), cust.getAccount().getAccountNO());
@@ -93,13 +97,18 @@ public class TransferMenu extends Menu {
     private void checkContact(int number) {
         ContactPerson contactPerson = customer.getContactPerson().getContactPerson().get(number - 1);
         Customer cust = customerDB.findCustomer(contactPerson.getAccountNumber());
+        if (!cust.isContactAvailable()) {
+            System.out.println(Constance.RED + "activation of your contact is off" + Constance.RESET);
+            return;
+        }
         if (cust.getContactPerson().checkContact(customer.getAccount().getAccountNO())) {
             long inputMoney = getInputMoney();
-            customer.getAccount().transferMoney(inputMoney, cust.getAccount().getAccountNO(), customerDB);
-            ContactPerson contactPerson1 = new ContactPerson(cust.getFirstName(), cust.getLastName(), cust.getPhoneNumber(), cust.getAccount().getAccountNO());
-            customer.getRecentTransaction().addContactPersonList(contactPerson1);
+            if (customer.getAccount().transferMoney(inputMoney, cust.getAccount().getAccountNO(), customerDB)) {
+                ContactPerson contactPerson1 = new ContactPerson(cust.getFirstName(), cust.getLastName(), cust.getPhoneNumber(), cust.getAccount().getAccountNO());
+                customer.getRecentTransaction().addContactPersonList(contactPerson1);
+            }
         } else {
-            System.out.println(Constance.RED + "your are not contact of " + cust.getFirstName() + " " + cust.getFirstName() +  Constance.RESET);
+            System.out.println(Constance.RED + "your are not contact of " + cust.getFirstName() + " " + cust.getFirstName() + Constance.RESET);
         }
     }
 }

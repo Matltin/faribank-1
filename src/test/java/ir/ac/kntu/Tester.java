@@ -74,7 +74,7 @@ public class Tester {
         ContactPerson contactPerson2 = new ContactPerson("jafar", "ghasemi", "09126547895", "1235");
         contactPersonDB.addContactPerson(contactPerson1);
 
-        assertEquals(contactPerson1, contactPersonDB.findPerson(contactPerson1.getAccountNumber()));
+        assertEquals(contactPerson1, contactPersonDB.findPerson(contactPerson1.getPhoneNumber()));
         assertNull(contactPersonDB.findPerson(contactPerson2.getAccountNumber()));
     }
 
@@ -191,6 +191,8 @@ public class Tester {
         CustomerDB customerDB = new CustomerDB(new HashSet<>());
         Customer customer1 = new Customer("ali", "mohsen", "1234", "40214433", "091260377011");
         Customer customer2 = new Customer("erfan", "mohammadi", "1569", "9926213", "09059293062");
+        customerDB.addCustomer(customer1);
+        customerDB.addCustomer(customer2);
         customer1.addContactPerson("mmd", "mmadi", customer2.getPhoneNumber(), customerDB);
 
         customer1.getContactPerson().printContactPerson();

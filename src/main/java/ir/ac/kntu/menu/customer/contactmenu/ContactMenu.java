@@ -81,6 +81,7 @@ public class ContactMenu extends Menu {
     }
 
     private void addContact() {
+        boolean check = false;
         String firstName = getFirstName();
         String lastName = getLastName();
         String phoneNumber = getPhoneNumber();
@@ -88,6 +89,16 @@ public class ContactMenu extends Menu {
             System.out.println("The contact is already exist");
             return;
         }
-        customer.addContactPerson(firstName, lastName, phoneNumber, customerDB);
+        for(Customer cust : customerDB.getCustomers()) {
+            if(cust.getPhoneNumber().equals(phoneNumber)) {
+                check = true;
+                break;
+            }
+        }
+        if(check) {
+            customer.addContactPerson(firstName, lastName, phoneNumber, customerDB);
+        } else {
+            System.out.println(Constance.RED + "there is no customer with this phone number!!" + Constance.RESET);
+        }
     }
 }

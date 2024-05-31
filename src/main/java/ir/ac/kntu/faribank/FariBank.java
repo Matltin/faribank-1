@@ -41,10 +41,9 @@ public class FariBank {
         AdminDB adminDB = new AdminDB(new HashSet<>());
         CustomerDB customerDB = new CustomerDB(new HashSet<>());
 
-
         Customer customer1 = new Customer("a", "a", "Mm@1383", "12", "09102607040");
-        Customer customer2 = new Customer("b", "b", "Rr@1384", "13", "09112607040");
-        Customer customer3 = new Customer("c", "c", "Cc@1383", "14", "09122607040");
+        Customer customer2 = new Customer("b", "b", "Rr@1383", "13", "09112607040");
+        Customer customer3 = new Customer("c", "c", "CC@1383", "14", "09122607040");
 
         customer1.setState(State.ACCEPTED);
         customer2.setState(State.ACCEPTED);
@@ -54,6 +53,8 @@ public class FariBank {
         customerDB.addCustomer(customer2);
         customerDB.addCustomer(customer3);
 
+        customer1.addContactPerson("reyhanakam", "reyhanakam", "09112607040", customerDB);
+        customer2.addContactPerson("matin", "matin", "09102607040", customerDB);
 
 
 
@@ -76,8 +77,6 @@ public class FariBank {
         LoginAdminMenu loginAdminMenu = new LoginAdminMenu(adminDB, adminMenu);
         LoginCustomerMenu loginCustomerMenu = new LoginCustomerMenu(customerDB, customerMenu);
         mainMenu = new MainMenu(loginAdminMenu, loginCustomerMenu);
-
-
     }
 
 

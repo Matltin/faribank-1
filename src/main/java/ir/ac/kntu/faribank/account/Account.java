@@ -56,22 +56,24 @@ public class Account {
         this.transactionDB = transactionDB;
     }
 
-    public void transferMoney(long inputMoney, String accountNO, CustomerDB customerDB) {
+    public boolean transferMoney(long inputMoney, String accountNO, CustomerDB customerDB) {
         try {
             if (inputMoney + Constance.WAGE <= balance) {
                 setBalance(getBalance() - inputMoney - Constance.WAGE);
                 transferMoneyToCustomer(inputMoney, accountNO, customerDB);
+                return true;
             } else {
                 throw new RuntimeException("input money : " + inputMoney + " more than your balance!!");
             }
         } catch (Exception e) {
             System.err.println(e.getMessage());
+            return false;
         }
     }
 
     private void transferMoneyToCustomer(long money, String accountNO, CustomerDB customerDB) {
         Customer customer = customerDB.findCustomer(accountNO);
-        customer.getAccount().setBalance(money + getBalance());
+        customer.getAccount().setBalance(money + customer.getAccount().getBalance());
         Transaction transaction = new Transaction(customer.getFirstName(), customer.getLastName(), customer.getAccount().getAccountNO(), getAccountNO(), TransactionType.TRANSFER);
         transactionDB.addTransaction(transaction);
     }

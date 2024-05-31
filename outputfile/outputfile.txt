@@ -1,1 +1,17 @@
 contact not found!!
+1.contact
+2.report
+3.setting
+4.transfer
+[0;31mThere is no customer!![0m
+1.ali mohammadi
+2.jafar ghasemi
+1.Transaction{followupNumber='9043', transactionType=TRANSFER, sourceAccountNO='654321', destinationAccountNO='123456', formatDate='2024/05/29 -- 18:43:47', lastNameDestination='motalehi', firstNameDestination='kazem'}
+2.Transaction{followupNumber='4774', transactionType=TRANSFER, sourceAccountNO='654321', destinationAccountNO='456789', formatDate='2024/05/29 -- 18:43:47', lastNameDestination='fakhar', firstNameDestination='armin'}
+3.Transaction{followupNumber='3755', transactionType=TRANSFER, sourceAccountNO='654321', destinationAccountNO='987654', formatDate='2024/05/29 -- 18:43:47', lastNameDestination='afar', firstNameDestination='mohammad'}
+4.Transaction{followupNumber='5730', transactionType=TRANSFER, sourceAccountNO='654321', destinationAccountNO='147258', formatDate='2024/05/29 -- 18:43:47', lastNameDestination='abodi', firstNameDestination='mani'}
+5.Transaction{followupNumber='8244', transactionType=INCREASE_CREDIT, sourceAccountNO='654321', destinationAccountNO='654321', formatDate='2024/05/29 -- 18:43:47', lastNameDestination='ahmadi', firstNameDestination='matin'}
+1.message branch : CONTACTphone number : 09102607040
+2.message branch : REPORTphone number : 09059293062
+3.message branch : SETTINGphone number : 09126410299
+4.message branch : TRANSFERphone number : 09136942050

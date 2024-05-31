@@ -1,5 +1,6 @@
 package ir.ac.kntu.person.customer;
 
+import ir.ac.kntu.Constance;
 import ir.ac.kntu.db.*;
 import ir.ac.kntu.faribank.account.Account;
 import ir.ac.kntu.person.ContactPerson;
@@ -103,6 +104,11 @@ public class Customer extends Person {
                 break;
             }
         }
+        Customer customer = customerDB.findCustomer(accountNumber);
+        if (customer.state != State.ACCEPTED) {
+            System.out.println(Constance.RED + "There is no customer!!" + Constance.RESET);
+            return;
+        }
         try {
             if (!accountNumber.isEmpty()) {
                 ContactPerson contactPerson = new ContactPerson(firstName, lastName, phoneNumber, accountNumber);
@@ -117,7 +123,7 @@ public class Customer extends Person {
 
     private String randomAccountNO() {
         Random random = new Random();
-        return String.valueOf(random.nextInt((int)Math.pow(10, 8), (int)Math.pow(10, 9)));
+        return String.valueOf(random.nextInt((int) Math.pow(10, 8), (int) Math.pow(10, 9)));
     }
 
     @Override

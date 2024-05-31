@@ -4,6 +4,7 @@ import ir.ac.kntu.Constance;
 import ir.ac.kntu.db.CustomerDB;
 import ir.ac.kntu.menu.Menu;
 import ir.ac.kntu.person.customer.Customer;
+import ir.ac.kntu.util.SearchSimilarity;
 
 public class SearchUserMenu extends Menu {
 
@@ -51,7 +52,7 @@ public class SearchUserMenu extends Menu {
         String firstName = getFirstName();
         int counter = 1;
         for (Customer customer : customerDB.getCustomers()) {
-            if (customer.getFirstName().equals(firstName)) {
+            if (similaritySearch(customer.getFirstName(), firstName)) {
                 System.out.println(counter + "." + customer + " " + customer.getAccount().getTransactionDB());
                 counter++;
             }
@@ -66,7 +67,7 @@ public class SearchUserMenu extends Menu {
         int counter = 1;
         String lastName = getLastName();
         for (Customer customer : customerDB.getCustomers()) {
-            if (customer.getLastName().equals(lastName)) {
+            if (similaritySearch(customer.getLastName(), lastName)) {
                 System.out.println(counter + "." + customer + " " + customer.getAccount().getTransactionDB());
                 counter++;
             }
@@ -97,7 +98,7 @@ public class SearchUserMenu extends Menu {
         String firstName = getFirstName();
         String lastName = getLastName();
         for (Customer customer : customerDB.getCustomers()) {
-            if (customer.getFirstName().equals(firstName) && customer.getLastName().equals(lastName)) {
+            if (similaritySearch(customer.getFirstName(), firstName) && similaritySearch(customer.getLastName(), lastName)) {
                 System.out.println(counter + "." + customer + " " + customer.getAccount().getTransactionDB());
                 counter++;
             }
@@ -113,7 +114,7 @@ public class SearchUserMenu extends Menu {
         String firstName = getFirstName();
         String phoneNumber = getPhoneNumber();
         for (Customer customer : customerDB.getCustomers()) {
-            if (customer.getFirstName().equals(firstName) && customer.getPhoneNumber().equals(phoneNumber)) {
+            if (similaritySearch(customer.getFirstName(), firstName) && customer.getPhoneNumber().equals(phoneNumber)) {
                 System.out.println(counter + "." + customer + " " + customer.getAccount().getTransactionDB());
                 counter++;
             }
@@ -129,7 +130,7 @@ public class SearchUserMenu extends Menu {
         String lastName = getLastName();
         String phoneNumber = getPhoneNumber();
         for (Customer customer : customerDB.getCustomers()) {
-            if (customer.getLastName().equals(lastName) && customer.getPhoneNumber().equals(phoneNumber)) {
+            if (similaritySearch(customer.getFirstName(), lastName) && customer.getPhoneNumber().equals(phoneNumber)) {
                 System.out.println(counter + "." + customer + " " + customer.getAccount().getTransactionDB());
                 counter++;
             }
@@ -146,10 +147,14 @@ public class SearchUserMenu extends Menu {
         String lastName = getLastName();
         String phoneNumber = getPhoneNumber();
         for (Customer customer : customerDB.getCustomers()) {
-            if (customer.getFirstName().equals(firstName) && customer.getLastName().equals(lastName) && customer.getPhoneNumber().equals(phoneNumber)) {
+            if (similaritySearch(customer.getFirstName(), firstName) && similaritySearch(customer.getLastName(), lastName) && customer.getPhoneNumber().equals(phoneNumber)) {
                 System.out.println(counter + "." + customer + " " + customer.getAccount().getTransactionDB());
                 counter++;
             }
         }
+    }
+
+    private boolean similaritySearch(String str1, String str2) {
+        return SearchSimilarity.similarity(str1, str2) >= .5;
     }
 }

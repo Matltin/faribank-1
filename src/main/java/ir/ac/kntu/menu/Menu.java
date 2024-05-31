@@ -1,6 +1,8 @@
 package ir.ac.kntu.menu;
 
 import ir.ac.kntu.Constance;
+import ir.ac.kntu.person.customer.Customer;
+import ir.ac.kntu.person.customer.State;
 import ir.ac.kntu.util.ScannerWrapper;
 
 import java.text.ParseException;
@@ -95,6 +97,10 @@ public abstract class Menu {
             password = ScannerWrapper.getInstance().nextLine();
         } while (!checkCardPassword(password));
         return password;
+    }
+
+    public boolean isAcceptedCustomer(Customer customer) {
+        return customer.getState() == State.ACCEPTED;
     }
 
     private boolean checkCardPassword(String password) {
