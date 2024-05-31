@@ -21,8 +21,6 @@ import ir.ac.kntu.menu.customer.settingmenu.SettingMenu;
 import ir.ac.kntu.menu.customer.support.SupportMenu;
 import ir.ac.kntu.menu.customer.transfermoneymenu.TransferMenu;
 import ir.ac.kntu.menu.mainmenu.MainMenu;
-import ir.ac.kntu.person.customer.Customer;
-import ir.ac.kntu.person.customer.State;
 
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -40,24 +38,6 @@ public class FariBank {
     private void initialize() {
         AdminDB adminDB = new AdminDB(new HashSet<>());
         CustomerDB customerDB = new CustomerDB(new HashSet<>());
-
-        Customer customer1 = new Customer("a", "a", "Mm@1383", "12", "09102607040");
-        Customer customer2 = new Customer("b", "b", "Rr@1383", "13", "09112607040");
-        Customer customer3 = new Customer("c", "c", "CC@1383", "14", "09122607040");
-
-        customer1.setState(State.ACCEPTED);
-        customer2.setState(State.ACCEPTED);
-        customer3.setState(State.ACCEPTED);
-
-        customerDB.addCustomer(customer1);
-        customerDB.addCustomer(customer2);
-        customerDB.addCustomer(customer3);
-
-        customer1.addContactPerson("reyhanakam", "reyhanakam", "09112607040", customerDB);
-        customer2.addContactPerson("matin", "matin", "09102607040", customerDB);
-
-
-
         AnswerDB answerDB = new AnswerDB(new ArrayList<>());
         SearchUserMenu searchUserMenu = new SearchUserMenu(customerDB);
         StateMenu stateMenu = new StateMenu(answerDB);
